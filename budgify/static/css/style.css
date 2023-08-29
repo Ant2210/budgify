@@ -73,6 +73,19 @@ h2 {
   text-align: center;
 }
 
+/* Forms */
+.form-card {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  box-shadow: 2px 2px 5px var(--shadow-color);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.form-text {
+  font-size: 0.8rem;
+}
+
 /*** WELCOME PAGE ***/
 #welcome-image {
   height: 60vh;
