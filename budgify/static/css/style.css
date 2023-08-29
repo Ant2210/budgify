@@ -1,0 +1,66 @@
+body {
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: rgb(241, 241, 241);
+}
+
+/* Navbar */
+.logo {
+  height: 3rem;
+}
+
+nav {
+  height: 5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item, a {
+  padding: 0 1rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+nav .nav-item a:hover, a:hover {
+  color: #0d6efd;
+}
+
+.dropdown-item {
+  font-weight: 450;
+}
+
+
+@media screen and (min-width: 992px) {
+  .navbar-brand {
+    position: absolute;
+    padding-left: 5rem;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-toggler {
+    position: absolute;
+    left: 0;
+    margin-left: 20px;
+    display: block;
+  }
+}
+
+/* Footer */
+.disclaimer {
+  font-size: 10px;
+}
+
+.socials-container {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.65);
+  text-align: center;
+}
+
+footer ul {  
+  padding-left: 0;
+}
+
+.socials {
+  list-style: none;
+  display: inline-block;
+}

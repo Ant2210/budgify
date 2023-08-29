@@ -28,7 +28,107 @@
 
     <title>Budgify</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Open Menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand mx-auto" href="#">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/logo.webp') }}"
+            alt="Budgify Logo" />
+        </a>
+        <div
+          class="offcanvas offcanvas-start"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <div class="offcanvas-title" id="offcanvasNavbarLabel">
+              <img
+                class="logo"
+                src="{{ url_for('static', filename='images/logo.webp') }}"
+                alt="Budgify Logo" />
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Budgets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Add Budget</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  User1
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Support</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <footer class="mt-auto">
+      <div class="row">
+      </div>
+      <div class="col-12 socials-container">
+        <p>Contact us or follow us on social media</p>
+        <ul>
+          <li class="socials">
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </li>
+          <li class="socials">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li class="socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </li>
+          <li class="socials">
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </li>
+          <li class="socials">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </li>
+          <li class="socials">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 text-center disclaimer">
+        <p>
+          This website is for educational purposes only and does not represent
+          a real company. <br />© Anthony Griffiths 2023. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
     <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
