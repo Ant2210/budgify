@@ -28,7 +28,8 @@
 
     <title>Budgify</title>
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body>
+    
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg">
       <div class="container-fluid">
@@ -95,7 +96,14 @@
       </div>
     </nav>
 
-    <footer class="mt-auto">
+    <div class="content-container">
+      {% block content %}
+      
+      {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid">
       <div class="row">
       </div>
       <div class="col-12 socials-container">
