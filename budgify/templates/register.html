@@ -5,13 +5,15 @@
 
 <h2>Register</h2>
 
-{% with messages = get_flashed_messages() %} {% if messages %}
-  <ul class="flashes">
-    {% for message in messages %}
-      <li class="text-center text-danger p-0">{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %} {% endwith %}
+{% with messages = get_flashed_messages() %} 
+  {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+        <li class="text-center text-danger p-0">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 
   <section class="row m-2">
     <form

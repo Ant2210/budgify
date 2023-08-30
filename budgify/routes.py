@@ -63,3 +63,11 @@ def login():
             return redirect(url_for("login"))
             
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    # Remove the user from the session
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))

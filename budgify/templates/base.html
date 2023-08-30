@@ -84,11 +84,11 @@
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  User1
+                  {{ session.user|title }}
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li><a class="dropdown-item" href="#">Support</a></li>
                 </ul>
