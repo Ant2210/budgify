@@ -29,13 +29,13 @@ nav {
   box-shadow: 2px 2px 5px var(--shadow-color);
 }
 
-.nav-item, a {
+.nav-item {
   padding: 0 1rem;
   font-weight: bold;
-  color: var(primary-color);
+  color: var(--primary-color);
 }
 
-nav .nav-item a:hover, a:hover {
+nav .nav-item a:hover {
   color: var(--secondary-color);
 }
 
@@ -63,9 +63,16 @@ footer ul {
 }
 
 .socials {
+  color: var(--secondary-color);
   list-style: none;
   display: inline-block;
   font-size: 1.25rem;
+  padding: 0 0.8rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.socials:hover {
+  transform: translateY(-3px);
 }
 
 h2 {
