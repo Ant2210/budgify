@@ -73,10 +73,10 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('budgets') }}">My Budgets</a>
+                  <a class="nav-link" href="{{ url_for('budgets', username=session.user) }}">My Budgets</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Add Budget</a>
+                  <a class="nav-link" href="{{ url_for('add_budget', username=session.user) }}">Add Budget</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a

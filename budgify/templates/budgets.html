@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<h2>My Budgets</h2>
+  <h2>My Budgets</h2>
 
 {% with messages = get_flashed_messages() %}
   {% if messages %}
@@ -18,8 +18,15 @@
   {% endif %}
 {% endwith %}
 
-<section>
-  
-</section>
+  <section class="container-fluid row p-0 mt-5 mx-0">
+    <div class="col-12 col-md-8 mx-auto">
+      <div class="card-container">      
+        <a href="{{ url_for('add_budget', username=session.user) }}" class="add-budget d-flex align-items-center justify-content-center text-decoration-none">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+        <p class="text-center text-primary fw-medium pt-2">Add Budget</p>
+      </div>
+    </div>
+  </section>
 
 {% endblock %}

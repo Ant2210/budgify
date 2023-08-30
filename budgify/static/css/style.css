@@ -2,6 +2,7 @@
 /* Color Variables */
 :root {
   --primary-color: rgba(0, 0, 0, 0.65);
+  --primary-color-light: rgba(0, 0, 0, 0.45);
   --secondary-color: #0d6efd;
   --bg-color: rgb(241, 241, 241);
   --shadow-color: rgba(0, 0, 0, 0.2);
@@ -122,6 +123,26 @@ h2 {
 #tag-line {
   color: var(--primary-color);
   max-width: 80%;
+}
+
+/* MY BUDGETS PAGE */
+.add-budget {
+  color: var(--primary-color-light);
+  font-weight: bold;
+  font-size: 3rem;
+  border-radius: 6px;
+  border-style: dashed;
+  width: 8rem;
+  height: 12rem;
+}
+
+.add-budget:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.card-container {
+  width: fit-content;
 }
 
 

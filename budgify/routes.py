@@ -35,7 +35,7 @@ def register():
             # Log in new user
             session["user"] = request.form.get("username")
             flash("Registration Successful, let's create your first budget!")
-            return redirect(url_for("budgets"))
+            return redirect(url_for("budgets", username=session["user"]))
 
         return render_template("register.html")
 
@@ -55,7 +55,7 @@ def login():
             ):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}!".format(request.form.get("username")).title())
-                return redirect(url_for("budgets"))
+                return redirect(url_for("budgets", username=session["user"]))
             else:
                 # Invalid password match
                 flash("Incorrect Username and/or Password")
@@ -77,6 +77,29 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/budgets")
-def budgets():
-    return render_template("budgets.html")
+@app.route("/budgets/<username>")
+def budgets(username):
+    # Check if the user is logged in
+    if "user" not in session:
+        flash("Please log in to view this page.")
+        return redirect(url_for("login"))
+
+    # Retrieve the username from the User object
+    username = User.query.filter_by(username=session["user"]).with_entities(User.username).first_or_404()[0]
+    
+    # Pass the username as a variable to the "budgets" template
+    return render_template("budgets.html", username=username)
+
+
+@app.route("/add_budget/<username>", methods=["GET", "POST"])
+def add_budget(username):
+    # Check if the user is logged in
+    if "user" not in session:
+        flash("Please log in to view this page.")
+        return redirect(url_for("login"))
+
+    # Retrieve the username from the User object
+    username = User.query.filter_by(username=session["user"]).with_entities(User.username).first_or_404()[0]
+    
+    # Pass the username as a variable to the "add_budget" template
+    return render_template("add_budget.html", username=username)
