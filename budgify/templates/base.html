@@ -26,130 +26,123 @@
       href="{{ url_for('static', filename='css/style.css') }}"
       type="text/css" />
 
-    <title>
-      {% block title %}
-      {% endblock %}
-    </title>
+    <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-    
     <!-- Navbar -->
     {% if session.user %}
-      <nav class="navbar fixed-top navbar-expand-lg">
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Open Menu">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand mx-auto" href="{{ url_for('home') }}">
-            <img
-              class="logo"
-              src="{{ url_for('static', filename='images/logo.webp') }}"
-              alt="Budgify Logo" />
-          </a>
-          <div
-            class="offcanvas offcanvas-start"
-            tabindex="-1"
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <div class="offcanvas-title" id="offcanvasNavbarLabel">
-                <img
-                  class="logo"
-                  src="{{ url_for('static', filename='images/logo.webp') }}"
-                  alt="Budgify Logo" />
-              </div>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
+    <nav class="navbar fixed-top navbar-expand-lg">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Open Menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand mx-auto" href="{{ url_for('home') }}">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/logo.webp') }}"
+            alt="Budgify Logo" />
+        </a>
+        <div
+          class="offcanvas offcanvas-start"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <div class="offcanvas-title" id="offcanvasNavbarLabel">
+              <img
+                class="logo"
+                src="{{ url_for('static', filename='images/logo.webp') }}"
+                alt="Budgify Logo" />
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('budgets', username=session.user) }}">My Budgets</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('add_budget', username=session.user) }}">Add Budget</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    {{ session.user|title }}
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a></li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#">Support</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="{{ url_for('budgets', username=session.user) }}"
+                  >My Budgets</a
+                >
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+            </ul>
           </div>
         </div>
-      </nav>      
+      </div>
+    </nav>
     <!-- If hide_navbar is not set to True so this is now hidden on the welcome page -->
-    {% elif not hide_navbar  %}
-      <nav id="no-nav" class="pt-3 fixed-top row text-center">
-        <div class="col-12 col-md-3">
-          <a class="mx-auto" href="{{ url_for('home') }}">
-            <img
-              class="no-nav-logo"
-              src="{{ url_for('static', filename='images/logo.webp') }}"
-              alt="Budgify Logo" />
-          </a>
-        </div>
-      </nav>
+    {% elif not hide_navbar %}
+    <nav id="no-nav" class="pt-3 fixed-top row text-center">
+      <div class="col-12 col-md-3">
+        <a class="mx-auto" href="{{ url_for('home') }}">
+          <img
+            class="no-nav-logo"
+            src="{{ url_for('static', filename='images/logo.webp') }}"
+            alt="Budgify Logo" />
+        </a>
+      </div>
+    </nav>
     {% endif %}
 
-    <div class="content-container">
-      {% block content %}
-      
-      {% endblock %}
-    </div>
+    <div class="content-container">{% block content %} {% endblock %}</div>
 
     <!-- Footer -->
     <footer class="container-fluid">
-      <div class="row">
-      </div>
+      <div class="row"></div>
       <div class="col-12 socials-container">
         <p>Contact us or follow us on social media</p>
         <ul>
           <li class="socials">
-            <a href="#" class="page-link"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#" class="page-link"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="page-link"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="page-link"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="page-link"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="page-link"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="page-link"
+              ><i class="fa-brands fa-github"></i
+            ></a>
           </li>
         </ul>
       </div>
       <div class="col-12 text-center disclaimer">
         <p>
-          This website is for educational purposes only and does not represent
-          a real company. <br />© Anthony Griffiths 2023. All Rights Reserved.
+          This website is for educational purposes only and does not represent a
+          real company. <br />© Anthony Griffiths 2023. All Rights Reserved.
         </p>
       </div>
     </footer>
