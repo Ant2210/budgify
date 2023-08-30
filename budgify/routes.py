@@ -6,6 +6,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @app.route("/")
 def home():
+    if "user" in session:
+        return redirect(url_for("budgets"))
+    
     return render_template("welcome.html")
 
 
@@ -31,7 +34,8 @@ def register():
 
             # Log in new user
             session["user"] = request.form.get("username")
-            flash("Registration Successful!")
+            flash("Registration Successful, let's create your first budget!")
+            return redirect(url_for("budgets"))
 
         return render_template("register.html")
 
@@ -50,8 +54,8 @@ def login():
                 existing_user.password, request.form.get("password")
             ):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for("home"))
+                flash("Welcome, {}!".format(request.form.get("username")).title())
+                return redirect(url_for("budgets"))
             else:
                 # Invalid password match
                 flash("Incorrect Username and/or Password")
@@ -71,3 +75,8 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/budgets")
+def budgets():
+    return render_template("budgets.html")

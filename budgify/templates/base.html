@@ -34,70 +34,72 @@
   <body>
     
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg">
-      <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-          aria-label="Open Menu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand mx-auto" href="{{ url_for('home') }}">
-          <img
-            class="logo"
-            src="{{ url_for('static', filename='images/logo.webp') }}"
-            alt="Budgify Logo" />
-        </a>
-        <div
-          class="offcanvas offcanvas-start"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <div class="offcanvas-title" id="offcanvasNavbarLabel">
-              <img
-                class="logo"
-                src="{{ url_for('static', filename='images/logo.webp') }}"
-                alt="Budgify Logo" />
+    {% if session.user %}
+      <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Open Menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand mx-auto" href="{{ url_for('home') }}">
+            <img
+              class="logo"
+              src="{{ url_for('static', filename='images/logo.webp') }}"
+              alt="Budgify Logo" />
+          </a>
+          <div
+            class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <div class="offcanvas-title" id="offcanvasNavbarLabel">
+                <img
+                  class="logo"
+                  src="{{ url_for('static', filename='images/logo.webp') }}"
+                  alt="Budgify Logo" />
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
             </div>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Budgets</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Add Budget</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  {{ session.user|title }}
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li><a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Support</a></li>
-                </ul>
-              </li>
-            </ul>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('budgets') }}">My Budgets</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Add Budget</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ session.user|title }}
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#">Support</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    {% endif %}
 
     <div class="content-container">
       {% block content %}

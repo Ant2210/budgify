@@ -18,6 +18,10 @@ body {
   padding-bottom: 1rem;
 }
 
+.no-nav-logo {
+  height: 4.5rem;
+}
+
 /* Navbar */
 .logo {
   height: 3.5rem;
@@ -90,7 +94,7 @@ h2 {
 }
 
 .form-text {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 /* Flash Messages */
@@ -113,7 +117,7 @@ h2 {
 
 #tag-line {
   color: var(--primary-color);
-  max-width: 90%;
+  max-width: 80%;
 }
 
 
