@@ -47,6 +47,10 @@ nav .nav-item a:hover {
   font-weight: 450;
 }
 
+#no-nav {
+  box-shadow: none;
+}
+
 /* Footer */
 footer {
   height: 8rem;

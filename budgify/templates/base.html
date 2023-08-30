@@ -99,6 +99,17 @@
           </div>
         </div>
       </nav>
+    {% else %}
+      <nav id="no-nav" class="pt-3 fixed-top row text-center">
+        <div class="col-12 col-md-3">
+          <a class="mx-auto" href="{{ url_for('home') }}">
+            <img
+              class="no-nav-logo"
+              src="{{ url_for('static', filename='images/logo.webp') }}"
+              alt="Budgify Logo" />
+          </a>
+        </div>
+      </nav>
     {% endif %}
 
     <div class="content-container">
