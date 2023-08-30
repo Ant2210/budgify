@@ -9,7 +9,7 @@ def home():
     if "user" in session:
         return redirect(url_for("budgets"))
     
-    return render_template("welcome.html")
+    return render_template("welcome.html", hide_navbar=True)
 
 
 @app.route("/register", methods=["GET", "POST"])

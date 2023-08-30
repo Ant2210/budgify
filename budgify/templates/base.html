@@ -98,8 +98,9 @@
             </div>
           </div>
         </div>
-      </nav>
-    {% else %}
+      </nav>      
+    <!-- If hide_navbar is not set to True so this is now hidden on the welcome page -->
+    {% elif not hide_navbar  %}
       <nav id="no-nav" class="pt-3 fixed-top row text-center">
         <div class="col-12 col-md-3">
           <a class="mx-auto" href="{{ url_for('home') }}">
