@@ -86,6 +86,12 @@ h2 {
   font-size: 0.8rem;
 }
 
+/* Flash Messages */
+.flashes {
+  list-style: none;
+  padding-left: 0;
+}
+
 /*** WELCOME PAGE ***/
 #welcome-image {
   height: 60vh;
