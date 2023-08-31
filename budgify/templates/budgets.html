@@ -49,7 +49,7 @@ block content %}
         <h2 class="modal-title fs-5 mx-auto" id="add-budget-modallabel">Choose a name for your budget...</h2>
       </div>
       <div class="modal-body text-center">
-        <form method="POST" action="{{ url_for('budgets', username=session.user) }}">
+        <form method="POST" action="{{ url_for('add_budget') }}">
           <input
             name="budget_name"
             id="budget_name"

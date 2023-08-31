@@ -77,18 +77,8 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/budgets/<username>", methods=["GET", "POST"])
+@app.route("/budgets/<username>")
 def budgets(username):
-    if request.method == "POST":
-        budget_planner = BudgetPlanner(
-            name=request.form.get("budget_name"),
-            user_id=User.query.filter_by(username=session["user"]).with_entities(User.id).first_or_404()[0]
-        )
-        db.session.add(budget_planner)
-        db.session.commit()
-        flash("Budget created successfully, lets add some transactions!")
-        return redirect(url_for("budget", username=session["user"], budget_name=budget_planner.name))
-
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
@@ -121,3 +111,15 @@ def budget(username, budget_name):
     
     # Pass the username as a variable to the "add_budget" template
     return render_template("budget.html", username=username, budget_name=budget_name)
+
+
+@app.route("/add_budget", methods=["POST"])
+def add_budget():
+    budget_planner = BudgetPlanner(
+            name=request.form.get("budget_name"),
+            user_id=User.query.filter_by(username=session["user"]).with_entities(User.id).first_or_404()[0]
+        )
+    db.session.add(budget_planner)
+    db.session.commit()
+    flash("Budget created successfully, lets add some transactions!")
+    return redirect(url_for("budget", username=session["user"], budget_name=budget_planner.name))
