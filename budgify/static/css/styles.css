@@ -167,7 +167,18 @@ h2 {
   width: fit-content;
 }
 
+/* BUDGET PAGE */
+.section-head {
+  font-size: 1rem;
+}
 
+th, td {
+  font-size: 0.85rem;
+}
+
+.table-group-divider {
+  color: var(--secondary-color);
+}
 
 /*** MEDIA QUERIES ***/
 @media screen and (min-width: 992px) {

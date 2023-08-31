@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% block title %}Budgify | Budget {% endblock %} {%
-  block content %}
-  
-  <h2>{{ budget_name|title }}</h2>
+block content %}
 
-  {% with messages = get_flashed_messages() %} {% if messages %}
+<h2>{{ budget_name|title }}</h2>
+
+{% with messages = get_flashed_messages() %} {% if messages %}
 <ul class="flashes">
   {% for message in messages %}
   <li class="text-center text-primary fw-medium p-0">{{ message }}</li>
@@ -11,4 +11,265 @@
 </ul>
 {% endif %} {% endwith %}
 
-  {% endblock %}
+<section class="col-12 col-md-8 mx-auto">
+  <table class="table table-hover">
+    <!-- Income Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">Income</th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Mortgage or Rent Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">Mortgage or Rent</th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Utilities & Council Tax -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Utilities & Council tax (gas, electric etc.)
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Transport Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Transport (fuel, road tax, bus fares etc.)
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Unsecured Debt Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Unsecured debt (loans, credit cards, overdrafts etc.)
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Communications Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Communications (telephone, broadband etc.)
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Insurance Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Insurances (home, life, gadget cover etc.)
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Childcare Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">Childcare & school fees</th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Shopping Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">Shopping</th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Savings Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Savings and Investments (cash, pensions, ISAs etc.)
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Other Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Other (hobbies, entertainment, holidays etc.)
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Salary</td>
+        <td>5000</td>
+        <td>1st</td>
+      </tr>
+    </tbody>
+    <!-- Totals Section -->
+    <thead>
+      <tr>
+        <th class="section-head" colspan="3">
+          Totals
+        </th>
+      </tr>
+    </thead>
+    <thead class="table-group-divider">
+      <tr>
+        <th>Total In</th>
+        <th>Total Out</th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+{% endblock %}
