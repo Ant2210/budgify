@@ -19,13 +19,18 @@ body {
   padding-bottom: 1rem;
 }
 
-.no-nav-logo {
-  height: 4.5rem;
+/* Buttons */
+.btn {
+  width: 10rem;
 }
 
 /* Navbar */
 .logo {
   height: 3.5rem;
+}
+
+.no-nav-logo {
+  height: 4.5rem;
 }
 
 nav {
@@ -102,6 +107,7 @@ h2 {
   font-size: 0.7rem;
 }
 
+
 /* Flash Messages */
 .flashes {
   list-style: none;
@@ -126,7 +132,7 @@ h2 {
 }
 
 /* MY BUDGETS PAGE */
-.add-budget {
+.add-budget-card {
   color: var(--primary-color-light);
   font-weight: bold;
   font-size: 3rem;
@@ -136,14 +142,31 @@ h2 {
   height: 12rem;
 }
 
-.add-budget:hover {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+.budget-card {
+  color: var(--primary-color-light);
+  font-weight: bold;
+  font-size: 3rem;
+  border-radius: 6px;
+  border-style: solid;
+  width: 8rem;
+  height: 12rem;
+  box-shadow: 2px 2px 5px var(--shadow-color);
+}
+
+.budget-card:hover {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.add-budget-card:hover {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .card-container {
   width: fit-content;
 }
+
 
 
 /*** MEDIA QUERIES ***/

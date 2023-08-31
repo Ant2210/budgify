@@ -1,32 +1,76 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}Budgify | My Budgets{% endblock %} {%
+block content %}
 
-{% block title %}Budgify | My Budgets{% endblock %}
+<h2>My Budgets</h2>
 
-{% block content %}
+{% with messages = get_flashed_messages() %} {% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <li class="text-center text-primary fw-medium p-0">{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %}
 
-  <h2>My Budgets</h2>
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class="flashes">
-      {% for message in messages %}
-        <li class="text-center text-primary fw-medium p-0">
-          {{ message }}
-        </li>
+<section class="container-fluid p-0 mt-5 mx-0">
+  <div class="col-12 col-md-8 mx-auto">
+    <div class="row d-flex align-items-center justify-content-center">
+      {% for budget in budgets|sort(attribute="name", case_sensitive=False) %}
+      <div class="card-container col-6 col-md-4 col-lg-3 mx-3">
+        <a href="{{ url_for('budget', username=session.user, budget_name=budget.name) }}" class="budget-card d-flex align-items-center justify-content-center text-decoration-none"><i class="fa-solid fa-file-lines"></i>
+        </a>
+        <p class="text-center text-primary fw-medium pt-2">{{ budget.name|title }}</p>
+      </div>
       {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
-
-  <section class="container-fluid row p-0 mt-5 mx-0">
-    <div class="col-12 col-md-8 mx-auto">
-      <div class="card-container">      
-        <a href="{{ url_for('add_budget', username=session.user) }}" class="add-budget d-flex align-items-center justify-content-center text-decoration-none">
-            <i class="fa-solid fa-plus"></i>
+      <div class="card-container col-6 col-md-4 col-lg-3 mx-3">
+        <a
+          href="#"
+          class="add-budget-card d-flex align-items-center justify-content-center text-decoration-none"
+          data-bs-toggle="modal"
+          data-bs-target="#add-budget-modal">
+          <i class="fa-solid fa-plus"></i>
         </a>
         <p class="text-center text-primary fw-medium pt-2">Add Budget</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Add Budget Modal -->
+<div
+  class="modal fade"
+  id="add-budget-modal"
+  tabindex="-1"
+  aria-labelledby="add-budget-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5 mx-auto" id="add-budget-modallabel">Choose a name for your budget...</h2>
+      </div>
+      <div class="modal-body text-center">
+        <form method="POST" action="{{ url_for('budgets', username=session.user) }}">
+          <input
+            name="budget_name"
+            id="budget_name"
+            type="text"
+            class="validate form-control"
+            minlength="1"
+            maxlength="50"
+            required />
+            <div id="budget-name-help" class="form-text text-start mb-3">
+              Maximum of 50 characters.
+            </div>
+            <button type="submit" class="btn btn-primary add-budget-btn mb-2">Add Budget</button>
+            <button type="button" class="btn btn-secondary add-budget-btn mb-2" data-bs-dismiss="modal">
+              Cancel
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/add-budget.js') }}"></script>
 
 {% endblock %}

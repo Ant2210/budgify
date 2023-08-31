@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 @app.route("/")
 def home():
     if "user" in session:
-        return redirect(url_for("budgets"))
+        return redirect(url_for("budgets", username=session["user"]))
     
     return render_template("welcome.html", hide_navbar=True)
 
@@ -77,29 +77,47 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/budgets/<username>")
+@app.route("/budgets/<username>", methods=["GET", "POST"])
 def budgets(username):
+    if request.method == "POST":
+        budget_planner = BudgetPlanner(
+            name=request.form.get("budget_name"),
+            user_id=User.query.filter_by(username=session["user"]).with_entities(User.id).first_or_404()[0]
+        )
+        db.session.add(budget_planner)
+        db.session.commit()
+        flash("Budget created successfully, lets add some transactions!")
+        return redirect(url_for("budget", username=session["user"], budget_name=budget_planner.name))
+
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
         return redirect(url_for("login"))
+    
+    # Check if the user has permission to access this page
+    if session["user"] != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
 
     # Retrieve the username from the User object
-    username = User.query.filter_by(username=session["user"]).with_entities(User.username).first_or_404()[0]
+    user_id = User.query.filter_by(username=session["user"]).with_entities(User.id).first_or_404()[0]
+    budgets = BudgetPlanner.query.filter_by(user_id=user_id).all()
     
     # Pass the username as a variable to the "budgets" template
-    return render_template("budgets.html", username=username)
+    return render_template("budgets.html", username=username, budgets=budgets)
 
 
-@app.route("/add_budget/<username>", methods=["GET", "POST"])
-def add_budget(username):
+@app.route("/budget/<username>/<budget_name>", methods=["GET", "POST"])
+def budget(username, budget_name):
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
         return redirect(url_for("login"))
 
-    # Retrieve the username from the User object
-    username = User.query.filter_by(username=session["user"]).with_entities(User.username).first_or_404()[0]
+    # Check if the user has permission to access this page
+    if session["user"] != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
     
     # Pass the username as a variable to the "add_budget" template
-    return render_template("add_budget.html", username=username)
+    return render_template("budget.html", username=username, budget_name=budget_name)
