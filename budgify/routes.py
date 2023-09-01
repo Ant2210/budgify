@@ -146,3 +146,18 @@ def rename_budget(username, budget_id):
     db.session.commit()
     flash("Budget renamed successfully.")
     return redirect(url_for("budget", username=session["user"], budget_id=budget.id))
+
+
+@app.route("/delete_budget/<username>/<int:budget_id>", methods=["POST"])
+def delete_budget(username, budget_id):
+    budget = BudgetPlanner.query.get_or_404(budget_id)
+
+    # Check if the budget belongs to the user
+    if budget.user.username != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+
+    db.session.delete(budget)
+    db.session.commit()
+    flash("Budget deleted successfully.")
+    return redirect(url_for("budgets", username=session["user"]))
