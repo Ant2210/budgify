@@ -211,3 +211,19 @@ def edit_transaction(username, budget_id, transaction_id):
     db.session.commit()
     flash("Transaction updated successfully.")
     return redirect(url_for("budget", username=session["user"], budget_id=budget_id))
+
+
+@app.route("/delete_transaction/<username>/<int:budget_id>/<int:transaction_id>", methods=["POST"])
+def delete_transaction(username, budget_id, transaction_id):
+    # Retrieve the transaction associated with the transaction_id
+    transaction = Transaction.query.get_or_404(transaction_id)
+
+    # Check if the budget belongs to the user
+    if transaction.budget_planner.user.username != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+    
+    db.session.delete(transaction)
+    db.session.commit()
+    flash("Transaction deleted successfully.")
+    return redirect(url_for("budget", username=session["user"], budget_id=budget_id))
