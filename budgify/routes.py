@@ -1,6 +1,6 @@
 from flask import flash, redirect, render_template, request, session, url_for
 from budgify import app, db
-from budgify.models import User, BudgetPlanner, Transaction
+from budgify.models import TransactionType, User, BudgetPlanner, Transaction
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -111,6 +111,8 @@ def budget(username, budget_id):
     
     # Retrieve the username from the User object and budget information from the BudgetPlanner object
     budget = BudgetPlanner.query.get_or_404(budget_id)
+    transaction_types = TransactionType.query.all()
+    transactions = Transaction.query.filter_by(budget_planner_id=budget_id).all()
 
         # Check if the budget belongs to the user
     if budget.user.username != username:
@@ -118,7 +120,7 @@ def budget(username, budget_id):
         return redirect(url_for("budgets", username=session["user"]))
     
     # Pass the username as a variable to the "add_budget" template
-    return render_template("budget.html", username=username, budget_id=budget_id, budget=budget)
+    return render_template("budget.html", username=username, budget_id=budget_id, budget=budget, transaction_types=transaction_types, transactions=transactions)
 
 
 @app.route("/add_budget", methods=["POST"])
@@ -161,3 +163,28 @@ def delete_budget(username, budget_id):
     db.session.commit()
     flash("Budget deleted successfully.")
     return redirect(url_for("budgets", username=session["user"]))
+
+
+@app.route("/add_transaction/<username>/<int:budget_id>", methods=["POST"])
+def add_transaction(username, budget_id):
+    # Retrieve the budget associated with the budget_id
+    budget = BudgetPlanner.query.get_or_404(budget_id)
+
+
+    # Check if the budget belongs to the user
+    if budget.user.username != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+    
+    # Create new transaction
+    transaction=Transaction(
+        description=request.form.get("transaction_description"),
+        amount=request.form.get("transaction_amount"),
+        day_of_month=int(request.form.get("transaction_day")),
+        type_id=int(request.form.get("transaction_type")),
+        budget_planner_id=budget_id
+    )
+    db.session.add(transaction)
+    db.session.commit()
+    flash("Transaction added successfully.")
+    return redirect(url_for("budget", username=session["user"], budget_id=budget_id))

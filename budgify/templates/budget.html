@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block title %}Budgify | {{ budget.name }} {% endblock %} {%
-block content %}
+{% extends "base.html" %} {% block title %}Budgify | {{ budget.name }} {%
+endblock %} {% block content %}
 
 <h2>{{ budget.name|title }}</h2>
 
@@ -16,13 +16,34 @@ block content %}
   <div class="card col-12 col-md-8 mx-auto my-3">
     <div class="card-body">
       <h5 class="card-title">Budget Management</h5>
-      <p class="card-text">Make changes to your budget with ease using the buttons below. You can add a new transaction, update your budget's name, or remove the budget entirely. You can also edit or delete any of the transactions below by clicking on them.</p>
+      <p class="card-text">
+        Make changes to your budget with ease using the buttons below. You can
+        add a new transaction, update your budget's name, or remove the budget
+        entirely. You can also edit or delete any of the transactions below by
+        clicking on them.
+      </p>
       <div class="text-center">
-        <a href="#" class="btn btn-success mb-2">Add Transaction</a>
-        <a href="#" class="btn btn-primary mb-2" data-bs-toggle="modal"
-        data-bs-target="#rename-budget-{{ budget.id }}">Rename Budget</a>
-        <a href="#" class="btn btn-danger mb-2" data-bs-toggle="modal"
-        data-bs-target="#delete-budget-{{ budget.id }}">Delete Budget</a>
+        <a
+          href="#"
+          class="btn btn-success mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#add-transaction-{{ budget.id }}"
+          >Add Transaction</a
+        >
+        <a
+          href="#"
+          class="btn btn-primary mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#rename-budget-{{ budget.id }}"
+          >Rename Budget</a
+        >
+        <a
+          href="#"
+          class="btn btn-danger mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#delete-budget-{{ budget.id }}"
+          >Delete Budget</a
+        >
       </div>
     </div>
   </div>
@@ -75,7 +96,7 @@ block content %}
     <thead>
       <tr>
         <th class="section-head" colspan="3">
-          Utilities & Council tax (gas, electric etc.)
+          Utilities & Council Tax (gas, electric etc.)
         </th>
       </tr>
     </thead>
@@ -119,7 +140,7 @@ block content %}
     <thead>
       <tr>
         <th class="section-head" colspan="3">
-          Unsecured debt (loans, credit cards, overdrafts etc.)
+          Unsecured Debt (loans, credit cards, overdrafts etc.)
         </th>
       </tr>
     </thead>
@@ -184,7 +205,7 @@ block content %}
     <!-- Childcare Section -->
     <thead>
       <tr>
-        <th class="section-head" colspan="3">Childcare & school fees</th>
+        <th class="section-head" colspan="3">Childcare & School Fees</th>
       </tr>
     </thead>
     <thead class="table-group-divider">
@@ -225,7 +246,7 @@ block content %}
     <thead>
       <tr>
         <th class="section-head" colspan="3">
-          Savings and Investments (cash, pensions, ISAs etc.)
+          Savings & Investments (cash, pensions, ISAs etc.)
         </th>
       </tr>
     </thead>
@@ -268,9 +289,7 @@ block content %}
     <!-- Totals Section -->
     <thead>
       <tr>
-        <th class="section-head" colspan="3">
-          Totals
-        </th>
+        <th class="section-head" colspan="3">Totals</th>
       </tr>
     </thead>
     <thead class="table-group-divider">
@@ -301,10 +320,14 @@ block content %}
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5 mx-auto" id="rename-budget-modal-label">Choose a new name for your budget...</h2>
+        <h2 class="modal-title fs-5 mx-auto" id="rename-budget-modal-label">
+          Choose a new name for your budget...
+        </h2>
       </div>
       <div class="modal-body text-center">
-        <form method="POST" action="{{ url_for('rename_budget', username=session.user, budget_id=budget.id) }}">
+        <form
+          method="POST"
+          action="{{ url_for('rename_budget', username=session.user, budget_id=budget.id) }}">
           <input
             name="budget_name"
             id="budget_name"
@@ -313,13 +336,18 @@ block content %}
             minlength="1"
             maxlength="50"
             required />
-            <div id="budget-name-help" class="form-text text-start mb-3">
-              Maximum of 50 characters.
-            </div>
-            <button type="submit" class="btn btn-primary add-budget-btn mb-2">Rename Budget</button>
-            <button type="button" class="btn btn-secondary add-budget-btn mb-2" data-bs-dismiss="modal">
-              Cancel
-            </button>
+          <div id="budget-name-help" class="form-text text-start mb-3">
+            Maximum of 50 characters.
+          </div>
+          <button type="submit" class="btn btn-primary add-budget-btn mb-2">
+            Rename Budget
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary add-budget-btn mb-2"
+            data-bs-dismiss="modal">
+            Cancel
+          </button>
         </form>
       </div>
     </div>
@@ -336,20 +364,120 @@ block content %}
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5 mx-auto text-danger" id="delete-budget-modal-label">Warning!</h2>
+        <h2
+          class="modal-title fs-5 mx-auto text-danger"
+          id="delete-budget-modal-label">
+          Warning!
+        </h2>
       </div>
       <div class="modal-body text-center">
-        <p>Are you sure you want to delete this budget and ALL associated transactions?</p>
-        <form method="POST" action="{{ url_for('delete_budget', username=session.user, budget_id=budget.id) }}">
-          <button type="button" class="btn btn-primary add-budget-btn mb-2" data-bs-dismiss="modal">
+        <p>
+          Are you sure you want to delete this budget and ALL associated
+          transactions?
+        </p>
+        <form
+          method="POST"
+          action="{{ url_for('delete_budget', username=session.user, budget_id=budget.id) }}">
+          <button
+            type="button"
+            class="btn btn-primary add-budget-btn mb-2"
+            data-bs-dismiss="modal">
             No! Take me back!
-          </button>  
-          <button type="submit" class="btn btn-danger add-budget-btn mb-2">Yes, delete it!</button>
+          </button>
+          <button type="submit" class="btn btn-danger add-budget-btn mb-2">
+            Yes, delete it!
+          </button>
         </form>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Add Transaction Modal -->
+<div
+  class="modal fade"
+  id="add-transaction-{{ budget.id }}"
+  tabindex="-1"
+  aria-labelledby="add-transaction-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5 mx-auto" id="add-transaction-modal-label">
+          Add a transaction to your budget...
+        </h2>
+      </div>
+      <div class="modal-body text-center">
+        <form method="POST" action="{{ url_for('add_transaction', username=session.user, budget_id=budget.id) }}">
+          <!-- Transaction Type -->
+          <label for="transaction_type" class="form-label d-flex mb-1"
+            >Type</label
+          >
+          <select
+            name="transaction_type"
+            id="transaction_type"
+            class="form-select mb-3"
+            required>
+            <option value="" disabled selected>Choose transaction type</option>
+            {% for transaction_type in transaction_types %}
+            <option value="{{ transaction_type.id }}">
+              {{ transaction_type.name }}
+            </option>
+            {% endfor %}
+          </select>
+          <!-- Transaction Description -->
+          <label for="transaction_description" class="form-label d-flex mb-1"
+            >Description</label
+          >
+          <input
+            name="transaction_description"
+            id="transaction_description"
+            type="text"
+            class="form-control mb-3"
+            minlength="4"
+            maxlength="50"
+            required />
+          <!-- Transaction Amount -->
+          <label for="transaction_amount" class="form-label d-flex mb-1"
+            >Amount</label
+          >
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="currency-addon">£</span>
+            <input
+              name="transaction_amount"
+              id="transaction_amount"
+              type="number"
+              class="form-control"
+              min="0"
+              max="999999"
+              step="0.01"
+              required />
+          </div>
+          <!-- Transaction Day -->
+          <label for="transaction_day" class="form-label d-flex mb-1"
+            >Day of the month</label
+          >
+          <input
+            name="transaction_day"
+            id="transaction_day"
+            type="number"
+            class="form-control mb-3"
+            min="1"
+            max="31"
+            required />
+          <button type="submit" class="btn btn-primary add-budget-btn mb-2">
+            Add Transaction
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary add-budget-btn mb-2"
+            data-bs-dismiss="modal">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
