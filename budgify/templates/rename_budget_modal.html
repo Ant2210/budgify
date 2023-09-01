@@ -1,0 +1,43 @@
+<!-- Rename Budget Modal -->
+<div
+  class="modal fade"
+  id="rename-budget-{{ budget.id }}"
+  tabindex="-1"
+  aria-labelledby="rename-budget-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5 mx-auto" id="rename-budget-modal-label">
+          Choose a new name for your budget...
+        </h2>
+      </div>
+      <div class="modal-body text-center">
+        <form
+          method="POST"
+          action="{{ url_for('rename_budget', username=session.user, budget_id=budget.id) }}">
+          <input
+            name="budget_name"
+            id="budget_name"
+            type="text"
+            class="validate form-control"
+            minlength="1"
+            maxlength="50"
+            required />
+          <div id="budget-name-help" class="form-text text-start mb-3">
+            Maximum of 50 characters.
+          </div>
+          <button type="submit" class="btn btn-primary add-budget-btn mb-2">
+            Rename Budget
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary add-budget-btn mb-2"
+            data-bs-dismiss="modal">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
