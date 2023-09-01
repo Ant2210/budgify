@@ -29,6 +29,15 @@ class BudgetPlanner(db.Model):
             f"Name: {self.name}, "
             f"User Id: {self.user_id}"
             )
+    
+
+class TransactionType(db.Model):
+    # Schema for the TransactionType model
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+
+    def __repr__(self):
+        return f"Transaction Type ID: {self.id}, Name: {self.name}"
 
 
 class Transaction(db.Model):
@@ -37,7 +46,7 @@ class Transaction(db.Model):
     description = db.Column(db.String(50), nullable=False)
     amount = db.Column(db.Numeric(10, 2), nullable=False)
     day_of_month = db.Column(db.Integer, nullable=False)
-    transaction_type = db.Column(db.String(50), nullable=False)
+    type_id = db.Column(db.Integer, db.ForeignKey('transaction_type.id'), nullable=False)
     budget_planner_id = db.Column(db.Integer, db.ForeignKey(
         'budget_planner.id', ondelete='CASCADE'), nullable=False)
 
@@ -47,6 +56,6 @@ class Transaction(db.Model):
             f"Transaction: {self.description}, "
             f"Amount: {self.amount}, "
             f"Day of Month: {self.day_of_month}, "
-            f"Transaction Type: {self.transaction_type}, "
+            f"Transaction Type ID: {self.type_id}, "
             f"Budget Planner ID: {self.budget_planner_id}"
         )
