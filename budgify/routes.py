@@ -97,8 +97,8 @@ def budgets(username):
     return render_template("budgets.html", username=username, budgets=budgets)
 
 
-@app.route("/budget/<username>/<budget_name>", methods=["GET", "POST"])
-def budget(username, budget_name):
+@app.route("/budget/<username>/<int:budget_id>", methods=["GET", "POST"])
+def budget(username, budget_id):
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
@@ -109,8 +109,16 @@ def budget(username, budget_name):
         flash("You do not have permission to access this page.")
         return redirect(url_for("budgets", username=session["user"]))
     
+    # Retrieve the username from the User object and budget information from the BudgetPlanner object
+    budget = BudgetPlanner.query.get_or_404(budget_id)
+
+        # Check if the budget belongs to the user
+    if budget.user.username != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+    
     # Pass the username as a variable to the "add_budget" template
-    return render_template("budget.html", username=username, budget_name=budget_name)
+    return render_template("budget.html", username=username, budget_id=budget_id, budget=budget)
 
 
 @app.route("/add_budget", methods=["POST"])
@@ -122,4 +130,19 @@ def add_budget():
     db.session.add(budget_planner)
     db.session.commit()
     flash("Budget created successfully, lets add some transactions!")
-    return redirect(url_for("budget", username=session["user"], budget_name=budget_planner.name))
+    return redirect(url_for("budget", username=session["user"], budget_id=budget_planner.id))
+
+
+@app.route("/rename_budget/<username>/<int:budget_id>", methods=["POST"])
+def rename_budget(username, budget_id):
+    budget = BudgetPlanner.query.get_or_404(budget_id)
+
+    # Check if the budget belongs to the user
+    if budget.user.username != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+
+    budget.name = request.form.get("budget_name")
+    db.session.commit()
+    flash("Budget renamed successfully.")
+    return redirect(url_for("budget", username=session["user"], budget_id=budget.id))

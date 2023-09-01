@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% block title %}Budgify | Budget {% endblock %} {%
+{% extends "base.html" %} {% block title %}Budgify | {{ budget.name }} {% endblock %} {%
 block content %}
 
-<h2>{{ budget_name|title }}</h2>
+<h2>{{ budget.name|title }}</h2>
 
 {% with messages = get_flashed_messages() %} {% if messages %}
 <ul class="flashes">
@@ -19,7 +19,8 @@ block content %}
       <p class="card-text">Make changes to your budget with ease using the buttons below. You can add a new transaction, update your budget's name, or remove the budget entirely. You can also edit or delete any of the transactions below by clicking on them.</p>
       <div class="text-center">
         <a href="#" class="btn btn-success mb-2">Add Transaction</a>
-        <a href="#" class="btn btn-primary mb-2">Rename Budget</a>
+        <a href="#" class="btn btn-primary mb-2" data-bs-toggle="modal"
+        data-bs-target="#rename-budget-{{ budget.id }}">Rename Budget</a>
         <a href="#" class="btn btn-danger mb-2">Delete Budget</a>
       </div>
     </div>
@@ -287,5 +288,42 @@ block content %}
     </tbody>
   </table>
 </section>
+
+<!-- Modals -->
+<!-- Rename Budget Modal -->
+<div
+  class="modal fade"
+  id="rename-budget-{{ budget.id }}"
+  tabindex="-1"
+  aria-labelledby="rename-budget-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5 mx-auto" id="rename-budget-modallabel">Choose a new name for your budget...</h2>
+      </div>
+      <div class="modal-body text-center">
+        <form method="POST" action="{{ url_for('rename_budget', username=session.user, budget_id=budget.id) }}">
+          <input
+            name="budget_name"
+            id="budget_name"
+            type="text"
+            class="validate form-control"
+            minlength="1"
+            maxlength="50"
+            required />
+            <div id="budget-name-help" class="form-text text-start mb-3">
+              Maximum of 50 characters.
+            </div>
+            <button type="submit" class="btn btn-primary add-budget-btn mb-2">Rename Budget</button>
+            <button type="button" class="btn btn-secondary add-budget-btn mb-2" data-bs-dismiss="modal">
+              Cancel
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
