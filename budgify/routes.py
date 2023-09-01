@@ -188,3 +188,26 @@ def add_transaction(username, budget_id):
     db.session.commit()
     flash("Transaction added successfully.")
     return redirect(url_for("budget", username=session["user"], budget_id=budget_id))
+
+
+@app.route("/edit_transaction/<username>/<int:budget_id>/<int:transaction_id>", methods=["POST"])
+def edit_transaction(username, budget_id, transaction_id):
+    # Retrieve the budget associated with the budget_id
+    budget = BudgetPlanner.query.get_or_404(budget_id)
+
+    # Check if the budget belongs to the user
+    if budget.user.username != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+
+    # Retrieve the transaction associated with the transaction_id
+    transaction = Transaction.query.get_or_404(transaction_id)
+
+    # Update the transaction
+    transaction.description = request.form.get("transaction_description")
+    transaction.amount = request.form.get("transaction_amount")
+    transaction.day_of_month = int(request.form.get("transaction_day"))
+    transaction.type_id = int(request.form.get("transaction_type"))
+    db.session.commit()
+    flash("Transaction updated successfully.")
+    return redirect(url_for("budget", username=session["user"], budget_id=budget_id))

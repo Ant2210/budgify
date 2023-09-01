@@ -1,0 +1,91 @@
+<!-- Edit Transaction Modal -->
+<div
+class="modal fade"
+id="edit-transaction-{{ transaction.id }}"
+tabindex="-1"
+aria-labelledby="add-transaction-modal-label"
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title fs-5 mx-auto" id="add-transaction-modal-label">
+        Edit Transaction
+      </h2>
+    </div>
+    <div class="modal-body text-center">
+      <form method="POST" action="{{ url_for('edit_transaction', username=session.user, budget_id=budget.id, transaction_id=transaction.id ) }}">
+        <!-- Transaction Type -->
+        <label for="transaction_type" class="form-label d-flex mb-1"
+          >Type</label
+        >
+        <select
+          name="transaction_type"
+          id="transaction_type"
+          class="form-select mb-3"
+          required>
+          {% for transaction_type in transaction_types %}
+          <option value="{{ transaction_type.id }}"
+            {% if transaction_type.id == transaction.type_id %}
+              selected
+            {% endif %}>
+            {{ transaction_type.name }}
+          </option>
+          {% endfor %}
+        </select>
+        <!-- Transaction Description -->
+        <label for="transaction_description" class="form-label d-flex mb-1"
+          >Description</label
+        >
+        <input
+          name="transaction_description"
+          id="transaction_description"
+          type="text"
+          class="form-control mb-3"
+          minlength="4"
+          maxlength="50"
+          value="{{ transaction.description }}"
+          required />
+        <!-- Transaction Amount -->
+        <label for="transaction_amount" class="form-label d-flex mb-1"
+          >Amount</label
+        >
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="currency-addon">£</span>
+          <input
+            name="transaction_amount"
+            id="transaction_amount"
+            type="number"
+            class="form-control"
+            min="0"
+            max="999999"
+            step="0.01"
+            value="{{ transaction.amount }}"
+            required />
+        </div>
+        <!-- Transaction Day -->
+        <label for="transaction_day" class="form-label d-flex mb-1"
+          >Day of the month</label
+        >
+        <input
+          name="transaction_day"
+          id="transaction_day"
+          type="number"
+          class="form-control mb-3"
+          min="1"
+          max="31"
+          value="{{ transaction.day_of_month }}"
+          required />
+        <button type="submit" class="btn btn-primary add-budget-btn mb-2">
+          Edit Transaction
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary add-budget-btn mb-2"
+          data-bs-dismiss="modal">
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
