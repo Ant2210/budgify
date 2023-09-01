@@ -15,7 +15,7 @@ endblock %} {% block content %}
 <section>
   <div class="card col-12 col-md-8 mx-auto my-3">
     <div class="card-body">
-      <h5 class="card-title">Budget Management</h5>
+      <h3 class="budget-page-headers">Budget Management</h3>
       <p class="card-text">
         Make changes to your budget with ease using the buttons below. You can
         add a new transaction, update your budget's name, or remove the budget
@@ -51,6 +51,7 @@ endblock %} {% block content %}
 
 <!-- Budget Table Section -->
 <section class="col-12 col-md-8 mx-auto">
+  <h3 class="budget-page-headers">Budget Table</h3>
   <table class="table table-hover">
     <!-- Income Section -->
     <thead>
@@ -103,7 +104,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense mortgage">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -136,7 +137,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense utility">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -169,7 +170,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense transport">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -202,7 +203,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense unsecured">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -235,7 +236,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense comms">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -268,7 +269,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense insurance">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -299,7 +300,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense childcare">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -330,7 +331,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense shopping">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -363,7 +364,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense savings">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -396,7 +397,7 @@ endblock %} {% block content %}
         <tr class="transaction-row" data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
           <td>{{ transaction.description }}</td>
-          <td class="expense">{{ transaction.amount }}</td>
+          <td class="expense other">{{ transaction.amount }}</td>
           <td>{{ transaction.day_of_month }}</td>
         </tr>
         {% include 'edit_transaction_modal.html' %}
@@ -417,17 +418,26 @@ endblock %} {% block content %}
       <tr>
         <th>Total In</th>
         <th>Total Out</th>
-        <th>Difference</th>
+        <th>Disposable Income</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td id="total-in">0</td>
         <td id="total-out">0</td>
-        <td id="difference">0</td>
+        <td id="disposable-income">0</td>
       </tr>
     </tbody>
   </table>
+</section>
+
+<section class="row">
+  <div class="col-12 col-md-8 mx-auto">
+    <h3 class="budget-page-headers">Insights</h3>
+    <div class="col-12 col-md-8 col-lg-6">
+      <canvas id="pie-chart"></canvas>
+    </div>
+  </div>
 </section>
 
 <!-- Modals -->
@@ -437,5 +447,6 @@ endblock %} {% block content %}
 
 {% include 'add_transaction_modal.html' %}
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='js/budget.js') }}"></script>
 {% endblock %}

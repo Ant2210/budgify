@@ -184,6 +184,11 @@ th, td {
   cursor: pointer;
 }
 
+.budget-page-headers {
+  color: var(--primary-color);
+  text-decoration: underline 3px var(--secondary-color);
+}
+
 /*** MEDIA QUERIES ***/
 @media screen and (min-width: 992px) {
   .navbar-brand {
