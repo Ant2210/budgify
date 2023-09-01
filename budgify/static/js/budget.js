@@ -1,44 +1,42 @@
-const allIncome = document.getElementsByClassName('income');
-const totalIn = document.getElementById('total-in');
-const allExpenses = document.getElementsByClassName('expense');
-const totalOut = document.getElementById('total-out');
-const disposableIncome = document.getElementById('disposable-income');
+const allIncome = document.getElementsByClassName("income");
+const totalIn = document.getElementById("total-in");
+const allExpenses = document.getElementsByClassName("expense");
+const totalOut = document.getElementById("total-out");
+const disposableIncome = document.getElementById("disposable-income");
 
-const outgoingsChart = document.getElementById('pie-chart');
-const mortgages = document.getElementsByClassName('mortgage');
-const utilities = document.getElementsByClassName('utility');
-const transportCosts = document.getElementsByClassName('transport');
-const unsecureds = document.getElementsByClassName('unsecured');
-const comms = document.getElementsByClassName('comms');
-const insurances = document.getElementsByClassName('insurance');
-const childcareFees = document.getElementsByClassName('childcare');
-const shoppings = document.getElementsByClassName('shopping');
-const savings = document.getElementsByClassName('savings');
-const others = document.getElementsByClassName('other');
-
+const outgoingsChart = document.getElementById("pie-chart");
+const mortgages = document.getElementsByClassName("mortgage");
+const utilities = document.getElementsByClassName("utility");
+const transportCosts = document.getElementsByClassName("transport");
+const unsecureds = document.getElementsByClassName("unsecured");
+const comms = document.getElementsByClassName("comms");
+const insurances = document.getElementsByClassName("insurance");
+const childcareFees = document.getElementsByClassName("childcare");
+const shoppings = document.getElementsByClassName("shopping");
+const savings = document.getElementsByClassName("savings");
+const others = document.getElementsByClassName("other");
 
 /* Get the total income and expenses from the budget table and set
 the values of total in, total out and difference 
 */
 // Get the total income from budget table
 let incomeTotal = 0;
-for (let i = 0; i < allIncome.length; i++) {
-  incomeTotal += parseFloat(allIncome[i].innerHTML);
+for (let income of allIncome) {
+  incomeTotal += parseFloat(income.innerHTML);
 }
 // Set the total income in the budget table
 totalIn.innerText = incomeTotal;
 
 // Get the total expenses from budget table
 let expenseTotal = 0;
-for (let i = 0; i < allExpenses.length; i++) {
+for (expense of allExpenses) {
   expenseTotal += parseFloat(allExpenses[i].innerHTML);
 }
 // Set the total expenses in the budget table
 totalOut.innerText = expenseTotal;
-// Set the difference between income and expenses in the budget table
+// Set the disposable income as the difference between income and expenses in the budget table
 totalDisposableIncome = incomeTotal - expenseTotal;
 disposableIncome.innerText = incomeTotal - expenseTotal;
-
 
 /* Create a pie chart to show the percentage of income spent on each outgoing */
 
@@ -103,40 +101,53 @@ for (let other of others) {
   otherTotal += parseFloat(other.innerText);
 }
 
-
 new Chart(outgoingsChart, {
-  type: 'pie',
+  type: "pie",
   data: {
     labels: [
-      'Mortgage or Rent',
-      'Utilities & Council Tax',
-      'Transport',
-      'Unsecured Debt',
-      'Communications',
-      'Insurances',
-      'Childcare & School Fees',
-      'Shopping',
-      'Savings & Investments',
-      'Other',
-      'Disposable Income'
+      "Mortgage or Rent",
+      "Utilities & Council Tax",
+      "Transport",
+      "Unsecured Debt",
+      "Communications",
+      "Insurances",
+      "Childcare & School Fees",
+      "Shopping",
+      "Savings & Investments",
+      "Other",
+      "Disposable Income",
     ],
-    datasets: [{
-      label: 'Outgoings',
-      data: [mortgageTotal, utilityTotal, transportTotal, unsecuredTotal, commsTotal, insuranceTotal, childcareTotal, shoppingTotal, savingsTotal, otherTotal, totalDisposableIncome],
-      backgroundColor: [
-        '#54a1e9',
-        '#e851e3',
-        '#f5dd05',
-        '#0000ff',
-        '#187002',
-        '#00ff00',
-        '#acb52b',
-        '#7308a5',
-        '#ff0000',
-        '#00aeae',
-        '#fc7b3f',
-      ],
-      hoverOffset: 4
-    }]
-  }
+    datasets: [
+      {
+        label: "Outgoings",
+        data: [
+          mortgageTotal,
+          utilityTotal,
+          transportTotal,
+          unsecuredTotal,
+          commsTotal,
+          insuranceTotal,
+          childcareTotal,
+          shoppingTotal,
+          savingsTotal,
+          otherTotal,
+          totalDisposableIncome,
+        ],
+        backgroundColor: [
+          "#54a1e9",
+          "#e851e3",
+          "#f5dd05",
+          "#0000ff",
+          "#187002",
+          "#00ff00",
+          "#acb52b",
+          "#7308a5",
+          "#ff0000",
+          "#00aeae",
+          "#fc7b3f",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  },
 });
