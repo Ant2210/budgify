@@ -66,11 +66,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set income_transactions = transactions|selectattr('type_id', 'equalto', 1)|list %}
+      {% if income_transactions %}
+        {% for transaction in income_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Mortgage or Rent Section -->
     <thead>
@@ -86,11 +95,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set mortgage_transactions = transactions|selectattr('type_id', 'equalto', 2)|list %}
+      {% if mortgage_transactions %}
+        {% for transaction in mortgage_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Utilities & Council Tax -->
     <thead>
@@ -108,11 +126,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set utilities_transactions = transactions|selectattr('type_id', 'equalto', 3)|list %}
+      {% if utilities_transactions %}
+        {% for transaction in utilities_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Transport Section -->
     <thead>
@@ -130,11 +157,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set transport_transactions = transactions|selectattr('type_id', 'equalto', 4)|list %}
+      {% if transport_transactions %}
+        {% for transaction in transport_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Unsecured Debt Section -->
     <thead>
@@ -152,11 +188,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set unsecured_transactions = transactions|selectattr('type_id', 'equalto', 5)|list %}
+      {% if unsecured_transactions %}
+        {% for transaction in unsecured_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Communications Section -->
     <thead>
@@ -174,11 +219,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set communications_transactions = transactions|selectattr('type_id', 'equalto', 6)|list %}
+      {% if communications_transactions %}
+        {% for transaction in communications_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Insurance Section -->
     <thead>
@@ -196,11 +250,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set insurance_transactions = transactions|selectattr('type_id', 'equalto', 7)|list %}
+      {% if insurance_transactions %}
+        {% for transaction in insurance_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Childcare Section -->
     <thead>
@@ -216,11 +279,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set childcare_transactions = transactions|selectattr('type_id', 'equalto', 8)|list %}
+      {% if childcare_transactions %}
+        {% for transaction in childcare_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Shopping Section -->
     <thead>
@@ -236,11 +308,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set shopping_transactions = transactions|selectattr('type_id', 'equalto', 9)|list %}
+      {% if shopping_transactions %}
+        {% for transaction in shopping_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Savings Section -->
     <thead>
@@ -258,11 +339,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set savings_transactions = transactions|selectattr('type_id', 'equalto', 10)|list %}
+      {% if savings_transactions %}
+        {% for transaction in savings_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Other Section -->
     <thead>
@@ -280,11 +370,20 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Salary</td>
-        <td>5000</td>
-        <td>1st</td>
-      </tr>
+      {% set other_transactions = transactions|selectattr('type_id', 'equalto', 11)|list %}
+      {% if other_transactions %}
+        {% for transaction in other_transactions %}
+          <tr>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.day_of_month }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">Nothing to see here, try adding a transaction</td>
+        </tr>
+      {% endif %}
     </tbody>
     <!-- Totals Section -->
     <thead>
