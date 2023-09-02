@@ -4,7 +4,8 @@ const allExpenses = document.getElementsByClassName("expense");
 const totalOut = document.getElementById("total-out");
 const disposableIncome = document.getElementById("disposable-income");
 
-const outgoingsChart = document.getElementById("pie-chart");
+const outgoingsPieChart = document.getElementById("pie-chart");
+const outgoingsBarChart = document.getElementById("bar-chart");
 const mortgages = document.getElementsByClassName("mortgage");
 const utilities = document.getElementsByClassName("utility");
 const transportCosts = document.getElementsByClassName("transport");
@@ -30,7 +31,7 @@ totalIn.innerText = incomeTotal;
 // Get the total expenses from budget table
 let expenseTotal = 0;
 for (expense of allExpenses) {
-  expenseTotal += parseFloat(allExpenses[i].innerHTML);
+  expenseTotal += parseFloat(expense.innerHTML);
 }
 // Set the total expenses in the budget table
 totalOut.innerText = expenseTotal;
@@ -101,7 +102,8 @@ for (let other of others) {
   otherTotal += parseFloat(other.innerText);
 }
 
-new Chart(outgoingsChart, {
+// Pie chart to show the percentage of income spent on each outgoing
+new Chart(outgoingsPieChart, {
   type: "pie",
   data: {
     labels: [
@@ -149,5 +151,83 @@ new Chart(outgoingsChart, {
         hoverOffset: 4,
       },
     ],
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+    },
+    responsive: true, // Make the chart responsive
+    maintainAspectRatio: false, // Allow the aspect ratio to adjust
+  },
+});
+
+// Bar chart to show the total of each outgoing
+new Chart(outgoingsBarChart, {
+  type: "bar",
+  data: {
+    labels: [
+      "Mortgage or Rent",
+      "Utilities & Council Tax",
+      "Transport",
+      "Unsecured Debt",
+      "Communications",
+      "Insurances",
+      "Childcare & School Fees",
+      "Shopping",
+      "Savings & Investments",
+      "Other",
+      "Disposable Income",
+    ],
+    datasets: [
+      {
+        label: "",
+        data: [
+          mortgageTotal,
+          utilityTotal,
+          transportTotal,
+          unsecuredTotal,
+          commsTotal,
+          insuranceTotal,
+          childcareTotal,
+          shoppingTotal,
+          savingsTotal,
+          otherTotal,
+          totalDisposableIncome,
+        ],
+        backgroundColor: [
+          "#54a1e9",
+          "#e851e3",
+          "#f5dd05",
+          "#0000ff",
+          "#187002",
+          "#00ff00",
+          "#acb52b",
+          "#7308a5",
+          "#ff0000",
+          "#00aeae",
+          "#fc7b3f",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      x: {
+        display: false, // Hide x-axis labels
+      },
+      y: {
+        display: true, // Hide y-axis labels
+      },
+    },
+    plugins: {
+      legend: {
+        display: false, // Hide the top-level title
+      },
+    },
+    responsive: true, // Make the chart responsive
+    maintainAspectRatio: false, // Allow the aspect ratio to adjust
   },
 });

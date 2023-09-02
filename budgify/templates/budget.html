@@ -431,11 +431,14 @@ endblock %} {% block content %}
   </table>
 </section>
 
-<section class="row">
+<section class="container row mx-auto">
   <div class="col-12 col-md-8 mx-auto">
     <h3 class="budget-page-headers">Insights</h3>
-    <div class="col-12 col-md-8 col-lg-6">
+    <div class="col-12 mb-3 chart-container">
       <canvas id="pie-chart"></canvas>
+    </div>
+    <div class="col-12 chart-container">
+      <canvas id="bar-chart"></canvas>
     </div>
   </div>
 </section>

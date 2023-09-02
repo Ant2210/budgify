@@ -189,6 +189,10 @@ th, td {
   text-decoration: underline 3px var(--secondary-color);
 }
 
+.chart-container {
+  max-height: 80vh;
+}
+
 /*** MEDIA QUERIES ***/
 @media screen and (min-width: 992px) {
   .navbar-brand {
