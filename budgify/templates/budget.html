@@ -67,21 +67,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set income_transactions = transactions|selectattr('type_id', 'equalto', 1)|list %}
-      {% if income_transactions %}
-        {% for transaction in income_transactions %}
-          <tr class="transaction-row" data-bs-toggle="modal"
-          data-bs-target="#edit-transaction-{{ transaction.id }}">
-            <td>{{ transaction.description }}</td>
-            <td class="income">{{ transaction.amount }}</td>
-            <td>{{ transaction.day_of_month }}</td>
-          </tr>
-          {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+      {% set income_transactions = transactions|selectattr('type_id', 'equalto',
+      1)|list %} {% if income_transactions %} {% for transaction in
+      income_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
+        data-bs-target="#edit-transaction-{{ transaction.id }}">
+        <td>{{ transaction.description }}</td>
+        <td class="income">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Mortgage or Rent Section -->
@@ -98,21 +98,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set mortgage_transactions = transactions|selectattr('type_id', 'equalto', 2)|list %}
-      {% if mortgage_transactions %}
-        {% for transaction in mortgage_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set mortgage_transactions = transactions|selectattr('type_id',
+      'equalto', 2)|list %} {% if mortgage_transactions %} {% for transaction in
+      mortgage_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense mortgage">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense mortgage">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Utilities & Council Tax -->
@@ -131,21 +131,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set utilities_transactions = transactions|selectattr('type_id', 'equalto', 3)|list %}
-      {% if utilities_transactions %}
-        {% for transaction in utilities_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set utilities_transactions = transactions|selectattr('type_id',
+      'equalto', 3)|list %} {% if utilities_transactions %} {% for transaction
+      in utilities_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense utility">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense utility">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Transport Section -->
@@ -164,21 +164,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set transport_transactions = transactions|selectattr('type_id', 'equalto', 4)|list %}
-      {% if transport_transactions %}
-        {% for transaction in transport_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set transport_transactions = transactions|selectattr('type_id',
+      'equalto', 4)|list %} {% if transport_transactions %} {% for transaction
+      in transport_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense transport">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense transport">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Unsecured Debt Section -->
@@ -197,21 +197,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set unsecured_transactions = transactions|selectattr('type_id', 'equalto', 5)|list %}
-      {% if unsecured_transactions %}
-        {% for transaction in unsecured_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set unsecured_transactions = transactions|selectattr('type_id',
+      'equalto', 5)|list %} {% if unsecured_transactions %} {% for transaction
+      in unsecured_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense unsecured">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense unsecured">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Communications Section -->
@@ -230,21 +230,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set communications_transactions = transactions|selectattr('type_id', 'equalto', 6)|list %}
-      {% if communications_transactions %}
-        {% for transaction in communications_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set communications_transactions = transactions|selectattr('type_id',
+      'equalto', 6)|list %} {% if communications_transactions %} {% for
+      transaction in communications_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense comms">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense comms">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Insurance Section -->
@@ -263,21 +263,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set insurance_transactions = transactions|selectattr('type_id', 'equalto', 7)|list %}
-      {% if insurance_transactions %}
-        {% for transaction in insurance_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set insurance_transactions = transactions|selectattr('type_id',
+      'equalto', 7)|list %} {% if insurance_transactions %} {% for transaction
+      in insurance_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense insurance">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense insurance">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Childcare Section -->
@@ -294,21 +294,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set childcare_transactions = transactions|selectattr('type_id', 'equalto', 8)|list %}
-      {% if childcare_transactions %}
-        {% for transaction in childcare_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set childcare_transactions = transactions|selectattr('type_id',
+      'equalto', 8)|list %} {% if childcare_transactions %} {% for transaction
+      in childcare_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense childcare">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense childcare">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Shopping Section -->
@@ -325,21 +325,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set shopping_transactions = transactions|selectattr('type_id', 'equalto', 9)|list %}
-      {% if shopping_transactions %}
-        {% for transaction in shopping_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set shopping_transactions = transactions|selectattr('type_id',
+      'equalto', 9)|list %} {% if shopping_transactions %} {% for transaction in
+      shopping_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense shopping">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense shopping">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Savings Section -->
@@ -358,21 +358,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set savings_transactions = transactions|selectattr('type_id', 'equalto', 10)|list %}
-      {% if savings_transactions %}
-        {% for transaction in savings_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set savings_transactions = transactions|selectattr('type_id',
+      'equalto', 10)|list %} {% if savings_transactions %} {% for transaction in
+      savings_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense savings">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense savings">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Other Section -->
@@ -391,21 +391,21 @@ endblock %} {% block content %}
       </tr>
     </thead>
     <tbody>
-      {% set other_transactions = transactions|selectattr('type_id', 'equalto', 11)|list %}
-      {% if other_transactions %}
-        {% for transaction in other_transactions %}
-        <tr class="transaction-row" data-bs-toggle="modal"
+      {% set other_transactions = transactions|selectattr('type_id', 'equalto',
+      11)|list %} {% if other_transactions %} {% for transaction in
+      other_transactions %}
+      <tr
+        class="transaction-row"
+        data-bs-toggle="modal"
         data-bs-target="#edit-transaction-{{ transaction.id }}">
-          <td>{{ transaction.description }}</td>
-          <td class="expense other">{{ transaction.amount }}</td>
-          <td>{{ transaction.day_of_month }}</td>
-        </tr>
-        {% include 'edit_transaction_modal.html' %}
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td colspan="3">Nothing to see here, try adding a transaction</td>
-        </tr>
+        <td>{{ transaction.description }}</td>
+        <td class="expense other">{{ transaction.amount }}</td>
+        <td>{{ transaction.day_of_month }}</td>
+      </tr>
+      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">Nothing to see here, try adding a transaction</td>
+      </tr>
       {% endif %}
     </tbody>
     <!-- Totals Section -->
@@ -431,12 +431,75 @@ endblock %} {% block content %}
   </table>
 </section>
 
-<section class="container row mx-auto">
+<section class="container-fluid row p-0 m-0">
   <div class="col-12 col-md-8 mx-auto">
-    <h3 class="budget-page-headers">Insights</h3>
+    <div class="card card-body mb-3">
+      <h3 class="budget-page-headers">Insights</h3>
+      <p class="card-text">
+        The pie chart below shows the percentage of your total income that is
+        spent on each category.
+      </p>
+      <p class="card-text">
+        The bar chart below shows the total amount spent on each category.
+      </p>
+      <p class="card-text">
+        Hover or click on the colors in the charts to see the category name or
+        refer to the key below.
+      </p>
+    </div>
+
+    <!-- Pie Chart -->
     <div class="col-12 mb-3 chart-container">
       <canvas id="pie-chart"></canvas>
     </div>
+
+    <!-- Colour Key -->
+    <div class="col-12 chart-container mb-5 text-center">
+      <a
+        href="#"
+        class="btn btn-primary mb-2"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse-key"
+        >Key</a
+      >
+      <div class="key-card collapse" id="collapse-key">
+        <div class="key-block mortgage-color">
+          <div class="key-block-inner">Mortgage or Rent</div>
+        </div>
+        <div class="key-block utilities-color">
+          <div class="key-block-inner">Utilities & Council Tax</div>
+        </div>
+        <div class="key-block transport-color">
+          <div class="key-block-inner">Transport</div>
+        </div>
+        <div class="key-block unsecured-color">
+          <div class="key-block-inner">Unsecured Debt</div>
+        </div>
+        <div class="key-block comms-color">
+          <div class="key-block-inner">Communications</div>
+        </div>
+        <div class="key-block insurance-color">
+          <div class="key-block-inner">Insurances</div>
+        </div>
+        <div class="key-block childcare-color">
+          <div class="key-block-inner">Childcare & School Fees</div>
+        </div>
+        <div class="key-block shopping-color">
+          <div class="key-block-inner">Shopping</div>
+        </div>
+        <div class="key-block savings-color">
+          <div class="key-block-inner">Savings & Investments</div>
+        </div>
+        <div class="key-block other-color">
+          <div class="key-block-inner">Other</div>
+        </div>
+        <div class="key-block disposable-color">
+          <div class="key-block-inner">Disposable Income</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar Chart -->
     <div class="col-12 chart-container">
       <canvas id="bar-chart"></canvas>
     </div>
@@ -444,11 +507,8 @@ endblock %} {% block content %}
 </section>
 
 <!-- Modals -->
-{% include 'rename_budget_modal.html' %}
-
-{% include 'delete_budget_modal.html' %}
-
-{% include 'add_transaction_modal.html' %}
+{% include 'rename_budget_modal.html' %} {% include 'delete_budget_modal.html'
+%} {% include 'add_transaction_modal.html' %}
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='js/budget.js') }}"></script>
