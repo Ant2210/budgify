@@ -76,7 +76,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="income currency">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -107,7 +107,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency mortgage">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -119,7 +119,7 @@ endblock %} {% block content %}
     <thead>
       <tr>
         <th class="section-head" colspan="3">
-          Utilities & Council Tax (gas, electric etc.)
+          Utilities & Council Tax (gas, electricity etc.)
         </th>
       </tr>
     </thead>
@@ -140,7 +140,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency utility">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -173,7 +173,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency transport">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -206,7 +206,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency unsecured">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -239,7 +239,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency comms">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -272,7 +272,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency insurance">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -303,7 +303,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency childcare">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -334,7 +334,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency shopping">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -367,7 +367,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency savings">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>
@@ -400,7 +400,7 @@ endblock %} {% block content %}
         data-bs-target="#edit-transaction-{{ transaction.id }}">
         <td>{{ transaction.description }}</td>
         <td class="expense currency other">{{ transaction.amount }}</td>
-        <td>{{ transaction.day_of_month }}</td>
+        <td class="day-of-month">{{ transaction.day_of_month }}</td>
       </tr>
       {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
       <tr>

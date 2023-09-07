@@ -4,6 +4,7 @@ const allExpenses = document.getElementsByClassName("expense");
 const totalOut = document.getElementById("total-out");
 const disposableIncome = document.getElementById("disposable-income");
 const currencies = document.getElementsByClassName("currency");
+const dayOfMonths = document.getElementsByClassName("day-of-month");
 
 const outgoingsPieChart = document.getElementById("pie-chart");
 const outgoingsBarChart = document.getElementById("bar-chart");
@@ -241,4 +242,21 @@ let gbp = new Intl.NumberFormat("en-GB", {
 
 for (let currency of currencies) {
   currency.innerText = gbp.format(currency.innerText);
+}
+
+// Convert day of month to ordinal number - Adapted code found here https://shorturl.at/knZ18
+const numberToOrdinal = (n) => {
+  if (n % 10 === 1 && n % 100 !== 11) {
+    return `${n}st`;
+  } else if (n % 10 === 2 && n % 100 !== 12) {
+    return `${n}nd`;
+  } else if (n % 10 === 3 && n % 100 !== 13) {
+    return `${n}rd`;
+  } else {
+    return `${n}th`;
+  }
+};
+
+for (let dayOfMonth of dayOfMonths) {
+  dayOfMonth.innerText = numberToOrdinal(dayOfMonth.innerText);
 }
