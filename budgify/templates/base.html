@@ -77,7 +77,8 @@
               </li>
               <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+                <a class="nav-link" href="#" data-bs-toggle="modal"
+                data-bs-target="#logout-modal">Log Out</a>
               </li>
               <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
             </ul>
@@ -100,6 +101,8 @@
     {% endif %}
 
     <div class="content-container">{% block content %} {% endblock %}</div>
+
+    {% include 'logout_modal.html' %}
 
     <!-- Footer -->
     <footer class="container-fluid">
