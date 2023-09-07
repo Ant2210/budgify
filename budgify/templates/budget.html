@@ -431,6 +431,8 @@ endblock %} {% block content %}
   </table>
 </section>
 
+<!-- If no transactions don't show insights -->
+{% if transactions %}
 <!-- Insights Section -->
 <section class="container-fluid row p-0 m-0">
   <div class="col-12 col-md-8 mx-auto">
@@ -506,6 +508,7 @@ endblock %} {% block content %}
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- Modals -->
 {% include 'rename_budget_modal.html' %} {% include 'delete_budget_modal.html'
