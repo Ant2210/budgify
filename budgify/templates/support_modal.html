@@ -1,0 +1,73 @@
+<!-- Support Modal -->
+<div
+  class="modal fade"
+  id="support-modal"
+  tabindex="-1"
+  aria-labelledby="support-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5 mx-auto" id="support-modal-label">
+          Send us a message...
+        </h2>
+      </div>
+      <div class="modal-body text-center">
+        <p class="support-message">
+          Send a message to our helpful support team, we typically respond to all messages within 1 business day.
+        </p>
+        <div id="loader" class="spinner-border text-primary d-none" role="status">
+          <span class="d-none">Loading...</span>
+        </div>
+        <p id="success-message" class="d-none text-primary">Your message has been successfully sent and we will be in touch soon. This box will automatically close in <span id="countdown-timer">5</span>...</p>
+        <p id="error-message" class="d-none text-danger">Sorry, something went wrong. Please try again later.</p>
+        <form id="support-form" onsubmit="return sendMail(this)">
+          <!-- Name -->
+          <label for="name" class="form-label d-flex mb-1">Name</label>
+          <input
+            name="name"
+            id="name"
+            type="text"
+            class="form-control mb-3"
+            minlength="4"
+            maxlength="50"
+            required />
+          <!-- Email -->
+          <label for="email" class="form-label d-flex mb-1"
+            >Email Address</label
+          >
+          <input
+            name="email"
+            id="email"
+            type="email"
+            class="form-control mb-3"
+            minlength="4"
+            maxlength="100"
+            required />
+          <!-- Message -->
+          <label for="message" class="form-label d-flex mb-1">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="20"
+            rows="5"
+            minlength="10"
+            maxlength="300"
+            class="form-control mb-3"
+            required></textarea>
+          <!-- Submit/Cancel Button -->
+          <button type="submit" class="btn btn-primary add-budget-btn mb-2">
+            Send <i class="fa-regular fa-paper-plane"></i>
+          </button>
+          <button
+            type="button"
+            id="close-modal"
+            class="btn btn-secondary add-budget-btn mb-2"
+            data-bs-dismiss="modal">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
