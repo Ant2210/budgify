@@ -3,6 +3,7 @@ const totalIn = document.getElementById("total-in");
 const allExpenses = document.getElementsByClassName("expense");
 const totalOut = document.getElementById("total-out");
 const disposableIncome = document.getElementById("disposable-income");
+const currencies = document.getElementsByClassName("currency");
 
 const outgoingsPieChart = document.getElementById("pie-chart");
 const outgoingsBarChart = document.getElementById("bar-chart");
@@ -231,3 +232,13 @@ new Chart(outgoingsBarChart, {
     maintainAspectRatio: false, // Allow the aspect ratio to adjust
   },
 });
+
+// Convert amounts in budget table to currency format - Code found here https://shorturl.at/gjGW2
+let gbp = new Intl.NumberFormat("en-GB", {
+  style: "currency",
+  currency: "GBP",
+});
+
+for (let currency of currencies) {
+  currency.innerText = gbp.format(currency.innerText);
+}
