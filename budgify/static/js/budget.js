@@ -37,8 +37,9 @@ for (expense of allExpenses) {
 }
 // Set the total expenses in the budget table
 totalOut.innerText = expenseTotal;
+
 // Set the disposable income as the difference between income and expenses in the budget table
-totalDisposableIncome = incomeTotal - expenseTotal;
+let totalDisposableIncome = incomeTotal - expenseTotal;
 disposableIncome.innerText = incomeTotal - expenseTotal;
 
 /* Create a pie chart to show the percentage of income spent on each outgoing */
@@ -104,6 +105,9 @@ for (let other of others) {
   otherTotal += parseFloat(other.innerText);
 }
 
+// Total disposable income for pie chart, if figure is negative set to 0
+let totalDisposableIncomePie = totalDisposableIncome < 0 ? 0 : totalDisposableIncome;
+
 // Pie chart to show the percentage of income spent on each outgoing
 new Chart(outgoingsPieChart, {
   type: "pie",
@@ -135,7 +139,7 @@ new Chart(outgoingsPieChart, {
           shoppingTotal,
           savingsTotal,
           otherTotal,
-          totalDisposableIncome,
+          totalDisposableIncomePie,
         ],
         backgroundColor: [
           "#54a1e9",
