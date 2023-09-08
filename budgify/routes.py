@@ -229,6 +229,22 @@ def delete_transaction(username, budget_id, transaction_id):
     return redirect(url_for("budget", username=session["user"], budget_id=budget_id))
 
 
+@app.route("/profile/<username>")
+def profile(username):
+    # Check if the user is logged in
+    if "user" not in session:
+        flash("Please log in to view this page.")
+        return redirect(url_for("login"))
+
+    # Check if the user has permission to access this page
+    if session["user"] != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+    
+    # Pass the username as a variable to the "profile" template
+    return render_template("profile.html", username=username)
+
+
 # Add 404 error handler - Solution found here https://shorturl.at/HJLTZ
 @app.errorhandler(404)
 def page_not_found(e):

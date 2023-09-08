@@ -75,7 +75,7 @@
                   >My Budgets</a
                 >
               </li>
-              <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session.user) }}">Profile</a></li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="modal"
                 data-bs-target="#logout-modal">Log Out</a>
@@ -114,32 +114,33 @@
         <p>Contact us or follow us on social media</p>
         <ul>
           <li class="socials">
-            <a href="#" class="page-link"
+            <a href="#" class="page-link" data-bs-toggle="modal"
+            data-bs-target="#support-modal"
               ><i class="fa-solid fa-envelope"></i
             ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"
+            <a href="https://www.facebook.com/" target="_blank" class="page-link"
               ><i class="fa-brands fa-facebook"></i
             ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"
+            <a href="https://www.instagram.com/" target="_blank" class="page-link"
               ><i class="fa-brands fa-instagram"></i
             ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"
+            <a href="https://twitter.com/" target="_blank" class="page-link"
               ><i class="fa-brands fa-twitter"></i
             ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"
+            <a href="https://www.linkedin.com/" target="_blank" class="page-link"
               ><i class="fa-brands fa-linkedin"></i
             ></a>
           </li>
           <li class="socials">
-            <a href="#" class="page-link"
+            <a href="https://github.com/Ant2210/" target="_blank" class="page-link"
               ><i class="fa-brands fa-github"></i
             ></a>
           </li>
