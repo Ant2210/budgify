@@ -102,8 +102,13 @@ h2 {
 /* 404 Page */
 .not-found-message {
   color: var(--primary-color);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
+}
+
+#image-for-404{
+  max-height: 50vh;
+  max-width: 90vw;
 }
 
 /* Forms */
