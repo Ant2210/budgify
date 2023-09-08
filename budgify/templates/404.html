@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Budgify | Page Not Found{% endblock
+%} {% block content %}
+
+<section class="mt-5 text-center">
+  <h2 class="mb-5">
+    Sorry that page doesn't exist <i class="fa-regular fa-face-sad-tear"></i>
+  </h2>
+  <p class="not-found-message text-center">
+    Taking you back to safety in <span id="countdown-timer-404">5</span>...
+  </p>
+</section>
+
+<script src="{{ url_for('static', filename='js/404.js') }}"></script>
+{% endblock %}

@@ -227,3 +227,9 @@ def delete_transaction(username, budget_id, transaction_id):
     db.session.commit()
     flash("Transaction deleted successfully.")
     return redirect(url_for("budget", username=session["user"], budget_id=budget_id))
+
+
+# Add 404 error handler - Solution found here https://shorturl.at/HJLTZ
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
