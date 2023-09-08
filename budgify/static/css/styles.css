@@ -196,7 +196,7 @@ th, td {
   cursor: pointer;
 }
 
-.budget-page-headers {
+.card-headers {
   color: var(--primary-color);
   text-decoration: underline 3px var(--secondary-color);
 }
@@ -277,7 +277,9 @@ th, td {
   background-color: #fc7b3f;
 }
 
+
 /*** MEDIA QUERIES ***/
+/* Navbar */
 @media screen and (min-width: 992px) {
   .navbar-brand {
     position: absolute;
@@ -292,5 +294,18 @@ th, td {
     left: 0;
     margin-left: 20px;
     display: block;
+  }
+}
+
+/* Profile Page */
+@media screen and (min-width: 992px) {
+  .change-password-form {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .change-password-form {
+    width: 70%;
   }
 }

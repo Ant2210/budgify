@@ -1,0 +1,49 @@
+<!-- Delete Budget Modal -->
+<div
+  class="modal fade"
+  id="delete-account"
+  tabindex="-1"
+  aria-labelledby="delete-account-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2
+          class="modal-title fs-5 mx-auto text-danger"
+          id="delete-account-modal-label">
+          Warning!
+        </h2>
+      </div>
+      <div class="modal-body text-center">
+        <p>
+          Deleting your account will also delete <strong>ALL</strong> associated budgets and transactions. 
+        </p>
+        <p>
+          <strong>This action cannot be undone</strong>.
+        </p>
+        <p>  
+          If you still want to delete your account, please enter your password below and click "Yes, delete it!".
+        </p>
+        <form
+          method="POST"
+          action="{{ url_for('delete_account', username=session.user) }}">
+          <input
+          type="password"
+          class="form-control mb-3"
+          id="delete-account-password"
+          name="delete-account-password"
+          required />
+          <button
+            type="button"
+            class="btn btn-primary add-budget-btn mb-2"
+            data-bs-dismiss="modal">
+            No! Take me back!
+          </button>
+          <button type="submit" class="btn btn-danger add-budget-btn mb-2">
+            Yes, delete it!
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

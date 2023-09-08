@@ -245,6 +245,66 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
+@app.route("/change_password/<username>", methods=["POST"])
+def change_password(username):
+    # Check if the user is logged in
+    if "user" not in session:
+        flash("Please log in to view this page.")
+        return redirect(url_for("login"))
+
+    # Check if the user has permission to access this page
+    if session["user"] != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("budgets", username=session["user"]))
+
+    # Retrieve the user associated with the username
+    user = User.query.filter_by(username=username).first_or_404()
+
+    # Check if the old password matches
+    if not check_password_hash(user.password, request.form.get("current-password")):
+        flash("Incorrect Password")
+        return redirect(url_for("profile", username=username))
+
+    # Check if the new passwords match
+    if request.form.get("new-password") != request.form.get("confirm-new-password"):
+        flash("New Passwords do not match")
+        return redirect(url_for("profile", username=username))
+
+    # Update the password
+    user.password = generate_password_hash(request.form.get("new-password"))
+    db.session.commit()
+    flash("Password updated successfully.")
+    return redirect(url_for("profile", username=username))
+
+
+@app.route("/delete_account/<username>", methods=["POST"])
+def delete_account(username):
+    # Check if the user is logged in
+    if "user" not in session:
+        flash("Please log in to view this page.")
+        return redirect(url_for("login"))
+    
+    # Check if the user has permission to access this page
+    if session["user"] != username:
+        flash("You do not have permission to access this page.")
+        return redirect(url_for("profile", username=session["user"]))
+    
+    # Retrieve the user associated with the username
+    user = User.query.filter_by(username=username).first_or_404()
+
+    # Check if the old password matches
+    if not check_password_hash(user.password, request.form.get("delete-account-password")):
+        flash("Incorrect password, your account has not been deleted.")
+        return redirect(url_for("profile", username=username))
+    
+    # Delete the user
+    db.session.delete(user)
+    db.session.commit()
+    session.pop("user")
+    flash("Account deleted successfully, we are sorry to see you go.")
+    return redirect(url_for("home"))
+
+
 # Add 404 error handler - Solution found here https://shorturl.at/HJLTZ
 @app.errorhandler(404)
 def page_not_found(e):
