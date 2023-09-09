@@ -16,24 +16,24 @@
       </div>
       <div class="modal-body text-center">
         <p>
-          Deleting your account will also delete <strong>ALL</strong> associated budgets and transactions. 
+          Deleting your account will also delete <strong>ALL</strong> associated
+          budgets and transactions.
         </p>
+        <p><strong>This action cannot be undone</strong>.</p>
         <p>
-          <strong>This action cannot be undone</strong>.
-        </p>
-        <p>  
-          If you still want to delete your account, please enter your password below and click "Yes, delete it!".
+          If you still want to delete your account, please enter your password
+          below and click "Yes, delete it!".
         </p>
         <form
           method="POST"
           action="{{ url_for('delete_account', username=session.user) }}">
           <input
-          type="password"
-          class="form-control mb-3"
-          id="delete-account-password"
-          name="delete-account-password"
-          placeholder="Enter your password here..."
-          required />
+            type="password"
+            class="form-control mb-3"
+            id="delete-account-password"
+            name="delete-account-password"
+            placeholder="Enter your password here..."
+            required />
           <button
             type="button"
             class="btn btn-primary add-budget-btn mb-2"

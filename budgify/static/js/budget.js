@@ -108,22 +108,27 @@ for (let other of others) {
 // Total disposable income for pie chart, if figure is negative set to 0
 let totalDisposableIncomePie = totalDisposableIncome < 0 ? 0 : totalDisposableIncome;
 
+// Calculate the percentage of income spent on each outgoing
+const percentageOfIncome = (total) => {
+  return (total / expenseTotal * 100).toFixed(2) + "%";
+}
+
 // Pie chart to show the percentage of income spent on each outgoing
 new Chart(outgoingsPieChart, {
   type: "pie",
   data: {
     labels: [
-      "Mortgage or Rent",
-      "Utilities & Council Tax",
-      "Transport",
-      "Unsecured Debt",
-      "Communications",
-      "Insurances",
-      "Childcare & School Fees",
-      "Shopping",
-      "Savings & Investments",
-      "Other",
-      "Disposable Income",
+      "Mortgage or Rent " + percentageOfIncome(mortgageTotal),
+      "Utilities & Council Tax " + percentageOfIncome(utilityTotal),
+      "Transport " + percentageOfIncome(transportTotal),
+      "Unsecured Debt " + percentageOfIncome(unsecuredTotal),
+      "Communications " + percentageOfIncome(commsTotal),
+      "Insurances " + percentageOfIncome(insuranceTotal),
+      "Childcare & School Fees " + percentageOfIncome(childcareTotal),
+      "Shopping " + percentageOfIncome(shoppingTotal),
+      "Savings & Investments " + percentageOfIncome(savingsTotal),
+      "Other " + percentageOfIncome(otherTotal),
+      "Disposable Income " + percentageOfIncome(totalDisposableIncomePie),
     ],
     datasets: [
       {
