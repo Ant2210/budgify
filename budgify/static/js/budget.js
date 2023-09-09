@@ -108,12 +108,12 @@ for (let other of others) {
 // Total disposable income for pie chart, if figure is negative set to 0
 let totalDisposableIncomePie = totalDisposableIncome < 0 ? 0 : totalDisposableIncome;
 
-// Calculate the percentage of income spent on each outgoing
+// Calculate the percentage of income spent on each outgoing type
 const percentageOfIncome = (total) => {
   return (total / expenseTotal * 100).toFixed(2) + "%";
 }
 
-// Pie chart to show the percentage of income spent on each outgoing
+// Pie chart to show the percentage of income spent on each outgoing type
 new Chart(outgoingsPieChart, {
   type: "pie",
   data: {
