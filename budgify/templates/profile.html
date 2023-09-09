@@ -23,24 +23,16 @@
         <h3 class="card-headers mt-5 fs-5">Change Password</h3>
         <div class="change-password-form">
           <form method="POST" action="{{ url_for('change_password', username=session.user) }}">
-            <label for="current-password" class="form-label fw-medium">Current Password</label>
-            <div class="input-group mb-3">
-              <span class="input-group-text"
-                ><i class="fa-solid fa-user-lock text-primary"></i
-              ></span>
+            <!-- Current Password -->
+            <label for="current-password" class="form-label">Current password</label>
               <input
                 type="password"
-                class="form-control"
+                class="form-control mb-5"
                 id="current-password"
                 name="current-password"
                 required />
-              </div>
               <!-- New Password -->
-              <label for="new-password" class="form-label fw-medium">New Password</label>
-              <div class="input-group mb-3">
-                <span class="input-group-text"
-                  ><i class="fa-solid fa-user-lock text-primary"></i
-                ></span>
+              <label for="new-password" class="form-label ">Choose a new password</label>
                 <input
                   type="password"
                   class="form-control"
@@ -51,13 +43,12 @@
                   maxlength="25"
                   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                   required />
-                </div>
-                <div id="new-password-help" class="form-text mb-3">
+                <div id="new-password-help" class="form-text mb-1">
                   Must be at least 8 characters and contain at least 1 uppercase and 1
                   lowercase character as well as 1 number.
                 </div>
                 <!-- Confirm New Password -->
-                <label for="confirm-password" class="form-label fw-medium">Confirm New Password</label>
+                <label for="confirm-password" class="form-label">Confirm new password</label>
                   <input
                     type="password"
                     class="form-control mb-3"
