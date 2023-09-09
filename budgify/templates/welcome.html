@@ -18,29 +18,29 @@
 
 <section>
   <div class="container-fluid row m-0">
-    <div class="col-12 col-md-7">
+    <div class="col-12 col-md-6 my-auto">
       <div class="row">
         <img
           id="welcome-logo"
-          class="mx-auto mt-3"
+          class="mx-auto ps-0"
           src="{{ url_for('static', filename='images/logo.webp') }}"
           alt="Budgify Logo" />
       </div>
-      <div class="row py-5">
+      <div class="row py-4">
         <p id="tag-line" class="mx-auto fw-medium">
           A simple, yet powerful budgeting app. Create as many budgets as you
           like for the changing months, seasons and life events, and get
           insights into your spending.
         </p>
-        <a href="{{ url_for('login') }}" class="btn btn-primary w-50 mx-auto mt-5">Log In</a>
+        <a href="{{ url_for('login') }}" class="btn btn-primary w-50 mx-auto">Log In</a>
         <span class="mx-auto w-75 py-2 text-center fw-medium">Or</span>
         <a href="{{ url_for('register') }}" class="btn btn-success w-50 mx-auto">Register Free</a>
       </div>
     </div>
-    <div class="col-12 col-md-5 text-center">
+    <div class="col-12 col-md-6 text-center">
       <img
         id="welcome-image"
-        src="{{ url_for('static', filename='images/placeholder.PNG') }}"
+        src="{{ url_for('static', filename='images/budgettable.webp') }}"
         alt="placeholder" />
     </div>
   </div>
