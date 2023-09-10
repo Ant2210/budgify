@@ -28,8 +28,8 @@ class BudgetPlanner(db.Model):
             f"Budget Planner Id: {self.id}, "
             f"Name: {self.name}, "
             f"User Id: {self.user_id}"
-            )
-    
+        )
+
 
 class TransactionType(db.Model):
     # Schema for the TransactionType model
@@ -46,7 +46,8 @@ class Transaction(db.Model):
     description = db.Column(db.String(50), nullable=False)
     amount = db.Column(db.Numeric(10, 2), nullable=False)
     day_of_month = db.Column(db.Integer, nullable=False)
-    type_id = db.Column(db.Integer, db.ForeignKey('transaction_type.id'), nullable=False)
+    type_id = db.Column(db.Integer, db.ForeignKey(
+        'transaction_type.id'), nullable=False)
     budget_planner_id = db.Column(db.Integer, db.ForeignKey(
         'budget_planner.id', ondelete='CASCADE'), nullable=False)
 
