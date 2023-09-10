@@ -36,40 +36,7 @@ block content %}
   </div>
 </section>
 
-<!-- Add Budget Modal -->
-<div
-  class="modal fade"
-  id="add-budget-modal"
-  tabindex="-1"
-  aria-labelledby="add-budget-modal-label"
-  aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title fs-5 mx-auto" id="add-budget-modallabel">Choose a name for your budget...</h2>
-      </div>
-      <div class="modal-body text-center">
-        <form method="POST" action="{{ url_for('add_budget') }}">
-          <input
-            name="budget_name"
-            id="budget_name"
-            type="text"
-            class="validate form-control"
-            minlength="3"
-            maxlength="50"
-            required />
-            <div id="budget-name-help" class="form-text text-start mb-3">
-              Maximum of 50 characters.
-            </div>
-            <button type="submit" class="btn btn-primary add-budget-btn mb-2">Add Budget</button>
-            <button type="button" class="btn btn-secondary add-budget-btn mb-2" data-bs-dismiss="modal">
-              Cancel
-            </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+{% include "add_budget_modal.html" %}
 
 <script src="{{ url_for('static', filename='js/add-budget.js') }}"></script>
 
