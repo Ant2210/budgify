@@ -4,7 +4,7 @@
   // Listen for the modal's shown.bs.modal event using an arrow function
   addBudgetModal.addEventListener('shown.bs.modal', () => {
     // Get a reference to the input field
-    const inputField = document.getElementById('add_budget');
+    const inputField = document.getElementById('budget_name');
 
     // Set the focus on the input field
     inputField.focus();
