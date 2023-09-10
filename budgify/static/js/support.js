@@ -1,3 +1,7 @@
+/*
+ * This file contains the code for sending email to the support team using emailjs
+ */
+
 const loader = document.getElementById("loader");
 const supportEmailForm = document.getElementById("support-form");
 const successMessage = document.getElementById("success-message");
@@ -32,7 +36,7 @@ const sendMail = (supportForm) => {
             clearInterval(interval); // Stop the interval
             closeModalBtn.click(); // Close Modal
             successMessage.classList.add("d-none");
-            countdownTimer.innerHTML = "5"; // Clear the countdown timer
+            countdownTimer.innerHTML = "5"; // Reset the countdown timer
           }
         }, 1000);
       },
