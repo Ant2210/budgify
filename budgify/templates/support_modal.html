@@ -14,13 +14,23 @@
       </div>
       <div class="modal-body text-center">
         <p class="support-message">
-          Send a message to our helpful support team, we typically respond to all messages within 1 business day.
+          Send a message to our helpful support team, we typically respond to
+          all messages within 1 business day.
         </p>
-        <div id="loader" class="spinner-border text-primary d-none" role="status">
+        <div
+          id="loader"
+          class="spinner-border text-primary d-none"
+          role="status">
           <span class="d-none">Loading...</span>
         </div>
-        <p id="success-message" class="d-none text-primary">Your message has been successfully sent and we will be in touch soon. This box will automatically close in <span id="countdown-timer">5</span>...</p>
-        <p id="error-message" class="d-none text-danger">Sorry, something went wrong. Please try again later.</p>
+        <p id="success-message" class="d-none text-primary">
+          Your message has been successfully sent and we will be in touch soon.
+          This box will automatically close in
+          <span id="countdown-timer">5</span>...
+        </p>
+        <p id="error-message" class="d-none text-danger">
+          Sorry, something went wrong. Please try again later.
+        </p>
         <form id="support-form" onsubmit="return sendMail(this)">
           <!-- Name -->
           <label for="name" class="form-label d-flex mb-1">Name</label>
