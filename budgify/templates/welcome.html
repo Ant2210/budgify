@@ -1,49 +1,53 @@
 {% extends "base.html" %}
 
-{% block title %}Budgify | Welcome{% endblock %}
+{% block title %} Budgify | Welcome {% endblock %}
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class="flashes">
-      {% for message in messages %}
-        <li class="text-center text-danger p-0">
-          {{ message }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+          <li class="text-center text-danger p-0">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 
-<section>
-  <div class="container-fluid row m-0">
-    <div class="col-12 col-md-6 my-auto">
-      <div class="row">
+  <!-- Main Content -->
+  <section>
+    <div class="container-fluid row m-0">
+      <div class="col-12 col-md-6 my-auto">
+        <div class="row">
+          <img
+            id="welcome-logo"
+            class="mx-auto ps-0"
+            src="{{ url_for('static', filename='images/logo.webp') }}"
+            alt="Budgify Logo" />
+        </div>
+        <div class="row py-4">
+          <p class="mx-auto welcome-text">
+            A simple, yet powerful budgeting app. Create as many budgets as you
+            like for the changing months, seasons and life events, and get
+            insights into your spending.
+          </p>
+          <a href="{{ url_for('login') }}" class="btn btn-primary w-50 mx-auto"
+            >Log In</a
+          >
+          <span class="mx-auto w-75 py-2 text-center welcome-text">Or</span>
+          <a href="{{ url_for('register') }}" class="btn btn-success w-50 mx-auto"
+            >Register Free</a
+          >
+        </div>
+      </div>
+      <div class="col-12 col-md-6 text-center">
         <img
-          id="welcome-logo"
-          class="mx-auto ps-0"
-          src="{{ url_for('static', filename='images/logo.webp') }}"
-          alt="Budgify Logo" />
-      </div>
-      <div class="row py-4">
-        <p class="mx-auto welcome-text">
-          A simple, yet powerful budgeting app. Create as many budgets as you
-          like for the changing months, seasons and life events, and get
-          insights into your spending.
-        </p>
-        <a href="{{ url_for('login') }}" class="btn btn-primary w-50 mx-auto">Log In</a>
-        <span class="mx-auto w-75 py-2 text-center welcome-text">Or</span>
-        <a href="{{ url_for('register') }}" class="btn btn-success w-50 mx-auto">Register Free</a>
+          id="welcome-image"
+          src="{{ url_for('static', filename='images/budgettable.webp') }}"
+          alt="placeholder" />
       </div>
     </div>
-    <div class="col-12 col-md-6 text-center">
-      <img
-        id="welcome-image"
-        src="{{ url_for('static', filename='images/budgettable.webp') }}"
-        alt="placeholder" />
-    </div>
-  </div>
-</section>
+  </section>
 
 {% endblock %}
