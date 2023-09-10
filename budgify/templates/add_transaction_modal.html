@@ -13,7 +13,9 @@
         </h2>
       </div>
       <div class="modal-body text-center">
-        <form method="POST" action="{{ url_for('add_transaction', username=session.user, budget_id=budget.id) }}">
+        <form
+          method="POST"
+          action="{{ url_for('add_transaction', username=session.user, budget_id=budget.id) }}">
           <!-- Transaction Type -->
           <label for="transaction_type" class="form-label d-flex mb-1"
             >Type</label
@@ -25,9 +27,9 @@
             required>
             <option value="" disabled selected>Choose transaction type</option>
             {% for transaction_type in transaction_types %}
-            <option value="{{ transaction_type.id }}">
-              {{ transaction_type.name }}
-            </option>
+              <option value="{{ transaction_type.id }}">
+                {{ transaction_type.name }}
+              </option>
             {% endfor %}
           </select>
           <!-- Transaction Description -->
