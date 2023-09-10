@@ -8,7 +8,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5 mx-auto" id="add-budget-modallabel">Choose a name for your budget...</h2>
+        <h2 class="modal-title fs-5 mx-auto" id="add-budget-modallabel">
+          Choose a name for your budget...
+        </h2>
       </div>
       <div class="modal-body text-center">
         <form method="POST" action="{{ url_for('add_budget') }}">
@@ -20,13 +22,18 @@
             minlength="3"
             maxlength="50"
             required />
-            <div id="budget-name-help" class="form-text text-start mb-3">
-              Maximum of 50 characters.
-            </div>
-            <button type="submit" class="btn btn-primary add-budget-btn mb-2">Add Budget</button>
-            <button type="button" class="btn btn-secondary add-budget-btn mb-2" data-bs-dismiss="modal">
-              Cancel
-            </button>
+          <div id="budget-name-help" class="form-text text-start mb-3">
+            Maximum of 50 characters.
+          </div>
+          <button type="submit" class="btn btn-primary add-budget-btn mb-2">
+            Add Budget
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary add-budget-btn mb-2"
+            data-bs-dismiss="modal">
+            Cancel
+          </button>
         </form>
       </div>
     </div>
