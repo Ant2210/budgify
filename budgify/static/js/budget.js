@@ -113,140 +113,148 @@ for (let other of others) {
 // Total disposable income for pie chart, if figure is negative set to 0
 let totalDisposableIncomePie = totalDisposableIncome < 0 ? 0 : totalDisposableIncome;
 
-// Calculate the percentage of income spent on each outgoing type
+// Calculate the percentage of income spent on each outgoing type, if no income return "No income provided"
 const percentageOfIncome = (total) => {
+  if (incomeTotal === 0) {
+    return "- No income provided";
+  } else {
   return (total / incomeTotal * 100).toFixed(2) + "%";
+  }
 }
 
-// Pie chart to show the percentage of income spent on each outgoing type
-new Chart(outgoingsPieChart, {
-  type: "pie",
-  data: {
-    labels: [
-      "Mortgage or Rent " + percentageOfIncome(mortgageTotal),
-      "Utilities & Council Tax " + percentageOfIncome(utilityTotal),
-      "Transport " + percentageOfIncome(transportTotal),
-      "Unsecured Debt " + percentageOfIncome(unsecuredTotal),
-      "Communications " + percentageOfIncome(commsTotal),
-      "Insurances " + percentageOfIncome(insuranceTotal),
-      "Childcare & School Fees " + percentageOfIncome(childcareTotal),
-      "Shopping " + percentageOfIncome(shoppingTotal),
-      "Savings & Investments " + percentageOfIncome(savingsTotal),
-      "Other " + percentageOfIncome(otherTotal),
-      "Disposable Income " + percentageOfIncome(totalDisposableIncomePie),
-    ],
-    datasets: [
-      {
-        label: "Outgoings",
-        data: [
-          mortgageTotal,
-          utilityTotal,
-          transportTotal,
-          unsecuredTotal,
-          commsTotal,
-          insuranceTotal,
-          childcareTotal,
-          shoppingTotal,
-          savingsTotal,
-          otherTotal,
-          totalDisposableIncomePie,
-        ],
-        backgroundColor: [
-          "#54a1e9",
-          "#e851e3",
-          "#f5dd05",
-          "#0000ff",
-          "#187002",
-          "#00ff00",
-          "#acb52b",
-          "#7308a5",
-          "#ff0000",
-          "#00aeae",
-          "#fc7b3f",
-        ],
-        hoverOffset: 4,
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      legend: {
-        display: false, // Hide the legend
-      },
+// Create a pie chart and bar chart with insights if there is any income or expenses in the budget table
+if (incomeTotal > 0 || expenseTotal > 0) {
+  // Pie chart to show the percentage of income spent on each outgoing type
+  new Chart(outgoingsPieChart, {
+    type: "pie",
+    data: {
+      labels: [
+        "Mortgage or Rent " + percentageOfIncome(mortgageTotal),
+        "Utilities & Council Tax " + percentageOfIncome(utilityTotal),
+        "Transport " + percentageOfIncome(transportTotal),
+        "Unsecured Debt " + percentageOfIncome(unsecuredTotal),
+        "Communications " + percentageOfIncome(commsTotal),
+        "Insurances " + percentageOfIncome(insuranceTotal),
+        "Childcare & School Fees " + percentageOfIncome(childcareTotal),
+        "Shopping " + percentageOfIncome(shoppingTotal),
+        "Savings & Investments " + percentageOfIncome(savingsTotal),
+        "Other " + percentageOfIncome(otherTotal),
+        "Disposable Income " + percentageOfIncome(totalDisposableIncomePie),
+      ],
+      datasets: [
+        {
+          label: "Outgoings",
+          data: [
+            mortgageTotal,
+            utilityTotal,
+            transportTotal,
+            unsecuredTotal,
+            commsTotal,
+            insuranceTotal,
+            childcareTotal,
+            shoppingTotal,
+            savingsTotal,
+            otherTotal,
+            totalDisposableIncomePie,
+          ],
+          backgroundColor: [
+            "#54a1e9",
+            "#e851e3",
+            "#f5dd05",
+            "#0000ff",
+            "#187002",
+            "#00ff00",
+            "#acb52b",
+            "#7308a5",
+            "#ff0000",
+            "#00aeae",
+            "#fc7b3f",
+          ],
+          hoverOffset: 4,
+        },
+      ],
     },
-    responsive: true, // Make the chart responsive
-    maintainAspectRatio: false, // Allow the aspect ratio to adjust
-  },
-});
+    options: {
+      plugins: {
+        legend: {
+          display: false, // Hide the legend
+        },
+      },
+      responsive: true, // Make the chart responsive
+      maintainAspectRatio: false, // Allow the aspect ratio to adjust
+    },
+  });
 
-// Bar chart to show the total of each outgoing
-new Chart(outgoingsBarChart, {
-  type: "bar",
-  data: {
-    labels: [
-      "Mortgage or Rent",
-      "Utilities & Council Tax",
-      "Transport",
-      "Unsecured Debt",
-      "Communications",
-      "Insurances",
-      "Childcare & School Fees",
-      "Shopping",
-      "Savings & Investments",
-      "Other",
-      "Disposable Income",
-    ],
-    datasets: [
-      {
-        label: "",
-        data: [
-          mortgageTotal,
-          utilityTotal,
-          transportTotal,
-          unsecuredTotal,
-          commsTotal,
-          insuranceTotal,
-          childcareTotal,
-          shoppingTotal,
-          savingsTotal,
-          otherTotal,
-          totalDisposableIncome,
-        ],
-        backgroundColor: [
-          "#54a1e9",
-          "#e851e3",
-          "#f5dd05",
-          "#0000ff",
-          "#187002",
-          "#00ff00",
-          "#acb52b",
-          "#7308a5",
-          "#ff0000",
-          "#00aeae",
-          "#fc7b3f",
-        ],
-        hoverOffset: 4,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      x: {
-        display: false, // Hide x-axis labels
-      },
-      y: {
-        display: true, // Hide y-axis labels
-      },
+  // Bar chart to show the total of each outgoing
+  new Chart(outgoingsBarChart, {
+    type: "bar",
+    data: {
+      labels: [
+        "Mortgage or Rent",
+        "Utilities & Council Tax",
+        "Transport",
+        "Unsecured Debt",
+        "Communications",
+        "Insurances",
+        "Childcare & School Fees",
+        "Shopping",
+        "Savings & Investments",
+        "Other",
+        "Disposable Income",
+      ],
+      datasets: [
+        {
+          label: "",
+          data: [
+            mortgageTotal,
+            utilityTotal,
+            transportTotal,
+            unsecuredTotal,
+            commsTotal,
+            insuranceTotal,
+            childcareTotal,
+            shoppingTotal,
+            savingsTotal,
+            otherTotal,
+            totalDisposableIncome,
+          ],
+          backgroundColor: [
+            "#54a1e9",
+            "#e851e3",
+            "#f5dd05",
+            "#0000ff",
+            "#187002",
+            "#00ff00",
+            "#acb52b",
+            "#7308a5",
+            "#ff0000",
+            "#00aeae",
+            "#fc7b3f",
+          ],
+          hoverOffset: 4,
+        },
+      ],
     },
-    plugins: {
-      legend: {
-        display: false, // Hide the top-level title
+    options: {
+      scales: {
+        x: {
+          display: false, // Hide x-axis labels
+        },
+        y: {
+          display: true, // Hide y-axis labels
+        },
       },
+      plugins: {
+        legend: {
+          display: false, // Hide the top-level title
+        },
+      },
+      responsive: true, // Make the chart responsive
+      maintainAspectRatio: false, // Allow the aspect ratio to adjust
     },
-    responsive: true, // Make the chart responsive
-    maintainAspectRatio: false, // Allow the aspect ratio to adjust
-  },
-});
+  });
+
+}
 
 // Convert amounts in budget table to currency format - Code found here https://shorturl.at/gjGW2
 let gbp = new Intl.NumberFormat("en-GB", {
