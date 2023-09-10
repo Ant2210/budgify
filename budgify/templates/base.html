@@ -2,153 +2,169 @@
 <html lang="en">
   <head>
     <!-- Boiler plate meta tags -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- Search engine specific Meta Tags & Links -->
-    <meta name="description" content="A simple, yet powerful budgeting app. Create as many budgets as you like for the changing months, seasons and life events, and get insights into your spending.">
-    <meta name="keywords" content="budget, budgeting, savings, income and outgoings, money tracker, spending tracker, budget tracker">
-    <link rel="canonical" href="https://budgify-app-a7b562a0c28c.herokuapp.com/">
-    <meta name="robots" content="index, follow">
+    <meta
+      name="description"
+      content="A simple, yet powerful budgeting app. Create as many budgets as you like for the changing months, seasons and life events, and get insights into your spending."/>
+    <meta
+      name="keywords"
+      content="budget, budgeting, savings, income and outgoings, money tracker, spending tracker, budget tracker"/>
+    <link
+      rel="canonical"
+      href="https://budgify-app-a7b562a0c28c.herokuapp.com/"/>
+    <meta name="robots" content="index, follow"/>
 
     <!-- Social Media Integration for Facebook, LinkedIn & Google - Code from Abi Harrison Meta Tags Webinar - https://www.youtube.com/watch?v=t-4qqmikIqk -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Budgify">
-    <meta property="og:description"
-        content="A simple, yet powerful budgeting app. Create as many budgets as you like for the changing months, seasons and life events, and get insights into your spending.">
-    <meta name="image" property="og:image" content="{{ url_for('static', filename='images/logo.webp') }}">
-    <meta property="og:image:width" content="700">
-    <meta property="og:image:height" content="525">
-    <meta property="og:image:alt" content="Budgify Logo">
-    <meta property="og:url" content="https://budgify-app-a7b562a0c28c.herokuapp.com/">
-    <meta property="og:site_name" content="Budgify">
-    <meta name="author" content="Anthony Griffiths">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Budgify"/>
+    <meta
+      property="og:description"
+      content="A simple, yet powerful budgeting app. Create as many budgets as you like for the changing months, seasons and life events, and get insights into your spending."/>
+    <meta
+      name="image"
+      property="og:image"
+      content="{{ url_for('static', filename='images/logo.webp') }}"/>
+    <meta property="og:image:width" content="700"/>
+    <meta property="og:image:height" content="525"/>
+    <meta property="og:image:alt" content="Budgify Logo"/>
+    <meta
+      property="og:url"
+      content="https://budgify-app-a7b562a0c28c.herokuapp.com/"/>
+    <meta property="og:site_name" content="Budgify"/>
+    <meta name="author" content="Anthony Griffiths"/>
 
     <!-- Styling and CSS -->
     <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
-      type="text/css" />
+      type="text/css"/>
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       rel="stylesheet"
-      type="text/css" />
+      type="text/css"/>
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous" />
+      crossorigin="anonymous"/>
     <!-- Custom CSS -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/styles.css') }}"
-      type="text/css" />
+      type="text/css"/>
 
     <!-- Page Title & Favicon -->
     <title>{% block title %} {% endblock %}</title>
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ url_for('static', filename='images/favicon.ico') }}" />
+      href="{{ url_for('static', filename='images/favicon.ico') }}"/>
   </head>
   <body>
     <!-- Navbar -->
     {% if session.user %}
-    <nav class="navbar fixed-top navbar-expand-lg">
-      <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-          aria-label="Open Menu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand mx-auto" href="{{ url_for('home') }}">
-          <img
-            class="logo"
-            src="{{ url_for('static', filename='images/logo.webp') }}"
-            alt="Budgify Logo" />
-        </a>
-        <div
-          class="offcanvas offcanvas-start"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <div class="offcanvas-title" id="offcanvasNavbarLabel">
-              <img
-                class="logo"
-                src="{{ url_for('static', filename='images/logo.webp') }}"
-                alt="Budgify Logo" />
+      <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Open Menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand mx-auto" href="{{ url_for('home') }}">
+            <img
+              class="logo"
+              src="{{ url_for('static', filename='images/logo.webp') }}"
+              alt="Budgify Logo" />
+          </a>
+          <div
+            class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <div class="offcanvas-title" id="offcanvasNavbarLabel">
+                <img
+                  class="logo"
+                  src="{{ url_for('static', filename='images/logo.webp') }}"
+                  alt="Budgify Logo" />
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
             </div>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="{{ url_for('budgets', username=session.user) }}"
-                  >My Budgets</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="{{ url_for('profile', username=session.user) }}"
-                  >Profile</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#support-modal"
-                  >Support</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#logout-modal"
-                  >Log Out</a
-                >
-              </li>
-            </ul>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="{{ url_for('budgets', username=session.user) }}"
+                    >My Budgets</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="{{ url_for('profile', username=session.user) }}"
+                    >Profile</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#support-modal"
+                    >Support</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#logout-modal"
+                    >Log Out</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <!-- If hide_navbar is not set to True so this is now hidden on the welcome page -->
+      </nav>
+      <!-- If hide_navbar is not set to True so this is now hidden on the welcome page -->
     {% elif not hide_navbar %}
-    <nav id="no-nav" class="pt-3 fixed-top row text-center">
-      <div class="col-12 col-md-3">
-        <a class="mx-auto" href="{{ url_for('home') }}">
-          <img
-            class="no-nav-logo"
-            src="{{ url_for('static', filename='images/logo.webp') }}"
-            alt="Budgify Logo" />
-        </a>
-      </div>
-    </nav>
+      <nav id="no-nav" class="pt-3 fixed-top row text-center">
+        <div class="col-12 col-md-3">
+          <a class="mx-auto" href="{{ url_for('home') }}">
+            <img
+              class="no-nav-logo"
+              src="{{ url_for('static', filename='images/logo.webp') }}"
+              alt="Budgify Logo" />
+          </a>
+        </div>
+      </nav>
     {% endif %}
 
-    <div class="content-container">{% block content %} {% endblock %}</div>
+    <div class="content-container">
+      {% block content %} {% endblock %}
+    </div>
 
-    {% include 'logout_modal.html' %} {% include 'support_modal.html' %}
+    {% include 'logout_modal.html' %}
+    
+    {% include 'support_modal.html' %}
 
     <!-- Footer -->
     <footer class="container-fluid">
@@ -207,21 +223,23 @@
       <div class="col-12 text-center disclaimer">
         <p>
           This website is for educational purposes only and does not represent a
-          real company. <br />© Anthony Griffiths 2023. All Rights Reserved.
+          real company. <br>© Anthony Griffiths 2023. All Rights Reserved.
         </p>
       </div>
     </footer>
 
+    <!-- Scripts -->
     <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous">
+    </script>
     <!-- Email JS -->
     <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script>
       (function () {
         emailjs.init("EfZCNFX08xgO5f9eZ");
       })();
