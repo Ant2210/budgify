@@ -1,15 +1,22 @@
-{% extends "base.html" %} {% block title %}Budgify | Page Not Found{% endblock
-%} {% block content %}
+{% extends "base.html" %}
 
-<section class="text-center">
-  <h2 class="my-3">
-    Sorry that page doesn't exist <i class="fa-regular fa-face-sad-tear"></i>
-  </h2>
-  <p class="not-found-message text-center">
-    Taking you back to safety in <span id="countdown-timer-404">5</span>...
-  </p>
-  <img id="image-for-404" src="{{ url_for('static', filename='images/404.webp') }}" alt="404 Image">
-</section>
+{% block title %} Budgify | Page Not Found {% endblock %}
 
-<script src="{{ url_for('static', filename='js/404.js') }}"></script>
+{% block content %}
+
+  <section class="text-center">
+    <h2 class="my-3">
+      Sorry that page doesn't exist <i class="fa-regular fa-face-sad-tear"></i>
+    </h2>
+    <p class="not-found-message text-center">
+      Taking you back to safety in <span id="countdown-timer-404">5</span>...
+    </p>
+    <img
+      id="image-for-404"
+      src="{{ url_for('static', filename='images/404.webp') }}"
+      alt="404 Image" />
+  </section>
+
+  <script src="{{ url_for('static', filename='js/404.js') }}"></script>
+
 {% endblock %}
