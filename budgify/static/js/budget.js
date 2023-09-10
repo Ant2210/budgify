@@ -38,8 +38,13 @@ for (expense of allExpenses) {
 // Set the total expenses in the budget table
 totalOut.innerText = expenseTotal;
 
-// Set the disposable income as the difference between income and expenses in the budget table
+// Set the disposable income as the difference between income and expenses in the budget table, if the figure is positive the text will display in green, if negative it will display in red
 let totalDisposableIncome = incomeTotal - expenseTotal;
+if (totalDisposableIncome < 0) {
+  disposableIncome.classList.add("text-danger");
+} else {
+  disposableIncome.classList.add("text-success");
+}
 disposableIncome.innerText = incomeTotal - expenseTotal;
 
 /* Create a pie chart to show the percentage of income spent on each outgoing */
@@ -110,7 +115,7 @@ let totalDisposableIncomePie = totalDisposableIncome < 0 ? 0 : totalDisposableIn
 
 // Calculate the percentage of income spent on each outgoing type
 const percentageOfIncome = (total) => {
-  return (total / expenseTotal * 100).toFixed(2) + "%";
+  return (total / incomeTotal * 100).toFixed(2) + "%";
 }
 
 // Pie chart to show the percentage of income spent on each outgoing type
