@@ -1,3 +1,12 @@
+/*
+ * This file contains the code to create the pie chart and bar chart
+ * to show the percentage of income spent on each outgoing type and the
+ * total of each outgoing type. It also contains the code to convert the
+ * amounts in the budget table to currency format and the code to convert
+ * the day of month to ordinal number.
+ */
+
+// Create variables to store the elements from the budget page
 const allIncome = document.getElementsByClassName("income");
 const totalIn = document.getElementById("total-in");
 const allExpenses = document.getElementsByClassName("expense");
@@ -19,9 +28,11 @@ const shoppings = document.getElementsByClassName("shopping");
 const savings = document.getElementsByClassName("savings");
 const others = document.getElementsByClassName("other");
 
-/* Get the total income and expenses from the budget table and set
-the values of total in, total out and difference 
-*/
+/*
+ * Get the total income and expenses from the budget table and set
+ * the values of total in, total out and difference
+ */
+
 // Get the total income from budget table
 let incomeTotal = 0;
 for (let income of allIncome) {
@@ -38,7 +49,9 @@ for (expense of allExpenses) {
 // Set the total expenses in the budget table
 totalOut.innerText = expenseTotal;
 
-// Set the disposable income as the difference between income and expenses in the budget table, if the figure is positive the text will display in green, if negative it will display in red
+// Set the disposable income as the difference between income and expenses
+// in the budget table, if the figure is positive the text will display
+// in green, if negative it will display in red.
 let totalDisposableIncome = incomeTotal - expenseTotal;
 if (totalDisposableIncome < 0) {
   disposableIncome.classList.add("text-danger");
@@ -47,7 +60,9 @@ if (totalDisposableIncome < 0) {
 }
 disposableIncome.innerText = incomeTotal - expenseTotal;
 
-/* Create a pie chart to show the percentage of income spent on each outgoing */
+/*
+ * Create a pie chart to show the percentage of income spent on each outgoing
+ */
 
 // Get the total of each outgoing
 // Total of all expenses with the class name mortgage
@@ -111,18 +126,21 @@ for (let other of others) {
 }
 
 // Total disposable income for pie chart, if figure is negative set to 0
-let totalDisposableIncomePie = totalDisposableIncome < 0 ? 0 : totalDisposableIncome;
+let totalDisposableIncomePie =
+  totalDisposableIncome < 0 ? 0 : totalDisposableIncome;
 
-// Calculate the percentage of income spent on each outgoing type, if no income return "No income provided"
+// Calculate the percentage of income spent on each outgoing type, if
+// no income return "No income provided"
 const percentageOfIncome = (total) => {
   if (incomeTotal === 0) {
     return "- No income provided";
   } else {
-  return (total / incomeTotal * 100).toFixed(2) + "%";
+    return ((total / incomeTotal) * 100).toFixed(2) + "%";
   }
-}
+};
 
-// Create a pie chart and bar chart with insights if there is any income or expenses in the budget table
+// Create a pie chart and bar chart with insights if there is any income
+// or expenses in the budget table
 if (incomeTotal > 0 || expenseTotal > 0) {
   // Pie chart to show the percentage of income spent on each outgoing type
   new Chart(outgoingsPieChart, {
@@ -253,10 +271,10 @@ if (incomeTotal > 0 || expenseTotal > 0) {
       maintainAspectRatio: false, // Allow the aspect ratio to adjust
     },
   });
-
 }
 
-// Convert amounts in budget table to currency format - Code found here https://shorturl.at/gjGW2
+// Convert amounts in budget table to currency format
+// Code found here https://shorturl.at/gjGW2
 let gbp = new Intl.NumberFormat("en-GB", {
   style: "currency",
   currency: "GBP",
@@ -266,7 +284,8 @@ for (let currency of currencies) {
   currency.innerText = gbp.format(currency.innerText);
 }
 
-// Convert day of month to ordinal number - Adapted code found here https://shorturl.at/knZ18
+// Convert day of month to ordinal number
+// Adapted code found here https://shorturl.at/knZ18
 const numberToOrdinal = (n) => {
   if (n % 10 === 1 && n % 100 !== 11) {
     return `${n}st`;
