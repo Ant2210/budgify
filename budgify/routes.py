@@ -34,7 +34,7 @@ def register():
 
             # Log in new user
             session["user"] = request.form.get("username").lower()
-            flash("Registration Successful, let's create your first budget!")
+            flash("Registration successful, let's create your first budget!")
             return redirect(url_for("budgets", username=session["user"]))
 
         return render_template("register.html")
@@ -58,12 +58,12 @@ def login():
                 return redirect(url_for("budgets", username=session["user"]))
             else:
                 # Invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect username and/or password")
                 return redirect(url_for("login"))
             
         else:
             # Username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect username and/or password")
             return redirect(url_for("login"))
             
     return render_template("login.html")
@@ -72,7 +72,7 @@ def login():
 @app.route("/logout")
 def logout():
     # Remove the user from the session
-    flash("You have been logged out")
+    flash("You have been logged out, come back again soon!")
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -262,7 +262,7 @@ def change_password(username):
 
     # Check if the old password matches
     if not check_password_hash(user.password, request.form.get("current-password")):
-        flash("Incorrect Password")
+        flash("Incorrect password, your password has not been updated.")
         return redirect(url_for("profile", username=username))
 
     # Update the password
@@ -296,7 +296,7 @@ def delete_account(username):
     db.session.delete(user)
     db.session.commit()
     session.pop("user")
-    flash("Account deleted successfully, we are sorry to see you go.")
+    flash("Account deleted successfully, we're sorry to see you go.")
     return redirect(url_for("home"))
 
 

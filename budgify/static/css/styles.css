@@ -183,6 +183,7 @@ h2 {
 
 .card-container {
   width: fit-content;
+  width: -moz-fit-content;
 }
 
 /* BUDGET PAGE */
@@ -225,6 +226,7 @@ th, td {
 
 .key-block {
   width: fit-content;
+  width: -moz-fit-content;
   display: inline-block;
   background-color: red;
   padding: 0.5rem;
@@ -234,6 +236,7 @@ th, td {
 
 .key-block-inner {
   width: fit-content;
+  width: -moz-fit-content;
   padding: 0.25rem 0.35rem;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
