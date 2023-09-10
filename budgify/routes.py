@@ -265,13 +265,8 @@ def change_password(username):
         flash("Incorrect Password")
         return redirect(url_for("profile", username=username))
 
-    # Check if the new passwords match
-    if request.form.get("new-password") != request.form.get("confirm-new-password"):
-        flash("New Passwords do not match")
-        return redirect(url_for("profile", username=username))
-
     # Update the password
-    user.password = generate_password_hash(request.form.get("new-password"))
+    user.password = generate_password_hash(request.form.get("password"))
     db.session.commit()
     flash("Password updated successfully.")
     return redirect(url_for("profile", username=username))

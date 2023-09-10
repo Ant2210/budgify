@@ -32,18 +32,18 @@
                 name="current-password"
                 required />
               <!-- New Password -->
-              <label for="new-password" class="form-label ">Choose a new password</label>
+              <label for="password" class="form-label ">Choose a new password</label>
                 <input
                   type="password"
                   class="form-control"
-                  id="new-password"
-                  name="new-password"
+                  id="password"
+                  name="password"
                   aria-describedby="new-password-help"
                   minlength="8"
                   maxlength="25"
                   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                   required />
-                <div id="new-password-help" class="form-text mb-1">
+                <div id="password-help" class="form-text mb-1">
                   Must be at least 8 characters and contain at least 1 uppercase and 1
                   lowercase character as well as 1 number.
                 </div>
@@ -52,8 +52,8 @@
                   <input
                     type="password"
                     class="form-control mb-3"
-                    id="confirm-new-password"
-                    name="confirm-new-password"
+                    id="confirm-password"
+                    name="confirm-password"
                     required />
                     <button type="submit" class="btn btn-primary">
                       Change Password
@@ -65,5 +65,7 @@
   </section>
   
   {% include 'delete_account_modal.html' %}
+
+  <script src="{{ url_for('static', filename='js/confirmpwd.js') }}"></script>
 
   {% endblock %}
