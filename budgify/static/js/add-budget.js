@@ -1,3 +1,6 @@
+  /* 
+  *Set the focus to the input field when the modal is shown
+  */
   // Get a reference to the modal element
   const addBudgetModal = document.getElementById('add-budget-modal');
 
