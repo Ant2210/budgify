@@ -33,7 +33,7 @@ def register():
             db.session.commit()
 
             # Log in new user
-            session["user"] = request.form.get("username")
+            session["user"] = request.form.get("username").lower()
             flash("Registration Successful, let's create your first budget!")
             return redirect(url_for("budgets", username=session["user"]))
 
