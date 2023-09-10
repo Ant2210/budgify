@@ -157,13 +157,14 @@
         </div>
       </nav>
     {% endif %}
-
+    
+    <!-- Content -->
     <div class="content-container">
       {% block content %} {% endblock %}
     </div>
 
-    {% include 'logout_modal.html' %}
-    
+    <!-- Modals -->
+    {% include 'logout_modal.html' %}    
     {% include 'support_modal.html' %}
 
     <!-- Footer -->

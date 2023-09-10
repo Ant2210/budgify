@@ -1,519 +1,547 @@
-{% extends "base.html" %} {% block title %}Budgify | {{ budget.name }} {%
-endblock %} {% block content %}
+{% extends "base.html" %}
 
-<h2>{{ budget.name|title }}</h2>
+{% block title %} Budgify | {{ budget.name }} {% endblock %}
 
-{% with messages = get_flashed_messages() %} {% if messages %}
-<ul class="flashes">
-  {% for message in messages %}
-  <li class="text-center text-primary fw-medium p-0">{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %} {% endwith %}
+{% block content %}
 
-<!-- Budget Management Section -->
-<section>
-  <div class="card col-12 col-md-8 mx-auto my-3">
-    <div class="card-body">
-      <h3 class="card-headers">Budget Management</h3>
-      <p class="card-text">
-        Make changes to your budget with ease using the buttons below. You can
-        add a new transaction, update your budget's name, or remove the budget
-        entirely. You can also edit or delete any of the transactions below by
-        clicking on them.
-      </p>
-      <div class="text-center">
-        <a
-          href="#"
-          class="btn btn-success mb-2"
-          data-bs-toggle="modal"
-          data-bs-target="#add-transaction-{{ budget.id }}"
-          >Add Transaction</a
-        >
-        <a
-          href="#"
-          class="btn btn-primary mb-2"
-          data-bs-toggle="modal"
-          data-bs-target="#rename-budget-{{ budget.id }}"
-          >Rename Budget</a
-        >
-        <a
-          href="#"
-          class="btn btn-danger mb-2"
-          data-bs-toggle="modal"
-          data-bs-target="#delete-budget-{{ budget.id }}"
-          >Delete Budget</a
-        >
-      </div>
-    </div>
-  </div>
-</section>
+  <h2>{{ budget.name|title }}</h2>
 
-<!-- Budget Table Section -->
-<section class="col-12 col-md-8 mx-auto">
-  <h3 class="card-headers">Budget Table</h3>
-  <table class="table table-hover">
-    <!-- Income Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">Income</th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set income_transactions = transactions|selectattr('type_id', 'equalto',
-      1)|list %} {% if income_transactions %} {% for transaction in
-      income_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="income currency">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Mortgage or Rent Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">Mortgage or Rent</th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set mortgage_transactions = transactions|selectattr('type_id',
-      'equalto', 2)|list %} {% if mortgage_transactions %} {% for transaction in
-      mortgage_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency mortgage">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Utilities & Council Tax -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">
-          Utilities & Council Tax (gas, electricity etc.)
-        </th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set utilities_transactions = transactions|selectattr('type_id',
-      'equalto', 3)|list %} {% if utilities_transactions %} {% for transaction
-      in utilities_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency utility">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Transport Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">
-          Transport (fuel, road tax, bus fares etc.)
-        </th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set transport_transactions = transactions|selectattr('type_id',
-      'equalto', 4)|list %} {% if transport_transactions %} {% for transaction
-      in transport_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency transport">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Unsecured Debt Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">
-          Unsecured Debt (loans, credit cards, overdrafts etc.)
-        </th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set unsecured_transactions = transactions|selectattr('type_id',
-      'equalto', 5)|list %} {% if unsecured_transactions %} {% for transaction
-      in unsecured_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency unsecured">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Communications Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">
-          Communications (telephone, broadband etc.)
-        </th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set communications_transactions = transactions|selectattr('type_id',
-      'equalto', 6)|list %} {% if communications_transactions %} {% for
-      transaction in communications_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency comms">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Insurance Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">
-          Insurances (home, life, gadget cover etc.)
-        </th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set insurance_transactions = transactions|selectattr('type_id',
-      'equalto', 7)|list %} {% if insurance_transactions %} {% for transaction
-      in insurance_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency insurance">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Childcare Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">Childcare & School Fees</th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set childcare_transactions = transactions|selectattr('type_id',
-      'equalto', 8)|list %} {% if childcare_transactions %} {% for transaction
-      in childcare_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency childcare">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Shopping Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">Shopping</th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set shopping_transactions = transactions|selectattr('type_id',
-      'equalto', 9)|list %} {% if shopping_transactions %} {% for transaction in
-      shopping_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency shopping">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Savings Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">
-          Savings & Investments (cash, pensions, ISAs etc.)
-        </th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set savings_transactions = transactions|selectattr('type_id',
-      'equalto', 10)|list %} {% if savings_transactions %} {% for transaction in
-      savings_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency savings">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Other Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">
-          Other (hobbies, entertainment, holidays etc.)
-        </th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% set other_transactions = transactions|selectattr('type_id', 'equalto',
-      11)|list %} {% if other_transactions %} {% for transaction in
-      other_transactions %}
-      <tr
-        class="transaction-row"
-        data-bs-toggle="modal"
-        data-bs-target="#edit-transaction-{{ transaction.id }}">
-        <td>{{ transaction.description }}</td>
-        <td class="expense currency other">{{ transaction.amount }}</td>
-        <td class="day-of-month">{{ transaction.day_of_month }}</td>
-      </tr>
-      {% include 'edit_transaction_modal.html' %} {% endfor %} {% else %}
-      <tr>
-        <td colspan="3">Nothing to see here, try adding a transaction</td>
-      </tr>
-      {% endif %}
-    </tbody>
-    <!-- Totals Section -->
-    <thead>
-      <tr>
-        <th class="section-head" colspan="3">Totals</th>
-      </tr>
-    </thead>
-    <thead class="table-group-divider">
-      <tr>
-        <th>Total In</th>
-        <th>Total Out</th>
-        <th>Disposable Income</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="total-in" class="currency">0</td>
-        <td id="total-out" class="currency">0</td>
-        <td id="disposable-income" class="currency">0</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+        <li class="text-center text-primary fw-medium p-0">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %} {% endwith %}
 
-<!-- If no transactions don't show insights -->
-{% if transactions %}
-<!-- Insights Section -->
-<section class="container-fluid row p-0 m-0">
-  <div class="col-12 col-md-8 mx-auto">
-    <div class="card card-body mb-3">
-      <h3 class="card-headers">Insights</h3>
-      <p class="card-text">
-        The pie chart below shows the percentage of your total income that is
-        spent on each category.
-      </p>
-      <p class="card-text">
-        The bar chart below shows the total amount spent on each category.
-      </p>
-      <p class="card-text">
-        Hover or click on the colors in the charts to see the category name or
-        refer to the key below.
-      </p>
-    </div>
-
-    <!-- Pie Chart -->
-    <div class="col-12 mb-3 chart-container">
-      <canvas id="pie-chart"></canvas>
-    </div>
-
-    <!-- Colour Key -->
-    <div class="col-12 chart-container mb-5 text-center">
-      <a
-        href="#"
-        class="btn btn-primary mb-2"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapse-key"
-        >Key</a
-      >
-      <div class="key-card collapse" id="collapse-key">
-        <div class="key-block mortgage-color">
-          <div class="key-block-inner">Mortgage or Rent</div>
-        </div>
-        <div class="key-block utilities-color">
-          <div class="key-block-inner">Utilities & Council Tax</div>
-        </div>
-        <div class="key-block transport-color">
-          <div class="key-block-inner">Transport</div>
-        </div>
-        <div class="key-block unsecured-color">
-          <div class="key-block-inner">Unsecured Debt</div>
-        </div>
-        <div class="key-block comms-color">
-          <div class="key-block-inner">Communications</div>
-        </div>
-        <div class="key-block insurance-color">
-          <div class="key-block-inner">Insurances</div>
-        </div>
-        <div class="key-block childcare-color">
-          <div class="key-block-inner">Childcare & School Fees</div>
-        </div>
-        <div class="key-block shopping-color">
-          <div class="key-block-inner">Shopping</div>
-        </div>
-        <div class="key-block savings-color">
-          <div class="key-block-inner">Savings & Investments</div>
-        </div>
-        <div class="key-block other-color">
-          <div class="key-block-inner">Other</div>
-        </div>
-        <div class="key-block disposable-color">
-          <div class="key-block-inner">Disposable Income</div>
+  <!-- Budget Management Section -->
+  <section>
+    <div class="card col-12 col-md-8 mx-auto my-3">
+      <div class="card-body">
+        <h3 class="card-headers">Budget Management</h3>
+        <p class="card-text">
+          Make changes to your budget with ease using the buttons below. You can
+          add a new transaction, update your budget's name, or remove the budget
+          entirely. You can also edit or delete any of the transactions below by
+          clicking on them.
+        </p>
+        <div class="text-center">
+          <a
+            href="#"
+            class="btn btn-success mb-2"
+            data-bs-toggle="modal"
+            data-bs-target="#add-transaction-{{ budget.id }}"
+            >Add Transaction</a
+          >
+          <a
+            href="#"
+            class="btn btn-primary mb-2"
+            data-bs-toggle="modal"
+            data-bs-target="#rename-budget-{{ budget.id }}"
+            >Rename Budget</a
+          >
+          <a
+            href="#"
+            class="btn btn-danger mb-2"
+            data-bs-toggle="modal"
+            data-bs-target="#delete-budget-{{ budget.id }}"
+            >Delete Budget</a
+          >
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Bar Chart -->
-    <div class="col-12 chart-container bar-chart">
-      <canvas id="bar-chart"></canvas>
-    </div>
-  </div>
-</section>
-{% endif %}
+  <!-- Budget Table Section -->
+  <section class="col-12 col-md-8 mx-auto">
+    <h3 class="card-headers">Budget Table</h3>
+    <table class="table table-hover">
+      <!-- Income Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">Income</th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set income_transactions = transactions|selectattr('type_id', 'equalto',1)|list %}
+          {% if income_transactions %} 
+            {% for transaction in income_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="income currency">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %} 
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Mortgage or Rent Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">Mortgage or Rent</th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set mortgage_transactions = transactions|selectattr('type_id', 'equalto', 2)|list %}
+          {% if mortgage_transactions %}
+            {% for transaction in mortgage_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency mortgage">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Utilities & Council Tax -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">
+            Utilities & Council Tax (gas, electricity etc.)
+          </th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set utilities_transactions = transactions|selectattr('type_id', 'equalto', 3)|list %}
+          {% if utilities_transactions %}
+            {% for transaction in utilities_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency utility">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Transport Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">
+            Transport (fuel, road tax, bus fares etc.)
+          </th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set transport_transactions = transactions|selectattr('type_id', 'equalto', 4)|list %}
+          {% if transport_transactions %}
+            {% for transaction in transport_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency transport">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Unsecured Debt Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">
+            Unsecured Debt (loans, credit cards, overdrafts etc.)
+          </th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set unsecured_transactions = transactions|selectattr('type_id', 'equalto', 5)|list %}
+          {% if unsecured_transactions %}
+            {% for transaction in unsecured_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency unsecured">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Communications Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">
+            Communications (telephone, broadband etc.)
+          </th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set communications_transactions = transactions|selectattr('type_id', 'equalto', 6)|list %}
+          {% if communications_transactions %} 
+            {% for transaction in communications_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency comms">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Insurance Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">
+            Insurances (home, life, gadget cover etc.)
+          </th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set insurance_transactions = transactions|selectattr('type_id', 'equalto', 7)|list %}
+          {% if insurance_transactions %}
+            {% for transaction in insurance_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency insurance">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Childcare Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">Childcare & School Fees</th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set childcare_transactions = transactions|selectattr('type_id', 'equalto', 8)|list %}
+          {% if childcare_transactions %}
+            {% for transaction in childcare_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency childcare">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Shopping Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">Shopping</th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set shopping_transactions = transactions|selectattr('type_id', 'equalto', 9)|list %}
+          {% if shopping_transactions %}
+            {% for transaction in shopping_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency shopping">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Savings Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">
+            Savings & Investments (cash, pensions, ISAs etc.)
+          </th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set savings_transactions = transactions|selectattr('type_id', 'equalto', 10)|list %}
+          {% if savings_transactions %}
+            {% for transaction in savings_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency savings">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Other Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">
+            Other (hobbies, entertainment, holidays etc.)
+          </th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set other_transactions = transactions|selectattr('type_id', 'equalto', 11)|list %}
+          {% if other_transactions %}
+            {% for transaction in other_transactions %}
+              <tr
+                class="transaction-row"
+                data-bs-toggle="modal"
+                data-bs-target="#edit-transaction-{{ transaction.id }}">
+                <td>{{ transaction.description }}</td>
+                <td class="expense currency other">{{ transaction.amount }}</td>
+                <td class="day-of-month">{{ transaction.day_of_month }}</td>
+              </tr>
+              {% include 'edit_transaction_modal.html' %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="3">Nothing to see here, try adding a transaction</td>
+            </tr>
+          {% endif %}
+      </tbody>
+      <!-- Totals Section -->
+      <thead>
+        <tr>
+          <th class="section-head" colspan="3">Totals</th>
+        </tr>
+      </thead>
+      <thead class="table-group-divider">
+        <tr>
+          <th>Total In</th>
+          <th>Total Out</th>
+          <th>Disposable Income</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="total-in" class="currency">0</td>
+          <td id="total-out" class="currency">0</td>
+          <td id="disposable-income" class="currency">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-<!-- Modals -->
-{% include 'rename_budget_modal.html' %} {% include 'delete_budget_modal.html'
-%} {% include 'add_transaction_modal.html' %}
+  <!-- If no transactions don't show insights -->
+  {% if transactions %}
+    <!-- Insights Section -->
+    <section class="container-fluid row p-0 m-0">
+      <div class="col-12 col-md-8 mx-auto">
+        <div class="card card-body mb-3">
+          <h3 class="card-headers">Insights</h3>
+          <p class="card-text">
+            The pie chart below shows the percentage of your total income that is
+            spent on each category.
+          </p>
+          <p class="card-text">
+            The bar chart below shows the total amount spent on each category.
+          </p>
+          <p class="card-text">
+            Hover or click on the colors in the charts to see the category name or
+            refer to the key below.
+          </p>
+        </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{{ url_for('static', filename='js/budget.js') }}"></script>
+        <!-- Pie Chart -->
+        <div class="col-12 mb-3 chart-container">
+          <canvas id="pie-chart"></canvas>
+        </div>
+
+        <!-- Colour Key -->
+        <div class="col-12 chart-container mb-5 text-center">
+          <a
+            href="#"
+            class="btn btn-primary mb-2"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse-key"
+            >Key</a
+          >
+          <div class="key-card collapse" id="collapse-key">
+            <div class="key-block mortgage-color">
+              <div class="key-block-inner">Mortgage or Rent</div>
+            </div>
+            <div class="key-block utilities-color">
+              <div class="key-block-inner">Utilities & Council Tax</div>
+            </div>
+            <div class="key-block transport-color">
+              <div class="key-block-inner">Transport</div>
+            </div>
+            <div class="key-block unsecured-color">
+              <div class="key-block-inner">Unsecured Debt</div>
+            </div>
+            <div class="key-block comms-color">
+              <div class="key-block-inner">Communications</div>
+            </div>
+            <div class="key-block insurance-color">
+              <div class="key-block-inner">Insurances</div>
+            </div>
+            <div class="key-block childcare-color">
+              <div class="key-block-inner">Childcare & School Fees</div>
+            </div>
+            <div class="key-block shopping-color">
+              <div class="key-block-inner">Shopping</div>
+            </div>
+            <div class="key-block savings-color">
+              <div class="key-block-inner">Savings & Investments</div>
+            </div>
+            <div class="key-block other-color">
+              <div class="key-block-inner">Other</div>
+            </div>
+            <div class="key-block disposable-color">
+              <div class="key-block-inner">Disposable Income</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bar Chart -->
+        <div class="col-12 chart-container bar-chart">
+          <canvas id="bar-chart"></canvas>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <!-- Modals -->
+  {% include 'rename_budget_modal.html' %}
+  {% include 'delete_budget_modal.html' %}
+  {% include 'add_transaction_modal.html' %}
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='js/budget.js') }}"></script>
+
 {% endblock %}
