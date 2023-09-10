@@ -6,6 +6,7 @@
 
   <h2 class="pt-5">Log In</h2>
 
+  <!-- Flash Messages -->
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <ul class="flashes">
@@ -16,6 +17,7 @@
     {% endif %} 
   {% endwith %}
 
+  <!-- Main Content -->
   <section class="m-2">
     <form
       class="form-card col-12 col-md-6 mx-auto"

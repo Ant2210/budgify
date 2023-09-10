@@ -1,71 +1,87 @@
-{% extends "base.html" %} {% block title %}Budgify | {{ username|title }}'s Profile {% endblock
-  %} {% block content %}
-  
+{% extends "base.html" %}
+
+{% block title %} Budgify | {{ username|title }}'s Profile {% endblock %}
+
+{% block content %}
+
   <h2>{{ username|title }}'s Profile</h2>
 
-  {% with messages = get_flashed_messages() %} {% if messages %}
-<ul class="flashes">
-  {% for message in messages %}
-  <li class="text-center text-danger fw-medium p-0">{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %} {% endwith %}
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+          <li class="text-center text-danger fw-medium p-0">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 
+  <!-- Main Content -->
   <section>
     <div class="card col-12 col-md-6 mx-auto my-3">
       <div class="card-body">
         <h3 class="card-headers fs-5">Account</h3>
-        <p class="card-text">
-          <strong>Username:</strong> {{ username }}
-        </p>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-        data-bs-target="#delete-account">Delete Account</button>
+        <p class="card-text"><strong>Username:</strong> {{ username }}</p>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#delete-account">
+          Delete Account
+        </button>
         <h3 class="card-headers mt-5 fs-5">Change Password</h3>
         <div class="change-password-form">
-          <form method="POST" action="{{ url_for('change_password', username=session.user) }}">
+          <form
+            method="POST"
+            action="{{ url_for('change_password', username=session.user) }}">
             <!-- Current Password -->
-            <label for="current-password" class="form-label">Current password</label>
-              <input
-                type="password"
-                class="form-control mb-5"
-                id="current-password"
-                name="current-password"
-                required />
-              <!-- New Password -->
-              <label for="password" class="form-label ">Choose a new password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  name="password"
-                  aria-describedby="new-password-help"
-                  minlength="8"
-                  maxlength="25"
-                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                  required />
-                <div id="password-help" class="form-text mb-1">
-                  Must be at least 8 characters and contain at least 1 uppercase and 1
-                  lowercase character as well as 1 number.
-                </div>
-                <!-- Confirm New Password -->
-                <label for="confirm-password" class="form-label">Confirm new password</label>
-                  <input
-                    type="password"
-                    class="form-control mb-3"
-                    id="confirm-password"
-                    name="confirm-password"
-                    required />
-                    <button type="submit" class="btn btn-primary">
-                      Change Password
-                    </button>
+            <label for="current-password" class="form-label"
+              >Current password</label
+            >
+            <input
+              type="password"
+              class="form-control mb-5"
+              id="current-password"
+              name="current-password"
+              required />
+            <!-- New Password -->
+            <label for="password" class="form-label">Choose a new password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              aria-describedby="new-password-help"
+              minlength="8"
+              maxlength="25"
+              pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              required />
+            <div id="password-help" class="form-text mb-1">
+              Must be at least 8 characters and contain at least 1 uppercase and 1
+              lowercase character as well as 1 number.
+            </div>
+            <!-- Confirm New Password -->
+            <label for="confirm-password" class="form-label"
+              >Confirm new password</label
+            >
+            <input
+              type="password"
+              class="form-control mb-3"
+              id="confirm-password"
+              name="confirm-password"
+              required />
+            <button type="submit" class="btn btn-primary">Change Password</button>
           </form>
         </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- Modals -->
   {% include 'delete_account_modal.html' %}
 
+  <!-- Scripts -->
   <script src="{{ url_for('static', filename='js/confirmpwd.js') }}"></script>
 
-  {% endblock %}
+{% endblock %}
