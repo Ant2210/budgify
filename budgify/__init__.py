@@ -1,3 +1,9 @@
+"""This file is the first file that is run when the application is started.
+
+It creates the Flask instance and sets the database URI depending on whether
+the application is running in development or production mode.
+"""
+
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy

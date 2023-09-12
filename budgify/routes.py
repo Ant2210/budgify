@@ -1,22 +1,27 @@
+"""This module contains all the routes for the Budgify application."""
+
 from flask import flash, redirect, render_template, request, session, url_for
 from budgify import app, db
 from budgify.models import TransactionType, User, BudgetPlanner, Transaction
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-# If no user redirect to the welcome page, otherwise redirect to the users
-# budgets page
 @app.route("/")
 def home():
+    """Check for a user sessions and redirect accordingly.
+
+    If no user session redirect to the welcome page, otherwise redirect to
+    the users budgets page.
+    """
     if "user" in session:
         return redirect(url_for("budgets", username=session["user"]))
 
     return render_template("welcome.html", hide_navbar=True)
 
 
-# Register a new user
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """Register a new user and log them in."""
     if request.method == "POST":
         # Check if username already exists in DB
         existing_user = User.query.filter_by(
@@ -43,9 +48,9 @@ def register():
     return render_template("register.html")
 
 
-# Log in an existing user
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """Log in an existing user."""
     if request.method == "POST":
         # Check if username already exists in DB
         existing_user = User.query.filter_by(
@@ -74,18 +79,18 @@ def login():
     return render_template("login.html")
 
 
-# Log out an already logged in user
 @app.route("/logout")
 def logout():
+    """Log out the current user."""
     # Remove the user from the session
     flash("You have been logged out, come back again soon!")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-# Display all the users budgets
 @app.route("/budgets/<username>")
 def budgets(username):
+    """Display all budgets associated with the user."""
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
@@ -105,9 +110,9 @@ def budgets(username):
     return render_template("budgets.html", username=username, budgets=budgets)
 
 
-# Display a specific budget chosen by the user
 @app.route("/budget/<username>/<int:budget_id>", methods=["GET", "POST"])
 def budget(username, budget_id):
+    """Display a single budget and allow the user to add, edit and delete."""
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
@@ -141,9 +146,9 @@ def budget(username, budget_id):
     )
 
 
-# Add a new budget
 @app.route("/add_budget", methods=["POST"])
 def add_budget():
+    """Add a new budget to the database."""
     budget_planner = BudgetPlanner(
         name=request.form.get("budget_name"),
         user_id=User.query.filter_by(
@@ -160,9 +165,9 @@ def add_budget():
     )
 
 
-# Rename an existing budget
 @app.route("/rename_budget/<username>/<int:budget_id>", methods=["POST"])
 def rename_budget(username, budget_id):
+    """Rename an existing budget."""
     budget = BudgetPlanner.query.get_or_404(budget_id)
 
     # Check if the budget belongs to the user
@@ -178,9 +183,9 @@ def rename_budget(username, budget_id):
     )
 
 
-# Delete an existing budget
 @app.route("/delete_budget/<username>/<int:budget_id>", methods=["POST"])
 def delete_budget(username, budget_id):
+    """Delete an existing budget."""
     budget = BudgetPlanner.query.get_or_404(budget_id)
 
     # Check if the budget belongs to the user
@@ -194,9 +199,9 @@ def delete_budget(username, budget_id):
     return redirect(url_for("budgets", username=session["user"]))
 
 
-# Add a new transaction to an existing budget
 @app.route("/add_transaction/<username>/<int:budget_id>", methods=["POST"])
 def add_transaction(username, budget_id):
+    """Add a new transaction to database and link to an existing budget."""
     # Retrieve the budget associated with the budget_id
     budget = BudgetPlanner.query.get_or_404(budget_id)
 
@@ -221,12 +226,12 @@ def add_transaction(username, budget_id):
     )
 
 
-# Edit an existing transaction
 @app.route(
     "/edit_transaction/<username>/<int:budget_id>/<int:transaction_id>",
     methods=["POST"]
 )
 def edit_transaction(username, budget_id, transaction_id):
+    """Edit an existing transaction."""
     # Retrieve the budget associated with the budget_id
     budget = BudgetPlanner.query.get_or_404(budget_id)
 
@@ -250,12 +255,12 @@ def edit_transaction(username, budget_id, transaction_id):
     )
 
 
-# Delete an existing transaction
 @app.route(
     "/delete_transaction/<username>/<int:budget_id>/<int:transaction_id>",
     methods=["POST"]
 )
 def delete_transaction(username, budget_id, transaction_id):
+    """Delete an existing transaction."""
     # Retrieve the transaction associated with the transaction_id
     transaction = Transaction.query.get_or_404(transaction_id)
 
@@ -272,9 +277,9 @@ def delete_transaction(username, budget_id, transaction_id):
     )
 
 
-# Display the users profile page
 @app.route("/profile/<username>")
 def profile(username):
+    """Display the users profile page."""
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
@@ -289,9 +294,9 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
-# Change the users current password
 @app.route("/change_password/<username>", methods=["POST"])
 def change_password(username):
+    """Change the users password."""
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
@@ -319,9 +324,9 @@ def change_password(username):
     return redirect(url_for("profile", username=username))
 
 
-# Delete the users account
 @app.route("/delete_account/<username>", methods=["POST"])
 def delete_account(username):
+    """Delete the users account."""
     # Check if the user is logged in
     if "user" not in session:
         flash("Please log in to view this page.")
@@ -350,7 +355,10 @@ def delete_account(username):
     return redirect(url_for("home"))
 
 
-# Add 404 error handler - Solution found here https://shorturl.at/HJLTZ
 @app.errorhandler(404)
 def page_not_found(e):
+    """Display a custom 404 page.
+
+    Solution found here https://shorturl.at/HJLTZ
+    """
     return render_template("404.html"), 404

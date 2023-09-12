@@ -1,3 +1,5 @@
+"""This file is used to run the application."""
+
 import os
 from budgify import app
 

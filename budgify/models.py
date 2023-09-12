@@ -1,8 +1,11 @@
+"""This module contains the database models/schema for the application."""
+
 from budgify import db
 
 
 class User(db.Model):
-    # Schema for the User model
+    """Schema for the User model."""
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
@@ -10,11 +13,13 @@ class User(db.Model):
         'BudgetPlanner', backref='user', cascade="all, delete", lazy=True)
 
     def __repr__(self):
+        """Print out a string representation of the User."""
         return f"User: {self.username}"
 
 
 class BudgetPlanner(db.Model):
-    # Schema for the BudgetPlanner model
+    """Schema for the BudgetPlanner model."""
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(
@@ -24,6 +29,7 @@ class BudgetPlanner(db.Model):
         cascade="all, delete", lazy=True)
 
     def __repr__(self):
+        """Print out a string representation of the BudgetPlanner."""
         return (
             f"Budget Planner Id: {self.id}, "
             f"Name: {self.name}, "
@@ -32,16 +38,19 @@ class BudgetPlanner(db.Model):
 
 
 class TransactionType(db.Model):
-    # Schema for the TransactionType model
+    """Schema for the TransactionType model."""
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
 
     def __repr__(self):
+        """Print out a string representation of the TransactionType."""
         return f"Transaction Type ID: {self.id}, Name: {self.name}"
 
 
 class Transaction(db.Model):
-    # Schema for the Transactions model
+    """Schema for the Transactions model."""
+
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(50), nullable=False)
     amount = db.Column(db.Numeric(10, 2), nullable=False)
@@ -52,6 +61,7 @@ class Transaction(db.Model):
         'budget_planner.id', ondelete='CASCADE'), nullable=False)
 
     def __repr__(self):
+        """Print out a string representation of the Transaction."""
         return (
             f"Transaction ID: {self.id},"
             f"Transaction: {self.description}, "
