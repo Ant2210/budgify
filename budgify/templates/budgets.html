@@ -26,6 +26,7 @@
             <a
               href="{{ url_for('budget', username=session.user, budget_id=budget.id) }}"
               class="budget-card d-flex align-items-center justify-content-center text-decoration-none"
+              aria-label="{{ budget.name }}"
               ><i class="fa-solid fa-file-lines"></i>
             </a>
             <p class="text-center text-primary fw-medium pt-2">
@@ -37,6 +38,7 @@
           <a
             href="#"
             class="add-budget-card d-flex align-items-center justify-content-center text-decoration-none"
+            aria-label="Add Budget"
             data-bs-toggle="modal"
             data-bs-target="#add-budget-modal">
             <i class="fa-solid fa-plus"></i>
