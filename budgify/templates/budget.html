@@ -59,18 +59,18 @@
     <h3 class="card-headers">Budget Table</h3>
     <table class="table table-hover">
       <!-- Income Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">Income</th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set income_transactions = transactions|selectattr('type_id', 'equalto',1)|list %}
           {% if income_transactions %} 
@@ -92,18 +92,18 @@
           {% endif %}
       </tbody>
       <!-- Mortgage or Rent Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">Mortgage or Rent</th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set mortgage_transactions = transactions|selectattr('type_id', 'equalto', 2)|list %}
           {% if mortgage_transactions %}
@@ -125,20 +125,20 @@
           {% endif %}
       </tbody>
       <!-- Utilities & Council Tax -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">
             Utilities & Council Tax (gas, electricity etc.)
           </th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set utilities_transactions = transactions|selectattr('type_id', 'equalto', 3)|list %}
           {% if utilities_transactions %}
@@ -160,20 +160,20 @@
           {% endif %}
       </tbody>
       <!-- Transport Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">
             Transport (fuel, road tax, bus fares etc.)
           </th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set transport_transactions = transactions|selectattr('type_id', 'equalto', 4)|list %}
           {% if transport_transactions %}
@@ -195,20 +195,20 @@
           {% endif %}
       </tbody>
       <!-- Unsecured Debt Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">
             Unsecured Debt (loans, credit cards, overdrafts etc.)
           </th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set unsecured_transactions = transactions|selectattr('type_id', 'equalto', 5)|list %}
           {% if unsecured_transactions %}
@@ -230,20 +230,20 @@
           {% endif %}
       </tbody>
       <!-- Communications Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">
             Communications (telephone, broadband etc.)
           </th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set communications_transactions = transactions|selectattr('type_id', 'equalto', 6)|list %}
           {% if communications_transactions %} 
@@ -265,20 +265,20 @@
           {% endif %}
       </tbody>
       <!-- Insurance Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">
             Insurances (home, life, gadget cover etc.)
           </th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set insurance_transactions = transactions|selectattr('type_id', 'equalto', 7)|list %}
           {% if insurance_transactions %}
@@ -300,18 +300,18 @@
           {% endif %}
       </tbody>
       <!-- Childcare Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">Childcare & School Fees</th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set childcare_transactions = transactions|selectattr('type_id', 'equalto', 8)|list %}
           {% if childcare_transactions %}
@@ -333,18 +333,18 @@
           {% endif %}
       </tbody>
       <!-- Shopping Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">Shopping</th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set shopping_transactions = transactions|selectattr('type_id', 'equalto', 9)|list %}
           {% if shopping_transactions %}
@@ -366,20 +366,20 @@
           {% endif %}
       </tbody>
       <!-- Savings Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">
             Savings & Investments (cash, pensions, ISAs etc.)
           </th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set savings_transactions = transactions|selectattr('type_id', 'equalto', 10)|list %}
           {% if savings_transactions %}
@@ -401,20 +401,20 @@
           {% endif %}
       </tbody>
       <!-- Other Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">
             Other (hobbies, entertainment, holidays etc.)
           </th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Day</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         {% set other_transactions = transactions|selectattr('type_id', 'equalto', 11)|list %}
           {% if other_transactions %}
@@ -436,18 +436,18 @@
           {% endif %}
       </tbody>
       <!-- Totals Section -->
-      <thead>
+      <tbody>
         <tr>
           <th class="section-head" colspan="3">Totals</th>
         </tr>
-      </thead>
-      <thead class="table-group-divider">
+      </tbody>
+      <tbody class="table-group-divider">
         <tr>
           <th>Total In</th>
           <th>Total Out</th>
           <th>Disposable Income</th>
         </tr>
-      </thead>
+      </tbody>
       <tbody>
         <tr>
           <td id="total-in" class="currency">0</td>

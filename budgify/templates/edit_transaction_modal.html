@@ -24,7 +24,7 @@
             name="transaction_type"
             id="transaction_{{ transaction.id }}_type"
             class="form-select mb-3"
-            required>
+            >
             {% for transaction_type in transaction_types %}
               <option value="{{ transaction_type.id }}"
               {% if transaction_type.id == transaction.type_id %}
@@ -52,7 +52,7 @@
             >Amount</label
           >
           <div class="input-group mb-3">
-            <span class="input-group-text" id="currency-addon">£</span>
+            <span class="input-group-text">£</span>
             <input
               name="transaction_amount"
               id="transaction_{{ transaction.id }}_amount"
