@@ -43,7 +43,7 @@ totalIn.innerText = incomeTotal;
 
 // Get the total expenses from budget table
 let expenseTotal = 0;
-for (expense of allExpenses) {
+for (let expense of allExpenses) {
   expenseTotal += parseFloat(expense.innerHTML);
 }
 // Set the total expenses in the budget table
