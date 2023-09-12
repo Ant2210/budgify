@@ -3,12 +3,12 @@
   class="modal fade"
   id="edit-transaction-{{ transaction.id }}"
   tabindex="-1"
-  aria-labelledby="add-transaction-modal-label"
+  aria-labelledby="edit-transaction-{{ transaction.id }}-modal-label"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5 mx-auto" id="add-transaction-modal-label">
+        <h2 class="modal-title fs-5 mx-auto" id="add-transaction-{{ transaction.id }}-modal-label">
           Edit Transaction
         </h2>
       </div>
@@ -22,7 +22,7 @@
           >
           <select
             name="transaction_type"
-            id="transaction_type"
+            id="transaction_{{ transaction.id }}_type"
             class="form-select mb-3"
             required>
             {% for transaction_type in transaction_types %}
@@ -40,7 +40,7 @@
           >
           <input
             name="transaction_description"
-            id="transaction_description"
+            id="transaction_{{ transaction.id }}_description"
             type="text"
             class="form-control mb-3"
             minlength="3"
@@ -55,7 +55,7 @@
             <span class="input-group-text" id="currency-addon">£</span>
             <input
               name="transaction_amount"
-              id="transaction_amount"
+              id="transaction_{{ transaction.id }}_amount"
               type="number"
               class="form-control"
               min="0"
@@ -70,7 +70,7 @@
           >
           <input
             name="transaction_day"
-            id="transaction_day"
+            id="transaction_{{ transaction.id }}_day"
             type="number"
             class="form-control mb-3"
             min="1"
@@ -104,14 +104,14 @@
   class="modal fade"
   id="delete-transaction-{{ transaction.id }}"
   tabindex="-1"
-  aria-labelledby="delete-transaction-modal-label"
+  aria-labelledby="delete-transaction-{{ transaction.id }}-modal-label"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h2
           class="modal-title fs-5 mx-auto text-danger"
-          id="delete-transaction-modal-label">
+          id="delete-transaction-{{ transaction.id }}-modal-label">
           Warning!
         </h2>
       </div>
