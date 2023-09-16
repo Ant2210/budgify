@@ -2,9 +2,11 @@
 
 A simple, yet powerful budgeting app. Create as many budgets as you like for the changing months, seasons and life events, and get insights into your spending.
 
+Budgify was created as my third milestone project for the Code Institutes Level 5 Diploma in Web Application Development.
+
 [View the live project here.](https://budgify-app-a7b562a0c28c.herokuapp.com/)
 
-<img src="#" alt="Image of Budgify website on different devices">
+<img src="./documentation/features/responsivescreenshot.webp" alt="Image of Budgify website on different devices">
 
 ## User Experience (UX) 
 
@@ -12,36 +14,43 @@ A simple, yet powerful budgeting app. Create as many budgets as you like for the
 
 #### First Time Visitor Goals
 
--  As a first time visitor, I want/don't want to...
--  As a first time visitor, I want/don't want to...
--  As a first time visitor, I want/don't want to...
+-   As a first time visitor, I want to easily understand the purpose and features of the Budgify app without any prior knowledge.
+-   As a first time visitor, I want to quickly create a new budget and explore the app's functionalities.
+-   As a first time visitor, I don't want to be overwhelmed with complex instructions or processes to start using the app.
+-   As a first time visitor, I want to be able to contact budgify easily with any issues or questions I have about the app.
+-   As a first time visitor I want to be able to register easily and use the app straight away.
 
 #### Returning Visitor Goals
 
--  As a returning visitor, I want/don't want to...
--  As a returning visitor, I want/don't want to...
--  As a returning visitor, I want/don't want to...
+-   As a returning visitor, I want to easily log in to my existing account and access my saved budgets.
+-   As a returning visitor, I want to be able to modify or delete existing budgets and view insights on my spending habits.
+-   As a returning visitor, I want to be able to modify or delete existing transactions within my budgets.
 
 
 #### Frequent User Goals
        
-- As a frequent user, I want/don't want to...
+-   Frequent would users have similar needs to returning visitors due to the app's straightforward nature.
 
 ### Design
+
 #### Colour Scheme
-Colour scheme commentary...
+The colour scheme was primarily crafted with a focus on aesthetics and accessibility. Following the contemporary trend observed in web apps, simplicity and minimalism guided the design approach. A notable source of design inspiration for this application was Calendly, known for its clean and uncomplicated design.
+
+Given these considerations, I opted for a white background and mainly utilised colours from the main Bootstrap colour palette. This choice not only aligns with the minimalist design trend but also ensures ease of implementation in various sections by simply applying specific classes such as `primary`, `success`, or `danger`.
 
 -   ##### Colours Used
-    - Text colour - `#`
-    - Text colour 2 - `#`
-    - Background colour - `#`
-    - Button colour 1 - `#`
-    - Button colour 2 - `#`
-    - Button colour 3 - `#`
+    - Text colour 1 - `rgba(0, 0, 0, 0.65)`
+    - Text colour 2 - `#0d6efd`
+    - Background colour - `#ffffff`
+    - Button colour 1 - `#0d6efd` / Bootstrap `primary` class
+    - Button colour 2 - `#198754` / Bootstrap `success` class
+    - Button colour 3 - `#dc3545` / Bootstrap `danger` class
+    - Button text colour - `#ffffff`
+    - Budget card colour - `rgba(0, 0, 0, 0.45)`
 
 #### Colour Accessibility
 			
-Colour accessibility commentary...
+To ensure the colours chosen met the WCAG 2.1 AA guidelines as minimum and AAA guidelines where possible I used Coolors Contrast Checker which can be found [here](https://coolors.co/contrast-checker/000000-ffffff).
 
 For further information on these guidelines, you can visit the following link. [Web Content Accessibility Guidelines (WCAG) 2.1 (w3.org)](https://www.w3.org/TR/WCAG21/).
         
