@@ -16,9 +16,15 @@ In practice and for production code a combination of both manual and automated t
 
 #### HTML Validator - [W3C](https://validator.w3.org/)
 
-| Page | Errors/Warnings | Image |
-| --- | --- | --- |
-|  |  |  |
+| Page | Errors/Warnings | Solution | Image |
+| --- | --- | --- | --- |
+| Welcome Page | Warning: Section lacks h2-h6 heading. | There is little use for a h2 element on this page, however a section element is still more semantically correct so ignored this warning. | <img src="./documentation/validators/html/welcome.webp" alt="HTML validator results for welcome page"> |
+| Login Page | Warning: Section lacks h2-h6 heading. | Due to the design structure of this page again a h2 header isn't warranted however it is still more semantically correct to keep the section element instead of a DIV. | <img src="./documentation/validators/html/login.webp" alt="HTML validator results for welcome page"> |
+| Register Page | Warning: Section lacks h2-h6 heading. | Due to the design structure of this page again a h2 header isn't warranted however it is still more semantically correct to keep the section element instead of a DIV. | <img src="./documentation/validators/html/register.webp" alt="HTML validator results for welcome page"> |
+| Budget Page | N/A | N/A | <img src="./documentation/validators/html/budget.webp" alt="HTML validator results for welcome page"> |
+| Budgets Page | Warning: Section lacks h2-h6 heading. | Due to the design structure of this page h2 header falls outside of the section element on this page. It would still be semantically correct to keep the section element instead of a DIV. | <img src="./documentation/validators/html/budgets.webp" alt="HTML validator results for welcome page"> |
+| Profile Page | N/A | N/A | <img src="./documentation/validators/html/profile.webp" alt="HTML validator results for welcome page"> |
+| 404 Page | N/A | N/A | <img src="./documentation/validators/html/404page.webp" alt="HTML validator results for welcome page"> |
 
 
 #### CSS Validator - [W3C](https://jigsaw.w3.org/css-validator/)
