@@ -50,7 +50,7 @@ Given these considerations, I opted for a white background and mainly utilised c
 
 #### Colour Accessibility
 			
-To ensure the colours chosen met the WCAG 2.1 AA guidelines as minimum and AAA guidelines where possible I used Coolors Contrast Checker which can be found [here](https://coolors.co/contrast-checker/000000-ffffff).
+To ensure the colours chosen met the WCAG 2.1 AA guidelines as minimum and AAA guidelines where possible as with previous projects I used Coolors Contrast Checker which can be found [here](https://coolors.co/contrast-checker/000000-ffffff). However Coolors doesn't support `rgba` so for these colours I used Siege Media which can be found [here](https://www.siegemedia.com/contrast-ratio).
 
 For further information on these guidelines, you can visit the following link. [Web Content Accessibility Guidelines (WCAG) 2.1 (w3.org)](https://www.w3.org/TR/WCAG21/).
         
@@ -62,13 +62,16 @@ For further information on these guidelines, you can visit the following link. [
     - Text Colour 2 - [Coolors Contrast Checker](#)<br>
     <img src="#" alt="Contrast check of text against main button colour">
   
-    - Button Colour 2 - [Coolors Contrast Checker](#)<br>
+    - Button Colour 1 - [Coolors Contrast Checker](#)<br>
     <img src="#" alt="Contrast check of text against main button colour">
 
     - Button Colour 2 - [Coolors Contrast Checker](#)<br>
     <img src="#" alt="Contrast check of text against main button colour">
 
-    - Button Colour 2 - [Coolors Contrast Checker](#)<br>
+    - Button Colour 3 - [Coolors Contrast Checker](#)<br>
+    <img src="#" alt="Contrast check of text against main button colour">
+
+    - Budget Card Colour - [Coolors Contrast Checker](#)<br>
     <img src="#" alt="Contrast check of text against main button colour">
 
 
