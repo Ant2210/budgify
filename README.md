@@ -218,7 +218,7 @@ The database schema flow charts were created using [Figma](https://www.figma.com
     <img src="./documentation/features/insights1.webp" alt="Screenshot of insights">
     <img src="./documentation/features/insights2.webp" alt="Screenshot of insights">
 
--   The user is provided numerous ways to get in touch for help via social media links placed in the footer or by submitting a web form by clicking the email icon in the footer or the support link in the navbar. 
+-   The user is provided numerous ways to get in touch for help via social media links placed in the footer or by submitting a web form by clicking the email icon in the footer or the support link in the navbar. Once a support message is sent the user is also sent an auto reply via email to advise of the current response times.
 
     <img src="./documentation/features/footer.webp" alt="Screenshot of footer">
     <img src="./documentation/features/supportmodal.webp" alt="Screenshot of footer">
@@ -271,9 +271,38 @@ The database schema flow charts were created using [Figma](https://www.figma.com
 -   Vanilla javaScript
 -   Python
 
+
+### Databases Used
+-   PostgreSQL - A relational database
+
 ### Frameworks, Libraries & Programs Used
 
--   [Bootstrap](https://getbootstrap.com/) Version 5.3.0 - For the layout and framework of the website, it was also used to create the various modals which were then restyled to match the rest of the website.
+-   [Am I Responsive](https://amiresponsive.co.uk/) - To create the website mockup images at the top of the README.
+-   [Bootstrap](https://getbootstrap.com/) Version 5.3.0 - For the layout and framework of the website, it was also used to create the various modals which were then restyled to math the rest of the website.
+-   [Chart JS](https://www.chartjs.org/) - To create the pie chart and bar chart used in the insights section of the budget page.
+-   [Cloud Convert](https://cloudconvert.com/) - To compress and convert images to webp.
+-   [Code Institute PEP8 Python Linter](https://pep8ci.herokuapp.com/) - To check for linting errors in my python code.
+-   [Coolors](https://coolors.co/) - To check contrast and accessibility of the colours I chose to use.
+-   [ElephantSQL](https://www.elephantsql.com/) - To host my PostgreSQL database
+-   [EmailJS](https://www.emailjs.com/) - To allows users to send support messages and also send an auto response to them upon receipt.
+-   [Figma](https://www.figma.com/) - To create the wireframes, user journey flow chart and database schema flow chart.
+-   [Flask](https://flask.palletsprojects.com/en/2.3.x/) - 
+-   [Font Awesome](https://fontawesome.com/) - Used for the GitHub icon used in the footer button.
+-   [Git](https://git-scm.com/) - For version control.
+-   [GitHub](https://github.com/) - To store website files and repository for the website.
+-   [Heroku](https://www.heroku.com/) - To host my application
+-   [html5pattern.com](https://www.html5pattern.com/) - The the HTML 5 regex pattern to ensure users create a secure password.
+-   [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) - Templating engine
+-   [Google Fonts](https://fonts.google.com/) - To import the fonts I chose for the website.
+-   Google Dev Tools - Built into the chrome browser to test features and design and troubleshoot as I went along as well as for testing later on, these sections of the website which were then edited myself inside of Visual Stdio Code.
+-   [Pixlr](https://pixlr.com/e/) - To edit images such as the favicon and welcome page image.
+-   [randomkeygen.com](https://randomkeygen.com/) - To generate a strong password to use as my secret key within the flask app.
+-   [Siege Media](https://www.siegemedia.com/contrast-ratio) - To check contrast and accessibility of the `rgba` colours I chose to use.
+-   Lighthouse - Built into Google Dev Tools for testing.
+-   [SQLAlchemy](https://www.sqlalchemy.org/) - Database abstraction library, used to interact with PostgreSQL.
+-   [Visual Studio Code](https://code.visualstudio.com/) - Was used as my code editor to write code, version control using git and pushing changes for storage to GitHub.
+-   [W3C](https://www.w3.org/) - To validate and test HTML and CSS code.
+-   [JSHint](https://jshint.com/) - To validate and text javaScript code.
 
 
 [Back to top](#title)  
@@ -285,12 +314,101 @@ Please see [TESTING.md](TESTING.md) for all testing performed
 
 ## Deployment
 
+The project was deployed to [Heroku](https://www.heroku.com/) using a free relational database from [ElephantSQL](https://www.elephantsql.com/). Before deploying to Heroku I would first set up the database so I will explain the deployment in 2 two parts.
+
+### ElephantSQL
+
+1. Navigate to [ElephantSQL.com](https://www.elephantsql.com/) and click “Get a managed database today”
+
+2. Select “Try now for FREE” in the TINY TURTLE database plan.
+
+3. Select “Log in with GitHub” and authorize ElephantSQL with your selected GitHub account.
+
+4. In the Create new team form:
+    - Add a team name (your own name is fine)
+    - Read and agree to the Terms of Service
+    - Select Yes for GDPR
+    - Provide your email address
+    - Click “Create Team”
+
+5. Your account should now be successfully created.
+
+6. Click “Create New Instance”.
+
+7. Set up your plan:
+    - Give your plan a Name (this is commonly the name of the project)
+    - Select the Tiny Turtle (Free) plan
+    - You can leave the Tags field blank
+
+8. Select a data centre closest to you - I used EU-West-1 (Ireland).
+
+9. Click "Review".
+
+10. Check your details are correct and then click “Create instance”.
+
+11. Your database should now be successfully created.
+
+12. Return to the ElephantSQL dashboard and click on the database instance name for this project.
+
+13. In the URL section, clicking the copy icon will copy the database URL to your clipboard. Keep this tab open as we will need this URL later.
+
 ### Heroku
 
-The project was deployed to Heroku using the following steps...
+1. To successfully deploy on Heroku we first need to create some files: a requirements.txt file and a Procfile.
 
-1. Step 1
-1. Step 2
+2. The requirements.txt file contains all the applications and dependencies that are required to run the app. To create the requirements.txt file run the following command in the terminal:
+
+    ```bash
+    pip3 freeze --local > requirements.txt
+    ```
+
+3. The Procfile tells Heroku which files run the app and how to run it. To create the Procfile run the following command in the terminal:
+
+    ```bash
+    echo web: python run.py > Procfile
+    ```
+
+    NOTE: This is assuming the file used to launch your app is called run.py, otherwise replace with the correct file name. The Procfile uses a capital P and doesn't have a file extension on the end.
+
+4. If the Procfile has been created correctly it will have the Heroku logo next to it. It is also important to check the Procfile contents, as sometimes on creation a blank line will be added at the end of the file. This can sometimes cause problems when deploying to Heroku, so if the file contains a blank line at the end, delete this and save the file. Make sure to save both these files and then add, commit and push them to GitHub.
+
+5. Login (or sign up) to [Heroku.com](https://www.heroku.com).
+
+6. Click the new button and then click create new app.
+
+7. You will then be asked to give your app a name (these must be unique) and select a region. Once these are completed click create app.
+
+8. You will now need to connect the Heroku app to the GitHub repository for the site. Select GitHub in the deployment section, find the correct repository for the project and then click connect.
+
+9. Once the repository is connected, you will need to provide Heroku some config variables it needs to build the app. Click on the settings tab and then click reveal config vars button. You will now need to add the environment key/value variables that were used in the env.py file:
+
+    | KEY | VALUE |
+    | -- | -- |
+    | IP | 0.0.0.0 |
+    | PORT | 5000 |
+    | SECRET_KEY| YOUR_SECRET_KEY* |
+    | DATABASE_URL | POSTGRES_DB** |
+    | DEBUG | TRUE*** |
+
+    *This ca be anything you want but as the name suggests is a secret.
+
+    **This is where we paste our URL from step 13 in ElephantSQL section.
+
+    ***This variable is to be deleted once debugging is complete and you are ready to deploy your "production" app.
+
+10. You're now ready to click the enable automatic deploys and create button. Heroku will start building the app.
+
+11. We will now need to go the more button on the dashboard and select run console. This is where we will set up the tables in the database we have created on ElephantSQL.
+
+12. Type python3 and then once the python interpreter opens, we can run the following:
+
+    ```bash
+    from budgify import db
+    db.create_all()
+    exit()
+    ```
+
+13. Now that the relational database has been set up and the tables created, we can now click open app and the budgify application should now open in a new tab.
 
 ### Forking the GitHub Repository
 
@@ -321,6 +439,8 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 -   Social Media Integration for Facebook, LinkedIn & Google - Code from [Abi Harrison Meta Tags Webinar](https://www.youtube.com/watch?v=t-4qqmikIqk).
 
+All other small code snippets used are referenced in the code as a comment.
+
 All other code was written by the developer.
 
 ### Content
@@ -330,10 +450,16 @@ All other code was written by the developer.
 
 ### Media
 
--   Logo - The logo was created using...
+-   Logo - The logo was created using [Logo.com](https://logo.com/)
 
 ### Acknowledgements
 
-...
+I 100% couldn't have completed this project on my own so would like to acknowledge the following people for their contributions, whether they know they helped or not...
+
+-   My Fiancé and children for their unwavering support.
+-   [Iris Smok](https://github.com/Iris-Smok) my cohort facilitator for her support and for checking in on me when I have had to take some time away from the keyboard.
+-   [Martina Terlevic](https://github.com/SephTheOverwitch) for her advice and support.
+-   The [Code Institute](https://codeinstitute.net/) student support for checking in on me when it seems I might have gone MIA.
+-   The people on my cohort for their support, encouragement and for reviewing my project.
 
 [Back to top](#title)  
