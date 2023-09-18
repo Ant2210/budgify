@@ -145,41 +145,111 @@ The database schema flow charts were created using [Figma](https://www.figma.com
 
 -   Fully responsive across all screen sizes.
 
-    -   Laptop / Desktop
+    #### Laptop / Desktop
 
-    <img src="#" alt="#">
+    <img src="./documentation/responsiveness/laptopscreenshot1.webp" alt="Screenshot of welcome screen on laptop">
+    <img src="./documentation/responsiveness/laptopscreenshot2.webp" alt="Screenshot of log in screen on laptop">
+    <img src="./documentation/responsiveness/laptopscreenshot3.webp" alt="Screenshot of budgets screen on laptop">
+    <img src="./documentation/responsiveness/laptopscreenshot4.webp" alt="Screenshot of budget screen on laptop">
+    <img src="./documentation/responsiveness/laptopscreenshot5.webp" alt="Screenshot of pie chart on laptop">
+    <img src="./documentation/responsiveness/laptopscreenshot6.webp" alt="Screenshot of bar chart on laptop">
+    <img src="./documentation/responsiveness/laptopscreenshot7.webp" alt="Screenshot of add transaction modal on laptop">
 
-    <img src="#" alt="#">
+    #### Tablet
 
-    <img src="#" alt="#">
+    <img src="./documentation/responsiveness/tabletscreenshot1.webp" alt="Screenshot of welcome screen on tablet">
+    <img src="./documentation/responsiveness/tabletscreenshot2.webp" alt="Screenshot of log in screen on tablet">
+    <img src="./documentation/responsiveness/tabletscreenshot3.webp" alt="Screenshot of budgets screen on tablet">
+    <img src="./documentation/responsiveness/tabletscreenshot4.webp" alt="Screenshot of sidenav on tablet">
+    <img src="./documentation/responsiveness/tabletscreenshot5.webp" alt="Screenshot of budget screen on tablet">
+    <img src="./documentation/responsiveness/tabletscreenshot6.webp" alt="Screenshot of pie chart on tablet">
+    <img src="./documentation/responsiveness/tabletscreenshot7.webp" alt="Screenshot of bar chart on tablet">
+    <img src="./documentation/responsiveness/tabletscreenshot8.webp" alt="Screenshot of add transaction modal on tablet">
 
-    -   Tablet
-    <img src="#" alt="#">
+    #### Mobile
 
-    <img src="#" alt="#">
+    <img src="./documentation/responsiveness/mobilescreenshot1.webp" alt="#Screenshot of welcome screen on mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot2.webp" alt="#Screenshot of log in screen on mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot3.webp" alt="#Screenshot of budgets screen on mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot4.webp" alt="#Screenshot of budgets screen on smaller mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot5.webp" alt="#Screenshot of sidenav on mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot6.webp" alt="#Screenshot of budget screen on mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot7.webp" alt="#Screenshot of pie chart on mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot8.webp" alt="#Screenshot of bar chart on mobile">
+    <img src="./documentation/responsiveness/mobilescreenshot9.webp" alt="#Screenshot of add transaction modal on mobile">
+    
 
-    <img src="#" alt="#">
+-   Intuitive and easy to navigate using the top navbar on larger screens and sidenav on smaller screens. There are various appropriately marked buttons as well as instructions on what to do where is maybe isn't so clear to the user. 
 
-    -   Mobile
-    <img src="#" alt="#">
+    <img src="./documentation/features/navbar.webp" alt="Screenshot of navbar">
+    <img src="./documentation/features/sidenav.webp" alt="Screenshot of sidenav">
+    <img src="./documentation/features/budgetmanagement.webp" alt="Screenshort of budgetmangement section">
 
-    <img src="#" alt="#">
+-   The ability to log in to an existing account or register a new one, and log out once logged in.
 
-    <img src="#" alt="#">
+    <img src="./documentation/features/login.webp" alt="Screenshot of login form">
+    <img src="./documentation/features/register.webp" alt="Screenshot of registration form">
+    <img src="./documentation/features/logout.webp" alt="Screenshot of log out modal">
 
--   Intuitive and easy to navigate using...
+-   A dynamic "homepage" for users thats are logged out they are presented with a "Welcome screen" and for users that are logged in they are taken to their list of budgets where they can select to view or add new budgets.
 
-    <img src="#" alt="#">
+    <img src="./documentation/features/welcomescreen.webp" alt="Screenshot of welcome screen">
+    <img src="./documentation/features/budgetsscreen.webp" alt="Screenshot of budgets screen">
 
-    <img src="#" alt="#">
+-   A budget management section where the user is presented with helpful instructions on how to add, edit or delete transactions as well as rename or delete their budget.
 
-    <img src="#" alt="#">
+    <img src="./documentation/features/budgetmanagement.webp" alt="Screenshot of budget management section">
+
+-   The ability to add, edit or delete transactions as well as rename or delete their budget.
+
+    <img src="./documentation/features/addtransactionmodal.webp" alt="Screenshot of add transaction modal">
+    <img src="./documentation/features/edittransactionmodal.webp" alt="Screenshot of edit transaction modal">
+    <img src="./documentation/features/deletetransactionmodal.webp" alt="Screenshot of delete transaction modal">
+    <img src="./documentation/features/renamebudgetmodal.webp" alt="Screenshot of rename budget modal">
+    <img src="./documentation/features/deletebudgetmodal.webp" alt="Screenshot of delete budget modal">
+
+-   A full budget table showing all the users income and outgoings that they have added to that specific budget.
+
+    <img src="./documentation/features/budgettable1.webp" alt="Screenshot of budget table">
+    <img src="./documentation/features/budgettable2.webp" alt="Screenshot of budget table">
+
+-   Handy insights into the users budget, conveniently presented in both a pie chart which shoes the percentage of their total income that is being spent in each transaction category, and a bar chart which shoes the total amount that is being spent on each transaction category. The user is able to hover over each colour for further info or use the key button to show which colour represents which category
+
+    <img src="./documentation/features/insights1.webp" alt="Screenshot of insights">
+    <img src="./documentation/features/insights2.webp" alt="Screenshot of insights">
+
+-   The user is provided numerous ways to get in touch for help via social media links placed in the footer or by submitting a web form by clicking the email icon in the footer or the support link in the navbar. 
+
+    <img src="./documentation/features/footer.webp" alt="Screenshot of footer">
+    <img src="./documentation/features/supportmodal.webp" alt="Screenshot of footer">
+
+-   A profile page is provided where the user can either change their password or delete their account entirely.
+
+    <img src="./documentation/features/profile.webp" alt="Screenshort of profile page">
+    <img src="./documentation/features/deleteaccountmodal.webp" alt="Screenshort of delete account modal">
+
+-   A custom 404 page that informs the user the page they are looking for hasn't been found and then automatically redirects them back to the homepage. 
+
+    <img src="./documentation/features/404page.webp" alt="Screenshort of 404 page">
+
+-   Defensive programming has been used throughout the development of the application, to prompt users when they are either about to permanently delete something that cannot be done such as a transaction, full budget or their account as well as to stop users accessing pages they aren't authorised to access, for instance any page that requires a user to be logged in, or other users budgets and profiles whether logged in or not.
+
+    <img src="./documentation/features/defensive1.webp" alt="Screenshot of user being denied access to another users budget by entering the username in the URL">
+
+    <img src="./documentation/features/defensive2.webp" alt="Screenshot of user being denied access to a page that requires the user to be logged in">
+
+    <img src="./documentation/features/deleteaccountmodal.webp" alt="Screenshot of user being prompted to enter their password when trying to delete their account">
+
+    <img src="./documentation/features/deletebudgetmodal.webp" alt="Screenshot of user being asked to confirm they wish to delete their budget along with all associated transactions">
+
+    <img src="./documentation/features/deletetransactionmodal.webp" alt="Screenshot of user being asked to confirm they wish to delete a transaction">
+
 
 ### Future Features
 
--   Feature 1
--   Feature 2
--   Feature 3
+-   I would like to incorporate an intelligent function into the app in the future where users are provided helpful and personalised tips and advice about their budgets.
+-   I would also like to implement 2 factor authorisation given that a user can store quite sensitive data on this app.
+-   I would also like to add a storage facility where users can store documents relating to their budget such as payslips, invoices and receipts.
 
 ### Accessibility
 -   The use of semantic HTML.
