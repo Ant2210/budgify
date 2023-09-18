@@ -1,6 +1,6 @@
 # Budgify -  Testing
 
-<img src="#" alt="Image of Budgify website on different devices">
+<img src="./documentation/features/responsivescreenshot.webp" alt="Image of Budgify website on different devices">
 
 [View the live project here.](https://budgify-app-a7b562a0c28c.herokuapp.com/)
 
@@ -16,13 +16,10 @@ In practice and for production code a combination of both manual and automated t
 
 #### HTML Validator - [W3C](https://validator.w3.org/)
 
-- ##### Homepage
+| Page | Errors/Warnings | Image |
+| --- | --- | --- |
+|  |  |  |
 
-<img src="#" alt="#">
-
-- ##### Page
-
-<img src="#" alt="#">
 
 #### CSS Validator - [W3C](https://jigsaw.w3.org/css-validator/)
 
@@ -55,17 +52,6 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 - ##### Homepage
 
 <img src="#" alt="#">
-
-
-### WAVE Testing
-
-[WAVE](http://wave.webaim.org/) (Web Accessibility Evaluation Tool) allows developers to create content that is more accessible to users with disabilities. It does this by identifying accessibility and WGAC errors.
-
-I have used the WAVE testing tool to try and ensure there are no accessibility issues with my site.
-
-<img src="#" alt="#">
-
-- - -
 
 ## MANUAL TESTING
 
