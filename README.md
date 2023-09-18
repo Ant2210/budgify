@@ -112,9 +112,32 @@ All other imagery on the website are basic icons obtained from Font Awesome whic
 
 
 ### Wireframes
-The wireframes were creates using [Figma](https://www.figma.com/).
+The wireframes were creates using [Figma](https://www.figma.com/). For most pages there isn't much difference to the layout as the design is very much aimed at mobile first. 
 
-<img src="#" alt="Website wireframes">
+When building the site I deviated slightly from the original wireframes to make the site look less busy on mobile devises, for example instead of adding a button to add or delete a transaction you now simply click on any existing transaction to edit or delete it. 
+
+- ##### Desktop & Tablet Wireframes
+<img src="./documentation/wireframes/desktopwireframes1.webp" alt="Website desktop and tablet wireframes">
+<img src="./documentation/wireframes/desktopwireframes2.webp" alt="Website desktop and tablet wireframes">
+
+- ##### Mobile Wireframes
+<img src="./documentation/wireframes/mobilewireframes.webp" alt="Website mobile wireframes">
+
+### User Journey
+The user journey flow charts where created using [Figma](https://www.figma.com/).
+
+- ##### User Journey Key
+<img src="./documentation/userjourney/userjourneyskey.webp" alt="User journey flowchart key" height="300">
+
+- ##### User Journey Flow Charts
+<img src="./documentation/userjourney/userjourneys1.webp" alt="User journey flowchart 1">
+<img src="./documentation/userjourney/userjourneys2.webp" alt="User journey flowchart 2">
+<img src="./documentation/userjourney/userjourneys3.webp" alt="User journey flowchart 3">
+
+### Database Schema
+The database schema flow charts were created using [Figma](https://www.figma.com/).
+<img src="./documentation/dbschema/dbschema.webp" alt="Database schema chart">
+
 
 [Back to top](#title)  
 
