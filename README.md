@@ -56,40 +56,59 @@ For further information on these guidelines, you can visit the following link. [
         
 
 - ##### Colour Palette and Results
-    - Text Colour 1 - [Coolors Contrast Checker](#)<br>
-    <img src="#" alt="Contrast check of text against main colour theme background">
+    - Text Colour 1 - [Siege Media Contrast Checker](https://www.siegemedia.com/contrast-ratio#rgba%280%2C%200%2C%200%2C%200.65%29-on-white)<br>
+    <img src="./documentation/contrast/text1contrast.webp" alt="Contrast check of main text against white background">  
 
-    - Text Colour 2 - [Coolors Contrast Checker](#)<br>
-    <img src="#" alt="Contrast check of text against main button colour">
+    - Text Colour 2 - [Coolors Contrast Checker](https://coolors.co/contrast-checker/0d6efd-ffffff)<br>
+    <img src="./documentation/contrast/text2contrast.webp" alt="Contrast check of text colour 2 against white background">
   
-    - Button Colour 1 - [Coolors Contrast Checker](#)<br>
-    <img src="#" alt="Contrast check of text against main button colour">
+    - Button Colour 1 - [Coolors Contrast Checker](https://coolors.co/contrast-checker/0d6efd-ffffff)<br>
+    <img src="./documentation/contrast/button1contrast.webp" alt="Contrast check of button 1 colour against white background">
 
-    - Button Colour 2 - [Coolors Contrast Checker](#)<br>
-    <img src="#" alt="Contrast check of text against main button colour">
+    - Button Colour 1 Text - [Coolors Contrast Checker](https://coolors.co/contrast-checker/ffffff-0d6efd)<br>
+    <img src="./documentation/contrast/button1textcontrast.webp" alt="Contrast check of white text against button 1 colour">
 
-    - Button Colour 3 - [Coolors Contrast Checker](#)<br>
-    <img src="#" alt="Contrast check of text against main button colour">
+    - Button Colour 2 - [Coolors Contrast Checker](https://coolors.co/contrast-checker/198754-ffffff)<br>
+    <img src="./documentation/contrast/button2contrast.webp" alt="Contrast check of button 2 colour against white background">
 
-    - Budget Card Colour - [Coolors Contrast Checker](#)<br>
-    <img src="#" alt="Contrast check of text against main button colour">
+    - Button Colour 2 Text - [Coolors Contrast Checker](https://coolors.co/contrast-checker/ffffff-198754)<br>
+    <img src="./documentation/contrast/button2textcontrast.webp" alt="Contrast check of white text against button 2 colour">
+
+    - Button Colour 3 - [Coolors Contrast Checker](https://coolors.co/contrast-checker/dc3545-ffffff)<br>
+    <img src="./documentation/contrast/button3contrast.webp" alt="Contrast check of button 3 colour against white background">
+
+    - Button Colour 3 Text - [Coolors Contrast Checker](https://coolors.co/contrast-checker/ffffff-dc3545)<br>
+    <img src="./documentation/contrast/button3textcontrast.webp" alt="Contrast check of white text against button 3 colour">
+
+    - Budget Card Colour - [Siege Media Contrast Checker](https://www.siegemedia.com/contrast-ratio#rgba%280%2C%200%2C%200%2C%200.45%29-on-white)<br>
+    <img src="./documentation/contrast/budgetcardcontrast.webp" alt="Contrast check of budget card colour against white background">
+    Passes as AA for large or bold text or graphical objects which this would fall under.
 
 
 #### Typography
-The main considerations for the font were...
+The main considerations for the font were aesthetics and accessibility. I chose the Roboto font as a personal preference as I like the way it looks on the page. It is also a very widely used font developed by Google and is actually used as the default font for the Android operating system, this ensure a fairly wide availability across devises.
 
  - ##### Fallback Font
 
-    For my fallback font I have opted for the Arial font, part of the sans-serif family. It is the most widely used font for both online and printed media. Arial is said to be one of the safest web fonts, and is available on all major operating systems. 
+    For my fallback font I have opted to stick with the Google recommended fonts when downloading the Roboto font, if no fonts can be found on the user system is will default to the sans-serif family which has many widely used fonts including Arial. Arial is the most widely used font for both online and printed media. Arial is said to be one of the safest web fonts, and is available on all major operating systems.  
 
 
 #### Imagery
 
- - ##### Image 1
-    Image 1 was found...
+ - ##### Logo
+    The Budgify logo was created using Logo.com which can be found [here](https://logo.com/).
+    <img src="./budgify/static/images/logo.webp" alt="Budgify Logo">
 
-- ##### Image 2
-    Image 2 was found ...
+- ##### Welcome Image
+    The welcome image was created by taking screenshots of the main budget table on the website and editing them using Pixlr the website for which can be found [here](https://pixlr.com/)
+    <img src="./budgify/static/images/budgettable.webp" alt="Welcome image">
+
+- ##### 404 Image
+    The image used on the 404 page was found at Freepiks [here](https://www.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_8030430.htm#query=404&position=2&from_view=search&track=sph) and was created by storyset.
+    <img src="./budgify/static/images/404.webp" alt="404 Image">
+<br>
+
+All other imagery on the website are basic icons obtained from Font Awesome which can be found [here](https://fontawesome.com/).
 
 
 ### Wireframes
