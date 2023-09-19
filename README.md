@@ -29,7 +29,7 @@ Budgify was created as my third milestone project for the Code Institutes Level 
 
 #### Frequent User Goals
        
--   Frequent would users have similar needs to returning visitors due to the app's straightforward nature.
+-   Frequent users would have similar needs to returning visitors due to the app's straightforward nature.
 
 ### Design
 

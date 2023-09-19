@@ -73,9 +73,24 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 
 ### Testing User Stories
 
+#### First Time Visitor
 | Goals | How are they achieved? | Image |
 | --- | --- | --- |
-|  |  |  |
+| As a first time visitor, I want to easily understand the purpose and features of the Budgify app without any prior knowledge. | This is achieved through clear introductory text and an illustrative image on the welcome screen. | <img src="./documentation/features/welcomescreen.webp" alt="Image of the welcome screen"> |
+| As a first time visitor, I want to quickly create a new budget and explore the app's functionalities. | Once a user has registered or logged in they can instantly create a new budget from their main screen which is the budgets screen. | <img src="./documentation/features/budgetsscreen.webp" alt="Image of the budgets screen"> |
+| As a first time visitor, I don't want to be overwhelmed with complex instructions or processes to start using the app. | This is achieved with a minimalist style design and clear calls to action on the buttons for the next steps, e.g. login, add budget, add transaction. | <img src="./documentation/features/welcomescreen.webp" alt="Image of the welcome screen"> <img src="./documentation/features/login.webp" alt="Image of the login screen"> <img src="./documentation/features/budgetsscreen.webp" alt="Image of the budgets screen"> <img src="./documentation/features/budgetmanagement.webp" alt="Image of the budget screen"> |
+| As a first time visitor, I want to be able to contact budgify easily with any issues or questions I have about the app. | Whether logged in or not the user can contact support either via an online form by clicking the email icon in the footer or any of the social media links in the footer. Once logged in there is also a support button prominently displayed in the navbar which links to the same contact form. | <img src="./documentation/features/footer.webp" alt="Image of the footer"> <img src="./documentation/features/navbar.webp" alt="Image of the navbar"> <img src="./documentation/features/sidenav.webp" alt="Image of the sidenav">|
+| As a first time visitor I want to be able to register easily and use the app straight away. | The user is able to click the register button straight from the welcome screen, and once registered is immediately logged in | <img src="./documentation/features/welcomescreen.webp" alt="Image of the welcome screen"> <img src="./documentation/features/register.webp" alt="Image of the registration screen"> |
+
+#### Returning Visitor
+| Goals | How are they achieved? | Image |
+| --- | --- | --- |
+| As a returning visitor, I want to easily log in to my existing account and access my saved budgets. | The welcome screen displays a prominent login button and once a user is logged in the first page they are taken too is their budgets page where all budgets are listed. | <img src="./documentation/features/welcomescreen.webp" alt="Image of the welcome screen"> <img src="./documentation/features/budgetsscreen.webp" alt="Image of the budgets screen"> |
+| As a returning visitor, I want to be able to modify or delete existing budgets and view insights on my spending habits. | The user can modify and delete existing budgets from the budget page itself and also view insights at the bottom of each budget. | <img src="./documentation/features/budgetmanagement.webp" alt="Image of the budget management section"> <img src="./documentation/features/insights1.webp" alt="Image of the insights section"> <img src="./documentation/features/insights2.webp" alt="Image of the insights section"> |
+| As a returning visitor, I want to be able to modify or delete existing transactions within my budgets. | The user can modify or delete any transaction by simply clicking on it, this is also explained right at the top of the budget page in the budget management section. | <img src="./documentation/features/budgetmanagement.webp" alt="Image of the budget management section"> <img src="./documentation/features/edittransactionmodal.webp" alt="Image of the edit transaction modal">|
+
+#### Frequent Users
+As per the [README.md](./README.md) frequent users would have similar needs to returning visitors due to the app's straightforward nature.
 
 ### Devices Used For Testing
 
@@ -101,10 +116,14 @@ The site has altogether in one way or another been used and tested on the follow
 
 | No. | Bug | How I solved the issue |
 | --- | --- | --- |
-|  |  |  |
+| 1. | The default labels used by ChartJS for the pie chart and bar chart were being cut on smaller screen sizes. | Removed them and created my own key.  |
+| 2. | The pie chart was displaying negative figures and "infinity" percentages. | Set the pie chart to show a message of "No income provided" in place of the percentage if income was 0. The pie chart is also now only visible is there is at least 1 transaction. |
+| 3. | Fixed circular import error caught at deploy | When using a linter in VS code the routes import in the __ init __.py was being moved to the top. Moved back tot the bottom manually. |
+| 4. | Bug - Auto focus on input element of the add budget modal not working. | I was using the wrong element ID so changed the code to match the correct ID. |
+| 5. | When signing up with a capital letter in the user name, user taken to 404 page as the user session was saving the user as example "John" but was then checking the database for user "john" when loading the my budgets page. | Fixed by adding .lower() when storing the user in the session upon registration. |
+| 6. | When I changed the background from off-white to white the navbar became transparent. | Set the navbar to white also. |
+
 
 ### Unsolved Bugs
 
-| No | Bug | |
-| --- | --- | --- |
-|  |  |  |
+None known at this time.
