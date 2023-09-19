@@ -60,11 +60,14 @@ In practice and for production code a combination of both manual and automated t
 
 I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website. 
 
-#### Desktop Results
-
-- ##### Homepage
-
-<img src="#" alt="#">
+| Page | Results |
+| --- | --- |
+| Welcome Page | <img src="./documentation/lighthouse/welcome.webp" alt="Light house results for welcome page"> |
+| Log In Page | <img src="./documentation/lighthouse/login.webp" alt="Light house results for log in page"> |
+| Register Page | <img src="./documentation/lighthouse/register.webp" alt="Light house results for register page"> |
+| Budgets Page | <img src="./documentation/lighthouse/budgets.webp" alt="Light house results for budgets page"> |
+| Budget Page | <img src="./documentation/lighthouse/budget.webp" alt="Light house results for budget page"> |
+| Profile Page | <img src="./documentation/lighthouse/profile.webp" alt="Light house results for profile page"> |
 
 ## MANUAL TESTING
 
