@@ -37,17 +37,24 @@ In practice and for production code a combination of both manual and automated t
 
 #### JSHint Validator - [JSHint](https://jshint.com/)
 
-- ##### script.js
+| File | Errors/Warnings | Solution | Image |
+| --- | --- | --- | --- |
+| 404.js | N/A | N/A | <img src="./documentation/validators/js/404.webp" alt="JS validator results for 404.js"> |
+| add-budget.js | N/A | N/A | <img src="./documentation/validators/js/add-budget.webp" alt="JS validator results for add-budget.js"> |
+| budget.js | 1. Do no user 'new' for side effects. 2. Undefined variable - Chart | Both errors are side effects of using the ChartJS library and how they are implemented and not something I can change, so ignored. | <img src="./documentation/validators/js/budget.webp" alt="JS validator results for budget.js"> |
+| confirmpwd.js | N/A | N/A | <img src="./documentation/validators/js/confirmpwd.webp" alt="JS validator results for confirmpwd.js"> |
+| support.js | Undefined variables - emailjs & sendMail| Both errors are side effects of using the EmailJS service and how they are implemented and not something I can change, so ignored. | <img src="./documentation/validators/js/support.webp" alt="JS validator results for support.js"> |
 
-<img src="#" alt="#">
-
-### Python Validator
+### Python Validator - [Code Institute Python Linter](https://pep8ci.herokuapp.com/) 
 
 #### Python Validator?? - [#](#)
 
-- ##### run.py
-
-<img src="#" alt="#">
+| File | Errors/Warnings | Solution | Image |
+| --- | --- | --- | --- |
+| __ init __.py| Module level import not at top of file. | The reason this is being imported last, is because the 'routes' file will rely on using the 'app' and 'db' variables defined above. If we try to import routes before 'app' and 'db' are defined, then we'll get circular-import errors. So I have ignored this error| <img src="./documentation/validators/python/init.webp" alt="Python validator results for __init__.py"> |
+| models.py | N/A | N/A | <img src="./documentation/validators/python/models.webp" alt="Python validator results for models.py"> |
+| routes.py | N/A | N/A | <img src="./documentation/validators/python/routes.webp" alt="Python validator results for routes.py"> |
+| run.py | N/A | N/A | <img src="./documentation/validators/python/run.webp" alt="Python validator results for run.py"> |
 
 ### Lighthouse
 
