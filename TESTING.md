@@ -243,9 +243,7 @@ The site has altogether in one way or another been used and tested on the follow
 | --- | --- | --- | --- | --- |
 | Choose budget name with too few characters | Validation message is visible | Tried to choose a budget name with only 2 characters | Validation message is visible | Pass |
 | Choose budget name with too many characters | Input field will not allow more than 50 characters | Tried to choose a budget name with more than 50 characters | Input field does not allow more than 50 characters | Pass |
-| Choose budget name in the correct format | Budget name is updated, budget page is refreshed and message displayed "Budget renamed successfully.
-" | Renamed budget with correctly formatted name | Budget name updated, budget page refreshed and message displayed "Budget renamed successfully.
-" | Pass |
+| Choose budget name in the correct format | Budget name is updated, budget page is refreshed and message displayed "Budget renamed successfully." | Renamed budget with correctly formatted name | Budget name updated, budget page refreshed and message displayed "Budget renamed successfully." | Pass |
 | Cancel Button | When clicked add budget modal is closed | Clicked cancel button | Add budget modal closed | Pass |
 | Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
 
