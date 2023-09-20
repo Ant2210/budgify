@@ -106,11 +106,185 @@ The site has altogether in one way or another been used and tested on the follow
 
 ### Full Manual Testing
 
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+#### Welcome Page
 
-## BUGS
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Log in button | When clicked the user is redirected to the log in page | Clicked log in button | Redirected to the log in page | Pass |
+| Register button | When clicked the user is redirected to the registration page | Clicked the register button | Redirected to the register page | Pass  |
+
+#### Log In Page
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Log in with incorrect details | The user stays on the login page but a message is displayed showing incorrect username and/or password | Tried to log in with incorrect details | Remained on login page with a message showing incorrect username and/or password| Pass |
+| Log in with correct details | The user is logged in and redirected to the budgets page displaying the message "Welcome, (User)!" | Log in with correct details | Logged in and redirected to the budgets page displaying the message "Welcome, (User)!". | Pass |
+| Register Here Link | When clicked the user is redirected to the registration page. | Clicked Register Here link | Redirected to the the registration page | Pass |
+
+#### Registration Page
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Register with incorrect username format | A validation message asking them to match the required format. | Tried to log in with usernames too short, too long and with invalid characters | Validation message is displayed | Pass |
+| Register with incorrect password format | A validation message asking them to match the required format | Tried to register with a password that was too long, too short, used only lowercase letters, used only uppercase characters, used only numbers, used only lowercase characters with numbers, used only uppercase characters with numbers, used only special characters. | Validation message is displayed | Pass |
+| Register with the correct format but the password and confirm password don't match | A validation message is displayed advising the passwords don't match. | Tried to register with the correct password format but the password and confirm password don't match. | A validation message is displayed advising the passwords don't match. | Pass |
+| Register with correct username and password details. | User is registered, logged in and redirected to the budgets page and displayed the message "Registration successful, let's create your first budget!". | Registered with correct details. | Registered, logged in and redirected to the budgets page with a message displaying "Registration successful, let's create your first budget!".| Pass |
+| Log In Here Link | When clicked the user is redirected to the log in page. | Clicked Log In Here link | Redirected to the the log in page | Pass |
+
+#### Logged Out Navbar
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Budgify Logo | When clicked the user is redirected to the welcome page | Clicked logo | Redirected to the welcome page | Pass |
+
+#### Footer
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Footer email icon/link | When clicked the support modal is visible | Clicked the email icon/link in footer | The support modal is visible | Pass |
+| Footer social icon/link | When clicked the user is redirected to a new tab displaying the appropriate page | Clicked each social icon/link | each link takes you to the appropriate social media page | Pass |
+
+#### Logged In Navbar
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Budgify Logo | When clicked the user is redirected to the budgets page | Clicked logo | Redirected to the budgets page | Pass |
+| My Budgets Link | When clicked the user is redirected to the budgets page | Clicked My Budgets link | Redirected to the budgets page | Pass |
+| Profile Link | When clicked the user is redirected to the profile page | Clicked Profile link | Redirected to the profile page | Pass |
+| Support Link | When clicked the support modal is visible | Clicked Support link | The support modal is visible | Pass |
+| Log Out Link | When clicked the log out modal is visible | Clicked log out link | The log out modal is visible | Pass |
+
+#### Logged In Sidenav
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Hamburger icon | When clicked the sidenav is toggled open | Clicked hamburger icon | Sidenav is opened | Pass |
+| X icon (when sidenav is visible) | When clicked the sidenav is toggled closed | Clicked X icon | Sidenav is closed | Pass |
+| Budgify Logo | When clicked the user is redirected to the budgets page | Clicked logo | Redirected to the budgets page | Pass |
+| Click page outside sidenav | Sidenav is toggled close | Clicked page outside of sidenav | Page toggled closed| Pass |
+| My Budgets Link | When clicked the user is redirected to the budgets page | Clicked My Budgets link | Redirected to the budgets page | Pass |
+| Profile Link | When clicked the user is redirected to the profile page | Clicked Profile link | Redirected to the profile page | Pass |
+| Support Link | When clicked the support modal is visible | Clicked Support link | The support modal is visible | Pass |
+| Log Out Link | When clicked the log out modal is visible | Clicked log out link | The log out modal is visible | Pass |
+
+#### Budgets Page
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Budget Card | When a budget card is clicked the user is redirected to that budgets page | Clicked budget card | Redirected to appropriate budgets page | Pass |
+| Add Budget Card | When the add budget card is clicked the add budget modal is visible | Clicked add budget card | Ass budget modal is visible | Pass |
+
+#### Budget Page
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Add Transaction Button | When clicked the add transaction modal is visible | Clicked add transaction button | Add transaction modal is visible | Pass |
+| Rename Budget Button | When clicked the rename budget modal is visible | Clicked rename budget button | Rename budget modal is visible | Pass |
+| Delete Budget Button | When clicked the delete budget modal is visible | Clicked delete budget button | Delete budget modal is visible | Pass |
+| Existing transaction | When an existing transaction is clicked the edit transaction modal is visible | Clicked an existing transaction | Edit transaction modal is visible | Pass |
+| Table Rows | When a transaction is added or deleted the table rows are updated appropriately | Added and removed transactions | Table rows updated appropriately | Pass |
+| Totals Section | When transactions are added and removed the tallies are updated | Added and removed transactions | Tallies updated | Pass |
+| Insights Section | Only visible when a transaction exists within the budget | Added a transaction to a fresh budget | Insights section is visible | Pass |
+| Pie Chart | When a colour is hovered or clicked the appropriate information is displayed | Hovered & clicked on a pie chart colour | Appropriate transaction information is displayed | Pass |
+| Bar Chart | When a colour is hovered or clicked the appropriate information is displayed | Hovered & clicked on a bar chart colour | Appropriate transaction information is displayed | Pass |
+| Key Button | When clicked the key for the pie chart and bar chart colours is toggled open and closed | Clicked key button | Key is opened then closed on the next click | Pass |
+
+#### Profile Page 
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Delete Account Button | When clicked the delete account modal is visible | Clicked delete account button | Delete account modal is visible | Pass |
+| Change password with incorrect current password | Form is reset and message displayed "Incorrect password, your password has not been updated." | Tried to update password with incorrect current password | Form reset and message displayed "Incorrect password, your password has not been updated." | Pass |
+| Change password with incorrect new password format | Tried to change password with incorrect password format | A validation message asking them to match the required format | Tried to register with a password that was too long, too short, used only lowercase letters, used only uppercase characters, used only numbers, used only lowercase characters with numbers, used only uppercase characters with numbers, used only special characters. | Validation message is displayed | Pass |
+| Change password with the correct format but the password and confirm password don't match | A validation message is displayed advising the passwords don't match. | Tried to change password with the correct password format but the password and confirm password don't match. | A validation message is displayed advising the passwords don't match. | Pass |
+| Change password with correct format and matching password and confirm password | Form is reset and message displayed "Password updated successfully." | Changed password with correct format and matching password and confirm password | Form reset and message displayed "Password updated successfully." | Pass |
+
+#### 404 Page
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logged in user tries to access a page that does not exist or cannot be found | User is redirected to the 404 page with a message displayed "Sorry that page doesn't exist :( Taking you back to safety in 5...", and the user is redirected back to their my budgets page when the countdown ends. | Tried to type a URL to a page that doesn't exist whilst logged in | Redirected to 404 page with countdown then automatically redirected back to my budgets page | Pass |
+| Logged out user tries to access a page that does not exist or cannot be found | User is redirected to the 404 page with a message displayed "Sorry that page doesn't exist :( Taking you back to safety in 5...", and the user is redirected back to the welcome page when the countdown ends. | Tried to type a URL to a page that doesn't exist whilst logged out | Redirected to 404 page with countdown then automatically redirected back to welcome page | Pass |
+
+#### Add Budget Modal 
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Choose budget name with too few characters | Validation message is visible | Tried to choose a budget name with only 2 characters | Validation message is visible | Pass |
+| Choose budget name with too many characters | Input field will not allow more than 50 characters | Tried to choose a budget name with more than 50 characters | Input field does not allow more than 50 characters | Pass |
+| Choose budget name in the correct format | Budget is created, user is redirected to that budget and message displayed "Budget created successfully, lets add some transactions!" | Created a new budget with correctly formatted name | Budget created, redirected to budget and message displayed "Budget created successfully, lets add some transactions!" | Pass |
+| Cancel Button | When clicked add budget modal is closed | Clicked cancel button | Add budget modal closed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+
+#### Support Modal
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Choose a name with too few characters | Validation message is visible | Tried to choose a budget name with only 2 characters | Validation message is visible | Pass |
+| Choose name with too many characters | Input field will not allow more than 50 characters | Tried to choose a budget name with more than 50 characters | Input field does not allow more than 50 characters | Pass |
+| Choose an email with an @ symbol | Validation message is visible | Tried to choose an email without an @ symbol | Validation message is visible | Pass |
+| Type a message with too few characters | Validation message is visible | Tried to type a message with only 9 characters | Validation message is visible | Pass |
+| Type a message with too many characters | Input field will not allow more than 300 characters | Tried to type a message with more than 300 characters | Input field does not allow more than 300 characters | Pass |
+| Send message with correct information (no errors) | Spinning loader appears until the message is sent, loader disappears, message displays "Your message has been successfully sent and we will be in touch soon. This box will automatically close in 5..." and the modal is closed when the countdown from 5 is complete. User then received a confirmation email as well as the support inbox for Budgify | Sent message with correct formatting and information | Loader appears, appropriate message appears, modal closes, confirmation email received and email received into Budgify support inbox | Pass |
+| Send message with correct information but error is present | Spinning loader appears until sending fails, message displays "Sorry, something went wrong. Please try again later." | Disconnected from internet then tried to send message | Loader appears very briefly before displaying message "Sorry, something went wrong. Please try again later." | Pass |
+| Cancel Button | When clicked support modal is closed | Clicked cancel button | support modal closed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+
+#### Log Out Modal
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| No! Take me back! Button | When clicked the modal is closed | Clicked No! Take me back! button | Modal closed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+| Yes, Log me out button | When clicked the user is logged out, redirected to log in page and message displays "You have been logged out, come back again soon!" | Clicked Yes, Log me out button | Logged out, redirected to log in page, message displays "You have been logged out, come back again soon!" | Pass |
+
+#### Add Transaction Modal 
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Add transaction without selecting a transaction type | Validation message is displayed | Tried to add a transaction without selecting a transaction type | Validation message displayed | Pass |
+| Choose a description with too few characters | Validation message is visible | Tried to choose a description with only 2 characters | Validation message is visible | Pass |
+| Choose description too many characters | Input field will not allow more than 50 characters | Tried to choose a description with more than 50 characters | Input field does not allow more than 50 characters | Pass |
+| Choose a transaction amount less than 0 | Validation message is displayed | Tried to choose a transaction amount less than 0 | Validation message is displayed | Pass |
+| Choose a transaction amount above 999,999 | Validation message is displayed | Tried to choose a transaction amount of 1,000,000 | Validation message is displayed | Pass |
+| Choose a day of the month not between 1 and 31 | Validation message is displayed | Tried to choose 0 & 32 | Validation message is displayed | Pass |
+| Add a transaction with correct form details | Modal closes, transaction is added to the correct section of the table, total section, pie chart and bar chart are all updated accordingly | Added a new transaction with correct form details | Modal closes, transaction is added in the correct place in the table, totals, pie chart and bar chart are all updated | Pass |
+| Cancel Button | When clicked modal is closed | Clicked cancel button | Modal closed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+
+#### Rename Budget Modal
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Choose budget name with too few characters | Validation message is visible | Tried to choose a budget name with only 2 characters | Validation message is visible | Pass |
+| Choose budget name with too many characters | Input field will not allow more than 50 characters | Tried to choose a budget name with more than 50 characters | Input field does not allow more than 50 characters | Pass |
+| Choose budget name in the correct format | Budget name is updated, budget page is refreshed and message displayed "Budget renamed successfully.
+" | Renamed budget with correctly formatted name | Budget name updated, budget page refreshed and message displayed "Budget renamed successfully.
+" | Pass |
+| Cancel Button | When clicked add budget modal is closed | Clicked cancel button | Add budget modal closed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+
+#### Delete Budget Modal
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| No! Take me back! Button | When clicked the modal is closed | Clicked No! Take me back! button | Modal closed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+| Yes, delete it! button | When clicked the budget is deleted, user is redirected back to budgets page and message displays "Budget deleted successfully." | Clicked Yes, delete it! button | Budget deleted, redirected back to budgets page and message displays "Budget deleted successfully." | Pass |
+
+#### Edit Transaction Modal
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Choose a new description with too few characters | Validation message is visible | Tried to choose a description with only 2 characters | Validation message is visible | Pass |
+| Choose new description too many characters | Input field will not allow more than 50 characters | Tried to choose a description with more than 50 characters | Input field does not allow more than 50 characters | Pass |
+| Choose a new transaction amount less than 0 | Validation message is displayed | Tried to choose a transaction amount less than 0 | Validation message is displayed | Pass |
+| Choose a new transaction amount above 999,999 | Validation message is displayed | Tried to choose a transaction amount of 1,000,000 | Validation message is displayed | Pass |
+| Choose a new day of the month not between 1 and 31 | Validation message is displayed | Tried to choose 0 & 32 | Validation message is displayed | Pass |
+| Edit a transaction with correct form details | Modal closes,transaction details are updated accordingly, transaction is moved to the correct section of the table (if necessary), total section, pie chart and bar chart are all updated accordingly | Change transaction with correct form details, tried changing the type and not updating any details at all | Modal closes,transaction details are updated accordingly (if necessary), transaction is moved to the correct section of the table (if necessary), total section, pie chart and bar chart are all updated accordingly | Pass |
+| Delete transaction button | When clicked, displays the delete transaction modal | Clicked delete transaction button | Delete transaction modal is displayed | Pass |
+| Cancel Button | When clicked modal is closed | Clicked cancel button | Modal closed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+
+#### Delete Transaction Modal
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| No! Take me back! Button | When clicked modal is closed and edit transaction modal is redisplayed | Clicked No! Take me back! Button | Modal closed and edit transaction modal is redisplayed | Pass |
+| Click outside of modal | When clicking elsewhere on the page outside of the modal the modal is closed | Clicked elsewhere on page while modal was open | Modal closed | Pass |
+| Yes, delete it! Button | When clicked the modal is closed, user is redirected back to the appropriate budget page where the transaction should be removed and message displayed "Transaction deleted successfully." | Clicked Yes delete it! button | Modal closed and redirected back to the budget page where the transaction have been removed and with message displayed "Transaction deleted successfully." | Pass |
+
+#### Defensive Programming (not elsewhere covered)
+| Feature/Action | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Logged out user tries to access a page URL that requires them to be logged in | User is redirected to the log in page with a message displayed "Please log in to view this page." | Typed URL for my budgets page whilst logged out | Redirected to log in page with message displayed "Please log in to view this page." | Pass |
+| Logged in user tries to access a page URL the COULD belong to another user e.g. budgets or profile page | User is redirected back to their own budgets page with message displayed "You do not have permission to access this page." | Tried to type in the URL pattern for both a test user accounts budgets and profile page and a made up users budgets and profile page whilst logged in | Redirected back to my own budgets page with message displayed "You do not have permission to access this page." | Pass |
+
+
+
+## Bugs
 
 ### Solved Bugs
 
