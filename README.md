@@ -210,13 +210,12 @@ The database schema flow charts were created using [Figma](https://www.figma.com
 
 -   A full budget table showing all the users income and outgoings that they have added to that specific budget.
 
-    <img src="./documentation/features/budgettable1.webp" alt="Screenshot of budget table">
-    <img src="./documentation/features/budgettable2.webp" alt="Screenshot of budget table">
+    <img src="./documentation/features/budgettable.webp" alt="Screenshot of budget table">
 
--   Handy insights into the users budget, conveniently presented in both a pie chart which shoes the percentage of their total income that is being spent in each transaction category, and a bar chart which shoes the total amount that is being spent on each transaction category. The user is able to hover over each colour for further info or use the key button to show which colour represents which category
+-   Handy insights into the users budget, conveniently presented in both a pie chart which shows the percentage of their total income that is being spent in each transaction category, and a bar chart which shoes the total amount that is being spent on each transaction category. The user is able to hover over each colour for further info or use the key button to show which colour represents which category
 
-    <img src="./documentation/features/insights1.webp" alt="Screenshot of insights">
-    <img src="./documentation/features/insights2.webp" alt="Screenshot of insights">
+    <img src="./documentation/features/insights1.webp" alt="Screenshot of insights with key closed">
+    <img src="./documentation/features/insights2.webp" alt="Screenshot of insights with key open">
 
 -   The user is provided numerous ways to get in touch for help via social media links placed in the footer or by submitting a web form by clicking the email icon in the footer or the support link in the navbar. Once a support message is sent the user is also sent an auto reply via email to advise of the current response times.
 
