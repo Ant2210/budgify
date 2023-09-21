@@ -258,7 +258,12 @@ The database schema flow charts were created using [Figma](https://www.figma.com
 -   Using correct aria labels where necessary.
 -   Being mindful in the creation of the design to ensure it is intuitive and as easy to navigate as possible.
 
+### Development Process
+As well as using [Figma](https://www.figma.com/) to create wireframes and flow charts for this project, I also used Figma's Kanban template to keep track of tasks as I found the "sticky note" style more user friendly and it suited my style of task management better.
 
+You can view the Kanban board [here](https://www.figma.com/file/kG9qjy6KkTMRNKzj4HqHlx/Budgify-Kanban?type=whiteboard&node-id=0%3A1&t=cNNHQPXaYC5tNSht-1).
+
+<img src="./documentation/wireframes/kanban.webp" alt="Screenshot of Kanban board">
 
 [Back to top](#title)  
 
