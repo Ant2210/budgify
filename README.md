@@ -179,7 +179,7 @@ The database schema flow charts were created using [Figma](https://www.figma.com
     <img src="./documentation/responsiveness/mobilescreenshot9.webp" alt="#Screenshot of add transaction modal on mobile">
     
 
--   Intuitive and easy to navigate using the top navbar on larger screens and sidenav on smaller screens. There are various appropriately marked buttons as well as instructions on what to do where is maybe isn't so clear to the user. 
+-   Intuitive and easy to navigate using the top navbar on larger screens and sidenav on smaller screens. There are various appropriately marked buttons as well as instructions on what to do where it maybe isn't so clear to the user. 
 
     <img src="./documentation/features/navbar.webp" alt="Screenshot of navbar">
     <img src="./documentation/features/sidenav.webp" alt="Screenshot of sidenav">
@@ -191,12 +191,12 @@ The database schema flow charts were created using [Figma](https://www.figma.com
     <img src="./documentation/features/register.webp" alt="Screenshot of registration form">
     <img src="./documentation/features/logout.webp" alt="Screenshot of log out modal">
 
--   A dynamic "homepage" for users thats are logged out they are presented with a "Welcome screen" and for users that are logged in they are taken to their list of budgets where they can select to view or add new budgets.
+-   A dynamic "homepage", for users thats are logged out they are presented with a "Welcome screen" and for users that are logged in they are taken to their list of budgets where they can select to view or add new budgets.
 
     <img src="./documentation/features/welcomescreen.webp" alt="Screenshot of welcome screen">
     <img src="./documentation/features/budgetsscreen.webp" alt="Screenshot of budgets screen">
 
--   A budget management section where the user is presented with helpful instructions on how to add, edit or delete transactions as well as rename or delete their budget.
+-   A budget management section where the user is presented with helpful instructions on how to add, edit or delete transactions as well as rename or delete their budget. They can use the various buttons, or click on an existing transaction in order to edit or delete it.
 
     <img src="./documentation/features/budgetmanagement.webp" alt="Screenshot of budget management section">
 
