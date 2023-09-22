@@ -5,7 +5,7 @@
 [View the live project here.](https://budgify-app-a7b562a0c28c.herokuapp.com/)
 
 
-Extensive testing was carried out throughout the life cycle of this project. As well as all of the documented testing below I asked friends and family to use the site and tell me what was and wasn't working. I worked through the game click and checking each feature and function by one and looked for anything that wasn't working or that was logging an error in the console. 
+Extensive testing was carried out throughout the life cycle of this project. As well as all of the documented testing below I asked friends and family to use the site and tell me what was and wasn't working. I worked through the website clicking and checking each feature and function one by one and looked for anything that wasn't working or that was logging an error in the console. 
 
 Had I given myself more time I would have liked to have implemented some automated testing using Jest and is certainly something I will look to implement in future projects. 
 
