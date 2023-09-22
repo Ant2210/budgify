@@ -290,7 +290,7 @@ You can view the Kanban board [here](https://www.figma.com/file/kG9qjy6KkTMRNKzj
 -   [ElephantSQL](https://www.elephantsql.com/) - To host my PostgreSQL database
 -   [EmailJS](https://www.emailjs.com/) - To allows users to send support messages and also send an auto response to them upon receipt.
 -   [Figma](https://www.figma.com/) - To create the wireframes, user journey flow chart and database schema flow chart as well as the Kanban feature to manage the development process.
--   [Flask](https://flask.palletsprojects.com/en/2.3.x/) - 
+-   [Flask](https://flask.palletsprojects.com/en/2.3.x/) - A micro framework
 -   [Font Awesome](https://fontawesome.com/) - Used for the GitHub icon used in the footer button.
 -   [Git](https://git-scm.com/) - For version control.
 -   [GitHub](https://github.com/) - To store website files and repository for the website.
