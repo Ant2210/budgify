@@ -294,11 +294,12 @@ You can view the Kanban board [here](https://www.figma.com/file/kG9qjy6KkTMRNKzj
 -   [Font Awesome](https://fontawesome.com/) - Used for the GitHub icon used in the footer button.
 -   [Git](https://git-scm.com/) - For version control.
 -   [GitHub](https://github.com/) - To store website files and repository for the website.
+-   Google Dev Tools - Built into the chrome browser to test features and design and troubleshoot as I went along as well as for testing later on, these sections of the website which were then edited myself inside of Visual Stdio Code.
+-   [Google Fonts](https://fonts.google.com/) - To import the fonts I chose for the website.
 -   [Heroku](https://www.heroku.com/) - To host my application
 -   [html5pattern.com](https://www.html5pattern.com/) - The the HTML 5 regex pattern to ensure users create a secure password.
 -   [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) - Templating engine
--   [Google Fonts](https://fonts.google.com/) - To import the fonts I chose for the website.
--   Google Dev Tools - Built into the chrome browser to test features and design and troubleshoot as I went along as well as for testing later on, these sections of the website which were then edited myself inside of Visual Stdio Code.
+-   [JSHint](https://jshint.com/) - To validate and text javaScript code.
 -   [Pixlr](https://pixlr.com/e/) - To edit images such as the favicon and welcome page image.
 -   [randomkeygen.com](https://randomkeygen.com/) - To generate a strong password to use as my secret key within the flask app.
 -   [Siege Media](https://www.siegemedia.com/contrast-ratio) - To check contrast and accessibility of the `rgba` colours I chose to use.
@@ -306,7 +307,6 @@ You can view the Kanban board [here](https://www.figma.com/file/kG9qjy6KkTMRNKzj
 -   [SQLAlchemy](https://www.sqlalchemy.org/) - Database abstraction library, used to interact with PostgreSQL.
 -   [Visual Studio Code](https://code.visualstudio.com/) - Was used as my code editor to write code, version control using git and pushing changes for storage to GitHub.
 -   [W3C](https://www.w3.org/) - To validate and test HTML and CSS code.
--   [JSHint](https://jshint.com/) - To validate and text javaScript code.
 
 
 [Back to top](#title)  
